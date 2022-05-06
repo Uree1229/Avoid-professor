@@ -1,6 +1,10 @@
-#include <bangtal.h>
-#include "Stage1.h"
-#include "Stage2.h"
-#include "Stage3.h"
-#include "Stage4.h"
-#include "Main.h"
+ObjectID createObject(const char* image, SceneID scene, int x, int y, bool shown) {
+
+	ObjectID object = createObject(image);
+	locateObject(object, scene, x, y);
+
+	if (shown) {
+		showObject(object);
+	}
+	return object;
+}
