@@ -1,4 +1,4 @@
-
+#include <bangtal.h>
 extern int gametype;
 extern SceneID scene, scene1, scene2, scene3, scene4;
 extern ObjectID door[4];
