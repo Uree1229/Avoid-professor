@@ -30,7 +30,7 @@
     <ClCompile Include="Main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Source.cpp">
+    <ClCompile Include="mainstage.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

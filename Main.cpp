@@ -1,13 +1,13 @@
 #include <bangtal.h>
 #include <random>
 
-extern TimerID timerA;
+
 extern ObjectID keyblock[4];
 extern SceneID scene, scene1, scene2, scene3, scene4;
 extern ObjectID door[4];
 extern void Mouse_callback_m(ObjectID object, int x, int y, MouseAction action);
 extern void Keyboard_callback3(KeyCode key, KeyState state);
-
+extern void Timer_callback3(TimerID timer);
 
 using namespace std;
 
@@ -31,6 +31,7 @@ int random_number(int start, int end) {
 }
 
 int main() {
+	setTimerCallback(Timer_callback3);
 	setMouseCallback(Mouse_callback_m);
 	setKeyboardCallback(Keyboard_callback3);
 	scene = createScene("main", "Images/back.png");
