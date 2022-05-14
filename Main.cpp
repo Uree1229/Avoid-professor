@@ -1,13 +1,12 @@
 #include <bangtal.h>
 #include <random>
 
-
-extern ObjectID keyblock[4];
-extern SceneID scene, scene1, scene2, scene3, scene4;
-extern ObjectID door[4];
+extern SceneID scene;
 extern void Mouse_callback_m(ObjectID object, int x, int y, MouseAction action);
-extern void Keyboard_callback3(KeyCode key, KeyState state);
-extern void Timer_callback3(TimerID timer);
+extern void Mouse_callback_3(ObjectID object, int x, int y, MouseAction action);
+extern void Keyboard_callback_3(KeyCode key, KeyState state);
+extern void Timer_callback_3(TimerID timer);
+extern void setting_m();
 
 using namespace std;
 
@@ -29,22 +28,28 @@ int random_number(int start, int end) {
 
 	return dis(rdn);
 }
+void mouseCallback(ObjectID object, int x, int y, MouseAction action) {
+	Mouse_callback_m(object, x, y, action);
+	Mouse_callback_3(object, x, y, action);
+}
+
+void keyboardCallback(KeyCode code, KeyState state) {
+	Keyboard_callback_3(code, state);
+}
+
+void soundCallback(SoundID sound) {
+}
+
+void timerCallback(TimerID timer) {
+	Timer_callback_3(timer);
+}
 
 int main() {
-	setTimerCallback(Timer_callback3);
-	setMouseCallback(Mouse_callback_m);
-	setKeyboardCallback(Keyboard_callback3);
-	scene = createScene("main", "Images/back.png");
-	scene1 = createScene("main", "Images/scene1.png");
-	scene2 = createScene("main", "Images/scene2.png");
-	scene3 = createScene("main", "Images/scene3.png");
-	scene4 = createScene("main", "Images/scene4.png");
-
-
-	for (int i = 0; i < 4; i++) {
-		door[i] = createObject("Images/door.png", scene, i * 300 + 100, i + 100, true);
-	}
-
+	setMouseCallback(mouseCallback);
+	setKeyboardCallback(keyboardCallback);
+	setSoundCallback(soundCallback);
+	setTimerCallback(timerCallback);
+	setting_m();
 
 	startGame(scene);
 }

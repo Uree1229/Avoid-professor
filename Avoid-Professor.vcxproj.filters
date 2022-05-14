@@ -35,19 +35,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Stage2.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage3.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage4.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Main.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage1.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
