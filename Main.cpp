@@ -25,8 +25,8 @@ int random_number(int start, int end) {
 	random_device rd;
 	mt19937_64 rdn(rd());
 	uniform_int_distribution<int> dis(start, end);
-
-	return dis(rdn);
+	int value = dis(rdn);
+	return value;
 }
 void mouseCallback(ObjectID object, int x, int y, MouseAction action) {
 	Mouse_callback_m(object, x, y, action);
