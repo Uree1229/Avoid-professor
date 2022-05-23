@@ -5,6 +5,7 @@ extern SceneID scene;
 extern void Mouse_callback_m(ObjectID object, int x, int y, MouseAction action);
 extern void Mouse_callback_3(ObjectID object, int x, int y, MouseAction action);
 extern void Keyboard_callback_3(KeyCode key, KeyState state);
+extern void Keyboard_callback_m(KeyCode key, KeyState state);
 extern void Timer_callback_3(TimerID timer);
 extern void setting_m();
 
@@ -35,6 +36,7 @@ void mouseCallback(ObjectID object, int x, int y, MouseAction action) {
 
 void keyboardCallback(KeyCode code, KeyState state) {
 	Keyboard_callback_3(code, state);
+	Keyboard_callback_m(code, state);
 }
 
 void soundCallback(SoundID sound) {
