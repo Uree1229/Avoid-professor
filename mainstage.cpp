@@ -1,7 +1,8 @@
 #include <bangtal.h>
 
-// gametype = 0 ¸ÞÀÎ, 1 = stage1, 2=stage2, 3=stage3, 4=stage4, 5=bossstage
+// gametype = 0 Â¸ÃžÃ€ÃŽ, 1 = stage1, 2=stage2, 3=stage3, 4=stage4, 5=bossstage
 
+extern void main_2();  // stage2
 extern void setting_3();
 extern ObjectID createObject(const char* image, SceneID scene, int x, int y, bool shown);
 int gametype = 0;
@@ -33,6 +34,8 @@ void Mouse_callback_m(ObjectID object, int x, int y, MouseAction action) {
 		else if (object == door[1]) {
 			gametype = 2;
 			enterScene(scene2);
+			hideObject(door[1]);
+			main_2();
 		}
 		else if (object == door[2]) {
 			gametype = 3;
