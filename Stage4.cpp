@@ -1,10 +1,10 @@
 #include <bangtal.h>
 #include <stdio.h>
 
-//sceneID ObjectID Á¤¸®
+//sceneID ObjectID ì •ë¦¬
 extern SceneID scene, scene4, scene_1, scene_2, scene_3, scene_4, scene_stat;
 ObjectID
-start_stage4, quit, play, 
+start_stage4, quit, play,
 category1, category2, category3, category4,
 Mquiz1, Mquiz2, Mquiz3, Mquiz4,
 Equiz1, Equiz2, Equiz3, Equiz4,
@@ -29,494 +29,494 @@ Pa_4_1, Pa_4_2, Pa_4_3, Pa_4_4;
 
 using namespace std;
 
-//Äİ¹éÇÔ¼ö Á¤ÀÇ 
+//ì½œë°±í•¨ìˆ˜ ì •ì˜ 
 void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
 {
 
 
-	//Á¾·á ¹öÆ°ÀÌ ´­·ÁÁö¸é °ÔÀÓ Á¾·á
-	if (object == quit) {
-		enterScene(scene);
-	}
+    //ì¢…ë£Œ ë²„íŠ¼ì´ ëˆŒë ¤ì§€ë©´ ê²Œì„ ì¢…ë£Œ
+    if (object == quit) {
+        enterScene(scene);
+    }
 
 
-	//¹öÆ° ´©¸£¸é °¢°¢ÀÇ ÄûÁî ¹æÀ¸·Î ÀÔÀå
-	if (object == category1) {
-		enterScene(scene_1);
-		showMessage("¿©±â´Â ¼öÇĞ ÄûÁî ¹æÀÔ´Ï´Ù. ÄûÁî¸¦ Ç®¾î¼­ 'Áö½Ä' ´É·ÂÄ¡¸¦ Çâ»ó½ÃÅ°¼¼¿ä.");
-		showObject(Mquiz1);
-		showObject(Ma_1_1);
-		showObject(Ma_1_2);
-		showObject(Ma_1_3);
-		showObject(Ma_1_4);
-	}
-	if (object == category2) {
-		enterScene(scene_2);
-		showMessage("¿©±â´Â ¿µ¾î ´Ü¾î ÄûÁî ¹æÀÔ´Ï´Ù. ÄûÁî¸¦ Ç®¾î¼­ 'Áö½Ä' ´É·ÂÄ¡¸¦ Çâ»ó½ÃÅ°¼¼¿ä.");
-	}
+    //ë²„íŠ¼ ëˆ„ë¥´ë©´ ê°ê°ì˜ í€´ì¦ˆ ë°©ìœ¼ë¡œ ì…ì¥
+    if (object == category1) {
+        enterScene(scene_1);
+        showMessage("ì—¬ê¸°ëŠ” ìˆ˜í•™ í€´ì¦ˆ ë°©ì…ë‹ˆë‹¤. í€´ì¦ˆë¥¼ í’€ì–´ì„œ 'ì§€ì‹' ëŠ¥ë ¥ì¹˜ë¥¼ í–¥ìƒì‹œí‚¤ì„¸ìš”.");
+        showObject(Mquiz1);
+        showObject(Ma_1_1);
+        showObject(Ma_1_2);
+        showObject(Ma_1_3);
+        showObject(Ma_1_4);
+    }
+    if (object == category2) {
+        enterScene(scene_2);
+        showMessage("ì—¬ê¸°ëŠ” ì˜ì–´ ë‹¨ì–´ í€´ì¦ˆ ë°©ì…ë‹ˆë‹¤. í€´ì¦ˆë¥¼ í’€ì–´ì„œ 'ì§€ì‹' ëŠ¥ë ¥ì¹˜ë¥¼ í–¥ìƒì‹œí‚¤ì„¸ìš”.");
+    }
 
-	if (object == category3) {
-		enterScene(scene_3);
-		showMessage("¿©±â´Â ³Í¼¾½º ÄûÁî ¹æÀÔ´Ï´Ù. ÄûÁî¸¦ Ç®¾î¼­ 'Áö½Ä' ´É·ÂÄ¡¸¦ Çâ»ó½ÃÅ°¼¼¿ä.");
-	}
+    if (object == category3) {
+        enterScene(scene_3);
+        showMessage("ì—¬ê¸°ëŠ” ë„Œì„¼ìŠ¤ í€´ì¦ˆ ë°©ì…ë‹ˆë‹¤. í€´ì¦ˆë¥¼ í’€ì–´ì„œ 'ì§€ì‹' ëŠ¥ë ¥ì¹˜ë¥¼ í–¥ìƒì‹œí‚¤ì„¸ìš”.");
+    }
 
-	if (object == category4) {
-		enterScene(scene_4);
-		showMessage("¿©±â´Â ÇÁ·Î±×·¡¹Ö ÄûÁî ¹æÀÔ´Ï´Ù. ÄûÁî¸¦ Ç®¾î¼­ 'Áö½Ä' ´É·ÂÄ¡¸¦ Çâ»ó½ÃÅ°¼¼¿ä.");
-	}
-
-
-	//¼öÇĞ ÄûÁî ¹æ ÀÔÀå
-	//Á¤´ä ¿©ºÎ¿¡ °ü°è¾øÀÌ ´äÀ» Å¬¸¯ÇÏ¸é ´ÙÀ½¹®Á¦·Î ³Ñ¾î°¨
-	if (object == Ma_1_1 || object == Ma_1_2 || object == Ma_1_3 || object == Ma_1_4) {
-		hideObject(Ma_1_1);
-		hideObject(Ma_1_2);
-		hideObject(Ma_1_3);
-		hideObject(Ma_1_4);
-
-		showObject(Mquiz2);
-		showObject(Ma_2_1);
-		showObject(Ma_2_2);
-		showObject(Ma_2_3);
-		showObject(Ma_2_4);
-	}
-
-	if (object == Ma_2_1 || object == Ma_2_2 || object == Ma_2_3 || object == Ma_2_4) {
-		hideObject(Ma_2_2);
-		hideObject(Ma_2_2);
-		hideObject(Ma_2_3);
-		hideObject(Ma_2_4);
-
-		showObject(Mquiz3);
-		showObject(Ma_3_1);
-		showObject(Ma_3_2);
-		showObject(Ma_3_3);
-		showObject(Ma_3_4);
-	}
-
-	if (object == Ma_3_1 || object == Ma_3_2 || object == Ma_3_3 || object == Ma_3_4) {
-		hideObject(Ma_3_3);
-		hideObject(Ma_3_2);
-		hideObject(Ma_3_3);
-		hideObject(Ma_3_4);
-
-		showObject(Mquiz4);
-		showObject(Ma_4_1);
-		showObject(Ma_4_2);
-		showObject(Ma_4_3);
-		showObject(Ma_4_4);
-	}
-	if (object == Ma_4_1 || object == Ma_4_2 || object == Ma_4_3 || object == Ma_4_4) {
-		hideObject(Ma_4_4);
-		hideObject(Ma_4_2);
-		hideObject(Ma_4_3);
-		hideObject(Ma_4_4);
-
-		//ÄûÁî¸¦ ´Ù Ç®¸é ´Ù½Ã µ¹¾Æ¿È
-		enterScene(scene4);
-	}
+    if (object == category4) {
+        enterScene(scene_4);
+        showMessage("ì—¬ê¸°ëŠ” í”„ë¡œê·¸ë˜ë° í€´ì¦ˆ ë°©ì…ë‹ˆë‹¤. í€´ì¦ˆë¥¼ í’€ì–´ì„œ 'ì§€ì‹' ëŠ¥ë ¥ì¹˜ë¥¼ í–¥ìƒì‹œí‚¤ì„¸ìš”.");
+    }
 
 
+    //ìˆ˜í•™ í€´ì¦ˆ ë°© ì…ì¥
+    //ì •ë‹µ ì—¬ë¶€ì— ê´€ê³„ì—†ì´ ë‹µì„ í´ë¦­í•˜ë©´ ë‹¤ìŒë¬¸ì œë¡œ ë„˜ì–´ê°
+    if (object == Ma_1_1 || object == Ma_1_2 || object == Ma_1_3 || object == Ma_1_4) {
+        hideObject(Ma_1_1);
+        hideObject(Ma_1_2);
+        hideObject(Ma_1_3);
+        hideObject(Ma_1_4);
 
-	//start ¹öÆ°À» ´©¸£¸é 
-	else if (object = start_stage4) {
+        showObject(Mquiz2);
+        showObject(Ma_2_1);
+        showObject(Ma_2_2);
+        showObject(Ma_2_3);
+        showObject(Ma_2_4);
+    }
+
+    if (object == Ma_2_1 || object == Ma_2_2 || object == Ma_2_3 || object == Ma_2_4) {
+        hideObject(Ma_2_2);
+        hideObject(Ma_2_2);
+        hideObject(Ma_2_3);
+        hideObject(Ma_2_4);
+
+        showObject(Mquiz3);
+        showObject(Ma_3_1);
+        showObject(Ma_3_2);
+        showObject(Ma_3_3);
+        showObject(Ma_3_4);
+    }
+
+    if (object == Ma_3_1 || object == Ma_3_2 || object == Ma_3_3 || object == Ma_3_4) {
+        hideObject(Ma_3_3);
+        hideObject(Ma_3_2);
+        hideObject(Ma_3_3);
+        hideObject(Ma_3_4);
+
+        showObject(Mquiz4);
+        showObject(Ma_4_1);
+        showObject(Ma_4_2);
+        showObject(Ma_4_3);
+        showObject(Ma_4_4);
+    }
+    if (object == Ma_4_1 || object == Ma_4_2 || object == Ma_4_3 || object == Ma_4_4) {
+        hideObject(Ma_4_4);
+        hideObject(Ma_4_2);
+        hideObject(Ma_4_3);
+        hideObject(Ma_4_4);
+
+        //í€´ì¦ˆë¥¼ ë‹¤ í’€ë©´ ë‹¤ì‹œ ëŒì•„ì˜´
+        enterScene(scene4);
+    }
 
 
-		//start ¹öÆ°, end ¹öÆ° »ç¶óÁö°Ô ÇÑ´Ù. 
-		hideObject(start_stage4);
-		hideObject(quit);
-		showObject(category1);
-		showObject(category2);
-		showObject(category3);
-		showObject(category4);
-	}
+
+    //start ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ 
+    else if (object = start_stage4) {
+
+
+        //start ë²„íŠ¼, end ë²„íŠ¼ ì‚¬ë¼ì§€ê²Œ í•œë‹¤. 
+        hideObject(start_stage4);
+        hideObject(quit);
+        showObject(category1);
+        showObject(category2);
+        showObject(category3);
+        showObject(category4);
+    }
 
 
 }
 
 void setting_4() {
-	
-	//ÄûÁîº° Àå¸é »ı¼º
-	scene_1 = createScene("math_QUIZ", "mathdungeon.png");
-	scene_2 = createScene("english_QUIZ", "englishdungeon.png");
-	scene_3 = createScene("nonsense_QUIZ", "nonsensedungeon.png");
-	scene_4 = createScene("programming_QUIZ", "programmingdungeon.png");
-	
-	//start ¹öÆ°
-	start_stage4 = createObject("startbutton.png");
-	locateObject(start_stage4, scene4, 800, 300);
-	scaleObject(start_stage4, 0.3f);
-	showObject(start_stage4);
+
+    //í€´ì¦ˆë³„ ì¥ë©´ ìƒì„±
+    scene_1 = createScene("math_QUIZ", "Images/mathdungeon.png");
+    scene_2 = createScene("english_QUIZ", "Images/englishdungeon.png");
+    scene_3 = createScene("nonsense_QUIZ", "Images/nonsensedungeon.png");
+    scene_4 = createScene("programming_QUIZ", "Images/programmingdungeon.png");
+
+    //start ë²„íŠ¼
+    start_stage4 = createObject("Images/startbutton.png");
+    locateObject(start_stage4, scene4, 800, 300);
+    scaleObject(start_stage4, 0.3f);
+    showObject(start_stage4);
 
 
-	//end ¹öÆ°
-	quit = createObject("endbutton.png");
-	locateObject(quit, scene4, 1000, 320);
-	scaleObject(quit, 0.4f);
-	showObject(quit);
+    //end ë²„íŠ¼
+    quit = createObject("Images/endbutton.png");
+    locateObject(quit, scene4, 1000, 320);
+    scaleObject(quit, 0.4f);
+    showObject(quit);
 
 
-	//°ÔÀÓ Ä«Å×°í¸® »ı¼º	
-	//Ä«Å×°í¸®1: ³Í¼¾½º ÄûÁî
-	category1 = createObject("redbutton.png");
-	locateObject(category1, scene4, 400, 400);
+    //ê²Œì„ ì¹´í…Œê³ ë¦¬ ìƒì„±   
+    //ì¹´í…Œê³ ë¦¬1: ë„Œì„¼ìŠ¤ í€´ì¦ˆ
+    category1 = createObject("Images/redbutton.png");
+    locateObject(category1, scene4, 400, 400);
 
-	//Ä«Å×°í¸®2: ¼öÇĞ ÄûÁî
-	category2 = createObject("greenbutton.png");
-	locateObject(category2, scene4, 700, 400);
+    //ì¹´í…Œê³ ë¦¬2: ìˆ˜í•™ í€´ì¦ˆ
+    category2 = createObject("Images/greenbutton.png");
+    locateObject(category2, scene4, 700, 400);
 
-	//Ä«Å×°í¸®3: ¿µ¾î´Ü¾î ÄûÁî
-	category3 = createObject("yellowbutton.png");
-	locateObject(category3, scene4, 1000, 400);
+    //ì¹´í…Œê³ ë¦¬3: ì˜ì–´ë‹¨ì–´ í€´ì¦ˆ
+    category3 = createObject("Images/yellowbutton.png");
+    locateObject(category3, scene4, 1000, 400);
 
-	//Ä«Å×°í¸®4: ÇÁ·Î±×·¡¹Ö ÄûÁî
-	category4 = createObject("pinkbutton.png");
-	locateObject(category4, scene4, 1300, 400);
+    //ì¹´í…Œê³ ë¦¬4: í”„ë¡œê·¸ë˜ë° í€´ì¦ˆ
+    category4 = createObject("Images/pinkbutton.png");
+    locateObject(category4, scene4, 1300, 400);
 
 
 
-	//Ä«Å×°í¸®º° ÄûÁî ¹®Á¦&´ä »ı¼ºÇÏ±â
-	//¼öÇĞ ¹®Á¦ »ı¼º
-	Mquiz1 = createObject("Mquiz1.png");
-	locateObject(Mquiz1, scene_1, 500, 250);
-	Mquiz2 = createObject("Mquiz2.png");
-	locateObject(Mquiz2, scene_1, 500, 250);
-	Mquiz3 = createObject("Mquiz3.png");
-	locateObject(Mquiz3, scene_1, 500, 250);
-	Mquiz4 = createObject("Mquiz4.png");
-	locateObject(Mquiz4, scene_1, 500, 250);
-	//¼öÇĞ ´ä »ı¼º
-	Ma_1_1 = createObject("ma1-1.png");
-	locateObject(Ma_1_1, scene_1, 400, 200);
-	scaleObject(Ma_1_1, 0.4f);
-	Ma_1_2 = createObject("ma1-2.png");
-	locateObject(Ma_1_2, scene_1, 700, 200);
-	scaleObject(Ma_1_2, 0.4f);
-	Ma_1_3 = createObject("ma1-3.png");
-	locateObject(Ma_1_3, scene_1, 1000, 200);
-	scaleObject(Ma_1_3, 0.4f);
-	Ma_1_4 = createObject("ma1-4.png");
-	locateObject(Ma_1_4, scene_1, 1300, 200);
-	scaleObject(Ma_1_4, 0.4f);
+    //ì¹´í…Œê³ ë¦¬ë³„ í€´ì¦ˆ ë¬¸ì œ&ë‹µ ìƒì„±í•˜ê¸°
+    //ìˆ˜í•™ ë¬¸ì œ ìƒì„±
+    Mquiz1 = createObject("Images/Mquiz1.png");
+    locateObject(Mquiz1, scene_1, 500, 250);
+    Mquiz2 = createObject("Images/Mquiz2.png");
+    locateObject(Mquiz2, scene_1, 500, 250);
+    Mquiz3 = createObject("Images/Mquiz3.png");
+    locateObject(Mquiz3, scene_1, 500, 250);
+    Mquiz4 = createObject("Images/Mquiz4.png");
+    locateObject(Mquiz4, scene_1, 500, 250);
+    //ìˆ˜í•™ ë‹µ ìƒì„±
+    Ma_1_1 = createObject("Images/ma1-1.png");
+    locateObject(Ma_1_1, scene_1, 400, 200);
+    scaleObject(Ma_1_1, 0.4f);
+    Ma_1_2 = createObject("Images/ma1-2.png");
+    locateObject(Ma_1_2, scene_1, 700, 200);
+    scaleObject(Ma_1_2, 0.4f);
+    Ma_1_3 = createObject("Images/ma1-3.png");
+    locateObject(Ma_1_3, scene_1, 1000, 200);
+    scaleObject(Ma_1_3, 0.4f);
+    Ma_1_4 = createObject("Images/ma1-4.png");
+    locateObject(Ma_1_4, scene_1, 1300, 200);
+    scaleObject(Ma_1_4, 0.4f);
 
-	Ma_2_1 = createObject("ma2-1.png");
-	locateObject(Ma_2_1, scene_1, 400, 200);
-	scaleObject(Ma_2_1, 0.4f);
-	Ma_2_2 = createObject("ma2-2.png");
-	locateObject(Ma_2_2, scene_1, 700, 200);
-	scaleObject(Ma_2_2, 0.4f);
-	Ma_2_3 = createObject("ma2-3.png");
-	locateObject(Ma_2_3, scene_1, 1000, 200);
-	scaleObject(Ma_2_3, 0.4f);
-	Ma_2_4 = createObject("ma2-4.png");
-	locateObject(Ma_2_4, scene_1, 1300, 200);
-	scaleObject(Ma_2_4, 0.4f);
+    Ma_2_1 = createObject("Images/ma2-1.png");
+    locateObject(Ma_2_1, scene_1, 400, 200);
+    scaleObject(Ma_2_1, 0.4f);
+    Ma_2_2 = createObject("Images/ma2-2.png");
+    locateObject(Ma_2_2, scene_1, 700, 200);
+    scaleObject(Ma_2_2, 0.4f);
+    Ma_2_3 = createObject("Images/ma2-3.png");
+    locateObject(Ma_2_3, scene_1, 1000, 200);
+    scaleObject(Ma_2_3, 0.4f);
+    Ma_2_4 = createObject("Images/ma2-4.png");
+    locateObject(Ma_2_4, scene_1, 1300, 200);
+    scaleObject(Ma_2_4, 0.4f);
 
-	Ma_3_1 = createObject("ma3-1.png");
-	locateObject(Ma_3_1, scene_1, 400, 200);
-	scaleObject(Ma_3_1, 0.4f);
-	Ma_3_2 = createObject("ma3-2.png");
-	locateObject(Ma_3_2, scene_1, 700, 200);
-	scaleObject(Ma_3_2, 0.4f);
-	Ma_3_3 = createObject("ma3-3.png");
-	locateObject(Ma_3_3, scene_1, 1000, 200);
-	scaleObject(Ma_3_3, 0.4f);
-	Ma_3_4 = createObject("ma3-4.png");
-	locateObject(Ma_3_4, scene_1, 1300, 200);
-	scaleObject(Ma_3_4, 0.4f);
+    Ma_3_1 = createObject("Images/ma3-1.png");
+    locateObject(Ma_3_1, scene_1, 400, 200);
+    scaleObject(Ma_3_1, 0.4f);
+    Ma_3_2 = createObject("Images/ma3-2.png");
+    locateObject(Ma_3_2, scene_1, 700, 200);
+    scaleObject(Ma_3_2, 0.4f);
+    Ma_3_3 = createObject("Images/ma3-3.png");
+    locateObject(Ma_3_3, scene_1, 1000, 200);
+    scaleObject(Ma_3_3, 0.4f);
+    Ma_3_4 = createObject("Images/ma3-4.png");
+    locateObject(Ma_3_4, scene_1, 1300, 200);
+    scaleObject(Ma_3_4, 0.4f);
 
-	Ma_4_1 = createObject("ma4-1.png");
-	locateObject(Ma_4_1, scene_1, 400, 200);
-	scaleObject(Ma_4_1, 0.4f);
-	Ma_4_2 = createObject("ma4-2.png");
-	locateObject(Ma_4_2, scene_1, 700, 200);
-	scaleObject(Ma_4_2, 0.4f);
-	Ma_4_3 = createObject("ma4-3.png");
-	locateObject(Ma_4_3, scene_1, 1000, 200);
-	scaleObject(Ma_4_3, 0.4f);
-	Ma_4_4 = createObject("ma4-4.png");
-	locateObject(Ma_4_4, scene_1, 1300, 200);
-	scaleObject(Ma_4_4, 0.4f);
+    Ma_4_1 = createObject("Images/ma4-1.png");
+    locateObject(Ma_4_1, scene_1, 400, 200);
+    scaleObject(Ma_4_1, 0.4f);
+    Ma_4_2 = createObject("Images/ma4-2.png");
+    locateObject(Ma_4_2, scene_1, 700, 200);
+    scaleObject(Ma_4_2, 0.4f);
+    Ma_4_3 = createObject("Images/ma4-3.png");
+    locateObject(Ma_4_3, scene_1, 1000, 200);
+    scaleObject(Ma_4_3, 0.4f);
+    Ma_4_4 = createObject("Images/ma4-4.png");
+    locateObject(Ma_4_4, scene_1, 1300, 200);
+    scaleObject(Ma_4_4, 0.4f);
 
-	//¿µ¾î ´Ü¾î ¹®Á¦ »ı¼º
-	Equiz1 = createObject("Equiz1.png");
-	Equiz2 = createObject("Equiz2.png");
-	Equiz3 = createObject("Equiz3.png");
-	Equiz4 = createObject("Equiz4.png");
-	//¿µ¾î ´ä »ı¼º
-	Ea_1_1 = createObject("ea1-1.png");
-	Ea_1_2 = createObject("ea1-2.png");
-	Ea_1_3 = createObject("ea1-3.png");
-	Ea_1_4 = createObject("ea1-4.png");
+    //ì˜ì–´ ë‹¨ì–´ ë¬¸ì œ ìƒì„±
+    Equiz1 = createObject("Equiz1.png");
+    Equiz2 = createObject("Equiz2.png");
+    Equiz3 = createObject("Equiz3.png");
+    Equiz4 = createObject("Equiz4.png");
+    //ì˜ì–´ ë‹µ ìƒì„±
+    Ea_1_1 = createObject("ea1-1.png");
+    Ea_1_2 = createObject("ea1-2.png");
+    Ea_1_3 = createObject("ea1-3.png");
+    Ea_1_4 = createObject("ea1-4.png");
 
-	Ea_2_1 = createObject("ea2-1.png");
-	Ea_2_2 = createObject("ea2-2.png");
-	Ea_2_3 = createObject("ea2-3.png");
-	Ea_2_4 = createObject("ea2-4.png");
+    Ea_2_1 = createObject("ea2-1.png");
+    Ea_2_2 = createObject("ea2-2.png");
+    Ea_2_3 = createObject("ea2-3.png");
+    Ea_2_4 = createObject("ea2-4.png");
 
-	Ea_3_1 = createObject("ea3-1.png");
-	Ea_3_2 = createObject("ea3-2.png");
-	Ea_3_3 = createObject("ea3-3.png");
-	Ea_3_4 = createObject("ea3-4.png");
+    Ea_3_1 = createObject("ea3-1.png");
+    Ea_3_2 = createObject("ea3-2.png");
+    Ea_3_3 = createObject("ea3-3.png");
+    Ea_3_4 = createObject("ea3-4.png");
 
-	Ea_4_1 = createObject("ea4-1.png");
-	Ea_4_2 = createObject("ea4-2.png");
-	Ea_4_3 = createObject("ea4-3.png");
-	Ea_4_4 = createObject("ea4-4.png");
+    Ea_4_1 = createObject("ea4-1.png");
+    Ea_4_2 = createObject("ea4-2.png");
+    Ea_4_3 = createObject("ea4-3.png");
+    Ea_4_4 = createObject("ea4-4.png");
 
-	//³Í¼¾½º ¹®Á¦ »ı¼º
-	Nquiz1 = createObject("Nquiz1.png");
-	Nquiz2 = createObject("Nquiz2.png");
-	Nquiz3 = createObject("Nquiz3.png");
-	Nquiz4 = createObject("Nquiz4.png");
-	//³Í¼¾½º ´ä »ı¼º
-	Na_1_1 = createObject("na1-1.png");
-	Na_1_2 = createObject("na1-2.png");
-	Na_1_3 = createObject("na1-3.png");
-	Na_1_4 = createObject("na1-4.png");
+    //ë„Œì„¼ìŠ¤ ë¬¸ì œ ìƒì„±
+    Nquiz1 = createObject("Nquiz1.png");
+    Nquiz2 = createObject("Nquiz2.png");
+    Nquiz3 = createObject("Nquiz3.png");
+    Nquiz4 = createObject("Nquiz4.png");
+    //ë„Œì„¼ìŠ¤ ë‹µ ìƒì„±
+    Na_1_1 = createObject("na1-1.png");
+    Na_1_2 = createObject("na1-2.png");
+    Na_1_3 = createObject("na1-3.png");
+    Na_1_4 = createObject("na1-4.png");
 
-	Na_2_1 = createObject("na2-1.png");
-	Na_2_2 = createObject("na2-2.png");
-	Na_2_3 = createObject("na2-3.png");
-	Na_2_4 = createObject("na2-4.png");
+    Na_2_1 = createObject("na2-1.png");
+    Na_2_2 = createObject("na2-2.png");
+    Na_2_3 = createObject("na2-3.png");
+    Na_2_4 = createObject("na2-4.png");
 
-	Na_3_1 = createObject("na3-1.png");
-	Na_3_2 = createObject("na3-2.png");
-	Na_3_3 = createObject("na3-3.png");
-	Na_3_4 = createObject("na3-4.png");
+    Na_3_1 = createObject("na3-1.png");
+    Na_3_2 = createObject("na3-2.png");
+    Na_3_3 = createObject("na3-3.png");
+    Na_3_4 = createObject("na3-4.png");
 
-	Na_4_1 = createObject("na4-1.png");
-	Na_4_2 = createObject("na4-2.png");
-	Na_4_3 = createObject("na4-3.png");
-	Na_4_4 = createObject("na4-4.png");
+    Na_4_1 = createObject("na4-1.png");
+    Na_4_2 = createObject("na4-2.png");
+    Na_4_3 = createObject("na4-3.png");
+    Na_4_4 = createObject("na4-4.png");
 
-	//ÇÁ·Î±×·¡¹Ö ¹®Á¦ »ı¼º
-	Pquiz1 = createObject("Pquiz1.png");
-	Pquiz2 = createObject("Pquiz2.png");
-	Pquiz3 = createObject("Pquiz3.png");
-	Pquiz4 = createObject("Pquiz4.png");
-	//ÇÁ·Î±×·¡¹Ö ´ä »ı¼º
-	Pa_1_1 = createObject("pa1-1.png");
-	Pa_1_2 = createObject("pa1-2.png");
-	Pa_1_3 = createObject("pa1-3.png");
-	Pa_1_4 = createObject("pa1 - 4.png");
+    //í”„ë¡œê·¸ë˜ë° ë¬¸ì œ ìƒì„±
+    Pquiz1 = createObject("Pquiz1.png");
+    Pquiz2 = createObject("Pquiz2.png");
+    Pquiz3 = createObject("Pquiz3.png");
+    Pquiz4 = createObject("Pquiz4.png");
+    //í”„ë¡œê·¸ë˜ë° ë‹µ ìƒì„±
+    Pa_1_1 = createObject("pa1-1.png");
+    Pa_1_2 = createObject("pa1-2.png");
+    Pa_1_3 = createObject("pa1-3.png");
+    Pa_1_4 = createObject("pa1 - 4.png");
 
-	Pa_2_1 = createObject("pa2-1.png");
-	Pa_2_2 = createObject("pa2-2.png");
-	Pa_2_3 = createObject("pa2-3.png");
-	Pa_2_4 = createObject("pa2-4.png");
+    Pa_2_1 = createObject("pa2-1.png");
+    Pa_2_2 = createObject("pa2-2.png");
+    Pa_2_3 = createObject("pa2-3.png");
+    Pa_2_4 = createObject("pa2-4.png");
 
-	Pa_3_1 = createObject("pa3-1.png");
-	Pa_3_2 = createObject("pa3-2.png");
-	Pa_3_3 = createObject("pa3-3.png");
-	Pa_3_4 = createObject("pa3-4.png");
+    Pa_3_1 = createObject("pa3-1.png");
+    Pa_3_2 = createObject("pa3-2.png");
+    Pa_3_3 = createObject("pa3-3.png");
+    Pa_3_4 = createObject("pa3-4.png");
 
-	Pa_4_1 = createObject("pa4-1.png");
-	Pa_4_2 = createObject("pa4-2.png");
-	Pa_4_3 = createObject("pa4-3.png");
-	Pa_4_4 = createObject("pa4-4.png");
+    Pa_4_1 = createObject("pa4-1.png");
+    Pa_4_2 = createObject("pa4-2.png");
+    Pa_4_3 = createObject("pa4-3.png");
+    Pa_4_4 = createObject("pa4-4.png");
 }
 
 
-/*
-//¸ŞÀÎ ÇÔ¼ö
+
+//ë©”ì¸ í•¨ìˆ˜
 int Quiz_stage4() {
 
-	//Äİ¹é ÇÔ¼ö µî·Ï
-	setMouseCallback(mouseCallback_in_stage4);
-
-
-	//ÄûÁî ¸ŞÀÎ ¹æ Àå¸é »ı¼º
-	//scene4 = createScene("dungeonbackground", "scene4.png");
-	showMessage("ÄûÁî ¹æ¿¡ ¿À½Å °ÍÀ» È¯¿µÇÕ´Ï´Ù. ÁÖ¾îÁö´Â ÄûÁî¸¦ Ç®¾î 'Áö½Ä' ´É·ÂÄ¡¸¦ Çâ»ó½ÃÅ°¼¼¿ä.");
-
-
-	//°¢ ÄûÁî ¹æ »ı¼º
-	scene_1 = createScene("math_QUIZ", "mathdungeon.png");
-	scene_2 = createScene("english_QUIZ", "englishdungeon.png");
-	scene_3 = createScene("nonsense_QUIZ", "nonsensedungeon.png");
-	scene_4 = createScene("programming_QUIZ", "programmingdungeon.png");
-
-
-	//start ¹öÆ°
-	start_stage4 = createObject("startbutton.png");
-	locateObject(start_stage4, scene4, 800, 300);
-	scaleObject(start_stage4, 0.3f);
-	showObject(start_stage4);
-
-
-	//end ¹öÆ°
-	quit = createObject("endbutton.png");
-	locateObject(quit, scene4, 1000, 320);
-	scaleObject(quit, 0.4f);
-	showObject(quit);
+    //ì½œë°± í•¨ìˆ˜ ë“±ë¡
+    setMouseCallback(mouseCallback_in_stage4);
 
 
 
-	//°ÔÀÓ Ä«Å×°í¸® »ı¼º	
-	//Ä«Å×°í¸®1: ³Í¼¾½º ÄûÁî
-	category1 = createObject("redbutton.png");
-	locateObject(category1, scene4, 400, 400);
-
-	//Ä«Å×°í¸®2: ¼öÇĞ ÄûÁî
-	category2 = createObject("greenbutton.png");
-	locateObject(category2, scene4, 700, 400);
-
-	//Ä«Å×°í¸®3: ¿µ¾î´Ü¾î ÄûÁî
-	category3 = createObject("yellowbutton.png");
-	locateObject(category3, scene4, 1000, 400);
-
-	//Ä«Å×°í¸®4: ÇÁ·Î±×·¡¹Ö ÄûÁî
-	category4 = createObject("pinkbutton.png");
-	locateObject(category4, scene4, 1300, 400);
+    //í€´ì¦ˆ ë©”ì¸ ë°© ì¥ë©´ ìƒì„±
+    //scene4 = createScene("dungeonbackground", "scene4.png");
+    showMessage("í€´ì¦ˆ ë°©ì— ì˜¤ì‹  ê²ƒì„ í™˜ì˜í•©ë‹ˆë‹¤. ì£¼ì–´ì§€ëŠ” í€´ì¦ˆë¥¼ í’€ì–´ 'ì§€ì‹' ëŠ¥ë ¥ì¹˜ë¥¼ í–¥ìƒì‹œí‚¤ì„¸ìš”.");
 
 
-
-	//Ä«Å×°í¸®º° ÄûÁî ¹®Á¦&´ä »ı¼ºÇÏ±â
-	//¼öÇĞ ¹®Á¦ »ı¼º
-	Mquiz1 = createObject("Mquiz1.png");
-	locateObject(Mquiz1, scene_1, 500, 250);
-	Mquiz2 = createObject("Mquiz2.png");
-	locateObject(Mquiz2, scene_1, 500, 250);
-	Mquiz3 = createObject("Mquiz3.png");
-	locateObject(Mquiz3, scene_1, 500, 250);
-	Mquiz4 = createObject("Mquiz4.png");
-	locateObject(Mquiz4, scene_1, 500, 250);
-	//¼öÇĞ ´ä »ı¼º
-	Ma_1_1 = createObject("ma1-1.png");
-	locateObject(Ma_1_1, scene_1, 400, 200);
-	scaleObject(Ma_1_1, 0.4f);
-	Ma_1_2 = createObject("ma1-2.png");
-	locateObject(Ma_1_2, scene_1, 700, 200);
-	scaleObject(Ma_1_2, 0.4f);
-	Ma_1_3 = createObject("ma1-3.png");
-	locateObject(Ma_1_3, scene_1, 1000, 200);
-	scaleObject(Ma_1_3, 0.4f);
-	Ma_1_4 = createObject("ma1-4.png");
-	locateObject(Ma_1_4, scene_1, 1300, 200);
-	scaleObject(Ma_1_4, 0.4f);
-
-	Ma_2_1 = createObject("ma2-1.png");
-	locateObject(Ma_2_1, scene_1, 400, 200);
-	scaleObject(Ma_2_1, 0.4f);
-	Ma_2_2 = createObject("ma2-2.png");
-	locateObject(Ma_2_2, scene_1, 700, 200);
-	scaleObject(Ma_2_2, 0.4f);
-	Ma_2_3 = createObject("ma2-3.png");
-	locateObject(Ma_2_3, scene_1, 1000, 200);
-	scaleObject(Ma_2_3, 0.4f);
-	Ma_2_4 = createObject("ma2-4.png");
-	locateObject(Ma_2_4, scene_1, 1300, 200);
-	scaleObject(Ma_2_4, 0.4f);
-
-	Ma_3_1 = createObject("ma3-1.png");
-	locateObject(Ma_3_1, scene_1, 400, 200);
-	scaleObject(Ma_3_1, 0.4f);
-	Ma_3_2 = createObject("ma3-2.png");
-	locateObject(Ma_3_2, scene_1, 700, 200);
-	scaleObject(Ma_3_2, 0.4f);
-	Ma_3_3 = createObject("ma3-3.png");
-	locateObject(Ma_3_3, scene_1, 1000, 200);
-	scaleObject(Ma_3_3, 0.4f);
-	Ma_3_4 = createObject("ma3-4.png");
-	locateObject(Ma_3_4, scene_1, 1300, 200);
-	scaleObject(Ma_3_4, 0.4f);
-
-	Ma_4_1 = createObject("ma4-1.png");
-	locateObject(Ma_4_1, scene_1, 400, 200);
-	scaleObject(Ma_4_1, 0.4f);
-	Ma_4_2 = createObject("ma4-2.png");
-	locateObject(Ma_4_2, scene_1, 700, 200);
-	scaleObject(Ma_4_2, 0.4f);
-	Ma_4_3 = createObject("ma4-3.png");
-	locateObject(Ma_4_3, scene_1, 1000, 200);
-	scaleObject(Ma_4_3, 0.4f);
-	Ma_4_4 = createObject("ma4-4.png");
-	locateObject(Ma_4_4, scene_1, 1300, 200);
-	scaleObject(Ma_4_4, 0.4f);
-
-	//¿µ¾î ´Ü¾î ¹®Á¦ »ı¼º
-	Equiz1 = createObject("Equiz1.png");
-	Equiz2 = createObject("Equiz2.png");
-	Equiz3 = createObject("Equiz3.png");
-	Equiz4 = createObject("Equiz4.png");
-	//¿µ¾î ´ä »ı¼º
-	Ea_1_1 = createObject("ea1-1.png");
-	Ea_1_2 = createObject("ea1-2.png");
-	Ea_1_3 = createObject("ea1-3.png");
-	Ea_1_4 = createObject("ea1-4.png");
-
-	Ea_2_1 = createObject("ea2-1.png");
-	Ea_2_2 = createObject("ea2-2.png");
-	Ea_2_3 = createObject("ea2-3.png");
-	Ea_2_4 = createObject("ea2-4.png");
-
-	Ea_3_1 = createObject("ea3-1.png");
-	Ea_3_2 = createObject("ea3-2.png");
-	Ea_3_3 = createObject("ea3-3.png");
-	Ea_3_4 = createObject("ea3-4.png");
-
-	Ea_4_1 = createObject("ea4-1.png");
-	Ea_4_2 = createObject("ea4-2.png");
-	Ea_4_3 = createObject("ea4-3.png");
-	Ea_4_4 = createObject("ea4-4.png");
-
-	//³Í¼¾½º ¹®Á¦ »ı¼º
-	Nquiz1 = createObject("Nquiz1.png");
-	Nquiz2 = createObject("Nquiz2.png");
-	Nquiz3 = createObject("Nquiz3.png");
-	Nquiz4 = createObject("Nquiz4.png");
-	//³Í¼¾½º ´ä »ı¼º
-	Na_1_1 = createObject("na1-1.png");
-	Na_1_2 = createObject("na1-2.png");
-	Na_1_3 = createObject("na1-3.png");
-	Na_1_4 = createObject("na1-4.png");
-
-	Na_2_1 = createObject("na2-1.png");
-	Na_2_2 = createObject("na2-2.png");
-	Na_2_3 = createObject("na2-3.png");
-	Na_2_4 = createObject("na2-4.png");
-
-	Na_3_1 = createObject("na3-1.png");
-	Na_3_2 = createObject("na3-2.png");
-	Na_3_3 = createObject("na3-3.png");
-	Na_3_4 = createObject("na3-4.png");
-
-	Na_4_1 = createObject("na4-1.png");
-	Na_4_2 = createObject("na4-2.png");
-	Na_4_3 = createObject("na4-3.png");
-	Na_4_4 = createObject("na4-4.png");
-
-	//ÇÁ·Î±×·¡¹Ö ¹®Á¦ »ı¼º
-	Pquiz1 = createObject("Pquiz1.png");
-	Pquiz2 = createObject("Pquiz2.png");
-	Pquiz3 = createObject("Pquiz3.png");
-	Pquiz4 = createObject("Pquiz4.png");
-	//ÇÁ·Î±×·¡¹Ö ´ä »ı¼º
-	Pa_1_1 = createObject("pa1-1.png");
-	Pa_1_2 = createObject("pa1-2.png");
-	Pa_1_3 = createObject("pa1-3.png");
-	Pa_1_4 = createObject("pa1 - 4.png");
-
-	Pa_2_1 = createObject("pa2-1.png");
-	Pa_2_2 = createObject("pa2-2.png");
-	Pa_2_3 = createObject("pa2-3.png");
-	Pa_2_4 = createObject("pa2-4.png");
-
-	Pa_3_1 = createObject("pa3-1.png");
-	Pa_3_2 = createObject("pa3-2.png");
-	Pa_3_3 = createObject("pa3-3.png");
-	Pa_3_4 = createObject("pa3-4.png");
-
-	Pa_4_1 = createObject("pa4-1.png");
-	Pa_4_2 = createObject("pa4-2.png");
-	Pa_4_3 = createObject("pa4-3.png");
-	Pa_4_4 = createObject("pa4-4.png");
+    //ê° í€´ì¦ˆ ë°© ìƒì„±
+    scene_1 = createScene("math_QUIZ", "Images/mathdungeon.png");
+    scene_2 = createScene("english_QUIZ", "Images/englishdungeon.png");
+    scene_3 = createScene("nonsense_QUIZ", "Images/nonsensedungeon.png");
+    scene_4 = createScene("programming_QUIZ", "Images/programmingdungeon.png");
 
 
-	startGame(scene4);
-	
+    //start ë²„íŠ¼
+    start_stage4 = createObject("Images/startbutton.png");
+    locateObject(start_stage4, scene4, 800, 300);
+    scaleObject(start_stage4, 0.3f);
+    showObject(start_stage4);
 
-	return 0;
-}*/
 
+    //end ë²„íŠ¼
+    quit = createObject("Images/endbutton.png");
+    locateObject(quit, scene4, 1000, 320);
+    scaleObject(quit, 0.4f);
+    showObject(quit);
+
+
+
+    //ê²Œì„ ì¹´í…Œê³ ë¦¬ ìƒì„±   
+    //ì¹´í…Œê³ ë¦¬1: ë„Œì„¼ìŠ¤ í€´ì¦ˆ
+    category1 = createObject("Images/redbutton.png");
+    locateObject(category1, scene4, 400, 400);
+
+    //ì¹´í…Œê³ ë¦¬2: ìˆ˜í•™ í€´ì¦ˆ
+    category2 = createObject("Images/greenbutton.png");
+    locateObject(category2, scene4, 700, 400);
+
+    //ì¹´í…Œê³ ë¦¬3: ì˜ì–´ë‹¨ì–´ í€´ì¦ˆ
+    category3 = createObject("Images/yellowbutton.png");
+    locateObject(category3, scene4, 1000, 400);
+
+    //ì¹´í…Œê³ ë¦¬4: í”„ë¡œê·¸ë˜ë° í€´ì¦ˆ
+    category4 = createObject("Images/pinkbutton.png");
+    locateObject(category4, scene4, 1300, 400);
+
+
+
+    //ì¹´í…Œê³ ë¦¬ë³„ í€´ì¦ˆ ë¬¸ì œ&ë‹µ ìƒì„±í•˜ê¸°
+    //ìˆ˜í•™ ë¬¸ì œ ìƒì„±
+    Mquiz1 = createObject("Images/Mquiz1.png");
+    locateObject(Mquiz1, scene_1, 500, 250);
+    Mquiz2 = createObject("Images/Mquiz2.png");
+    locateObject(Mquiz2, scene_1, 500, 250);
+    Mquiz3 = createObject("Images/Mquiz3.png");
+    locateObject(Mquiz3, scene_1, 500, 250);
+    Mquiz4 = createObject("Images/Mquiz4.png");
+    locateObject(Mquiz4, scene_1, 500, 250);
+    //ìˆ˜í•™ ë‹µ ìƒì„±
+    Ma_1_1 = createObject("Images/ma1-1.png");
+    locateObject(Ma_1_1, scene_1, 400, 200);
+    scaleObject(Ma_1_1, 0.4f);
+    Ma_1_2 = createObject("Images/ma1-2.png");
+    locateObject(Ma_1_2, scene_1, 700, 200);
+    scaleObject(Ma_1_2, 0.4f);
+    Ma_1_3 = createObject("Images/ma1-3.png");
+    locateObject(Ma_1_3, scene_1, 1000, 200);
+    scaleObject(Ma_1_3, 0.4f);
+    Ma_1_4 = createObject("Images/ma1-4.png");
+    locateObject(Ma_1_4, scene_1, 1300, 200);
+    scaleObject(Ma_1_4, 0.4f);
+
+    Ma_2_1 = createObject("Images/ma2-1.png");
+    locateObject(Ma_2_1, scene_1, 400, 200);
+    scaleObject(Ma_2_1, 0.4f);
+    Ma_2_2 = createObject("Images/ma2-2.png");
+    locateObject(Ma_2_2, scene_1, 700, 200);
+    scaleObject(Ma_2_2, 0.4f);
+    Ma_2_3 = createObject("Images/ma2-3.png");
+    locateObject(Ma_2_3, scene_1, 1000, 200);
+    scaleObject(Ma_2_3, 0.4f);
+    Ma_2_4 = createObject("Images/ma2-4.png");
+    locateObject(Ma_2_4, scene_1, 1300, 200);
+    scaleObject(Ma_2_4, 0.4f);
+
+    Ma_3_1 = createObject("Images/ma3-1.png");
+    locateObject(Ma_3_1, scene_1, 400, 200);
+    scaleObject(Ma_3_1, 0.4f);
+    Ma_3_2 = createObject("Images/ma3-2.png");
+    locateObject(Ma_3_2, scene_1, 700, 200);
+    scaleObject(Ma_3_2, 0.4f);
+    Ma_3_3 = createObject("Images/ma3-3.png");
+    locateObject(Ma_3_3, scene_1, 1000, 200);
+    scaleObject(Ma_3_3, 0.4f);
+    Ma_3_4 = createObject("Images/ma3-4.png");
+    locateObject(Ma_3_4, scene_1, 1300, 200);
+    scaleObject(Ma_3_4, 0.4f);
+
+    Ma_4_1 = createObject("Images/ma4-1.png");
+    locateObject(Ma_4_1, scene_1, 400, 200);
+    scaleObject(Ma_4_1, 0.4f);
+    Ma_4_2 = createObject("Images/ma4-2.png");
+    locateObject(Ma_4_2, scene_1, 700, 200);
+    scaleObject(Ma_4_2, 0.4f);
+    Ma_4_3 = createObject("Images/ma4-3.png");
+    locateObject(Ma_4_3, scene_1, 1000, 200);
+    scaleObject(Ma_4_3, 0.4f);
+    Ma_4_4 = createObject("Images/ma4-4.png");
+    locateObject(Ma_4_4, scene_1, 1300, 200);
+    scaleObject(Ma_4_4, 0.4f);
+
+    //ì˜ì–´ ë‹¨ì–´ ë¬¸ì œ ìƒì„±
+    Equiz1 = createObject("Images/Equiz1.png");
+    Equiz2 = createObject("Images/Equiz2.png");
+    Equiz3 = createObject("Images/Equiz3.png");
+    Equiz4 = createObject("Images/Equiz4.png");
+    //ì˜ì–´ ë‹µ ìƒì„±
+    Ea_1_1 = createObject("Images/ea1-1.png");
+    Ea_1_2 = createObject("Images/ea1-2.png");
+    Ea_1_3 = createObject("Images/ea1-3.png");
+    Ea_1_4 = createObject("Images/ea1-4.png");
+
+    Ea_2_1 = createObject("Images/ea2-1.png");
+    Ea_2_2 = createObject("Images/ea2-2.png");
+    Ea_2_3 = createObject("Images/ea2-3.png");
+    Ea_2_4 = createObject("Images/ea2-4.png");
+
+    Ea_3_1 = createObject("Images/ea3-1.png");
+    Ea_3_2 = createObject("Images/ea3-2.png");
+    Ea_3_3 = createObject("Images/ea3-3.png");
+    Ea_3_4 = createObject("Images/ea3-4.png");
+
+    Ea_4_1 = createObject("Images/ea4-1.png");
+    Ea_4_2 = createObject("Images/ea4-2.png");
+    Ea_4_3 = createObject("Images/ea4-3.png");
+    Ea_4_4 = createObject("Images/ea4-4.png");
+
+    //ë„Œì„¼ìŠ¤ ë¬¸ì œ ìƒì„±
+    Nquiz1 = createObject("Images/Nquiz1.png");
+    Nquiz2 = createObject("Images/Nquiz2.png");
+    Nquiz3 = createObject("Images/Nquiz3.png");
+    Nquiz4 = createObject("Images/Nquiz4.png");
+    //ë„Œì„¼ìŠ¤ ë‹µ ìƒì„±
+    Na_1_1 = createObject("Images/na1-1.png");
+    Na_1_2 = createObject("Images/na1-2.png");
+    Na_1_3 = createObject("Images/na1-3.png");
+    Na_1_4 = createObject("Images/na1-4.png");
+
+    Na_2_1 = createObject("Images/na2-1.png");
+    Na_2_2 = createObject("Images/na2-2.png");
+    Na_2_3 = createObject("Images/na2-3.png");
+    Na_2_4 = createObject("Images/na2-4.png");
+
+    Na_3_1 = createObject("Images/na3-1.png");
+    Na_3_2 = createObject("Images/na3-2.png");
+    Na_3_3 = createObject("Images/na3-3.png");
+    Na_3_4 = createObject("Images/na3-4.png");
+
+    Na_4_1 = createObject("Images/na4-1.png");
+    Na_4_2 = createObject("Images/na4-2.png");
+    Na_4_3 = createObject("Images/na4-3.png");
+    Na_4_4 = createObject("Images/na4-4.png");
+
+    //í”„ë¡œê·¸ë˜ë° ë¬¸ì œ ìƒì„±
+    Pquiz1 = createObject("Images/Pquiz1.png");
+    Pquiz2 = createObject("Images/Pquiz2.png");
+    Pquiz3 = createObject("Images/Pquiz3.png");
+    Pquiz4 = createObject("Images/Pquiz4.png");
+    //í”„ë¡œê·¸ë˜ë° ë‹µ ìƒì„±
+    Pa_1_1 = createObject("Images/pa1-1.png");
+    Pa_1_2 = createObject("Images/pa1-2.png");
+    Pa_1_3 = createObject("Images/pa1-3.png");
+    Pa_1_4 = createObject("Images/pa1 - 4.png");
+
+    Pa_2_1 = createObject("Images/pa2-1.png");
+    Pa_2_2 = createObject("Images/pa2-2.png");
+    Pa_2_3 = createObject("Images/pa2-3.png");
+    Pa_2_4 = createObject("Images/pa2-4.png");
+
+    Pa_3_1 = createObject("Images/pa3-1.png");
+    Pa_3_2 = createObject("Images/pa3-2.png");
+    Pa_3_3 = createObject("Images/pa3-3.png");
+    Pa_3_4 = createObject("Images/pa3-4.png");
+
+    Pa_4_1 = createObject("Images/pa4-1.png");
+    Pa_4_2 = createObject("Images/pa4-2.png");
+    Pa_4_3 = createObject("Images/pa4-3.png");
+    Pa_4_4 = createObject("Images/pa4-4.png");
+
+
+    //startGame(scene4);
+
+
+    return 0;
+}
