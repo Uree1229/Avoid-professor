@@ -8,7 +8,7 @@ extern ObjectID createObject(const char* image, SceneID scene, int x, int y, boo
 int gametype = 0;
 using namespace std;
 
-SceneID scene, scene1, scene2, scene3, scene4, scene_stat, sceneB;
+SceneID scene, scene1, scene2, scene3, scene4, scene_stat, sceneB, scene_1, scene_2, scene_3, scene_4;
 ObjectID door[4];
 
 void setting_m() {
