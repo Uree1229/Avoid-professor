@@ -1,8 +1,9 @@
 #include <bangtal.h>
 #include <stdio.h>
 
-//sceneID ObjectID ì •ë¦¬
-extern SceneID scene, scene4, scene_1, scene_2, scene_3, scene_4, scene_stat;
+//sceneID ObjectID Á¤¸®
+extern SceneID scene, scene4, scene_stat;
+SceneID scene_1, scene_2, scene_3, scene_4;
 ObjectID
 start_stage4, quit, play,
 category1, category2, category3, category4,
@@ -29,21 +30,21 @@ Pa_4_1, Pa_4_2, Pa_4_3, Pa_4_4;
 
 using namespace std;
 
-//ì½œë°±í•¨ìˆ˜ ì •ì˜ 
+//Äİ¹éÇÔ¼ö Á¤ÀÇ 
 void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
 {
 
 
-    //ì¢…ë£Œ ë²„íŠ¼ì´ ëˆŒë ¤ì§€ë©´ ê²Œì„ ì¢…ë£Œ
+    //Á¾·á ¹öÆ°ÀÌ ´­·ÁÁö¸é °ÔÀÓ Á¾·á
     if (object == quit) {
         enterScene(scene);
     }
 
 
-    //ë²„íŠ¼ ëˆ„ë¥´ë©´ ê°ê°ì˜ í€´ì¦ˆ ë°©ìœ¼ë¡œ ì…ì¥
+    //¹öÆ° ´©¸£¸é °¢°¢ÀÇ ÄûÁî ¹æÀ¸·Î ÀÔÀå
     if (object == category1) {
         enterScene(scene_1);
-        showMessage("ì—¬ê¸°ëŠ” ìˆ˜í•™ í€´ì¦ˆ ë°©ì…ë‹ˆë‹¤. í€´ì¦ˆë¥¼ í’€ì–´ì„œ 'ì§€ì‹' ëŠ¥ë ¥ì¹˜ë¥¼ í–¥ìƒì‹œí‚¤ì„¸ìš”.");
+        showMessage("¿©±â´Â ¼öÇĞ ÄûÁî ¹æÀÔ´Ï´Ù. ÄûÁî¸¦ Ç®¾î¼­ 'Áö½Ä' ´É·ÂÄ¡¸¦ Çâ»ó½ÃÅ°¼¼¿ä.");
         showObject(Mquiz1);
         showObject(Ma_1_1);
         showObject(Ma_1_2);
@@ -52,22 +53,22 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     }
     if (object == category2) {
         enterScene(scene_2);
-        showMessage("ì—¬ê¸°ëŠ” ì˜ì–´ ë‹¨ì–´ í€´ì¦ˆ ë°©ì…ë‹ˆë‹¤. í€´ì¦ˆë¥¼ í’€ì–´ì„œ 'ì§€ì‹' ëŠ¥ë ¥ì¹˜ë¥¼ í–¥ìƒì‹œí‚¤ì„¸ìš”.");
+        showMessage("¿©±â´Â ¿µ¾î ´Ü¾î ÄûÁî ¹æÀÔ´Ï´Ù. ÄûÁî¸¦ Ç®¾î¼­ 'Áö½Ä' ´É·ÂÄ¡¸¦ Çâ»ó½ÃÅ°¼¼¿ä.");
     }
 
     if (object == category3) {
         enterScene(scene_3);
-        showMessage("ì—¬ê¸°ëŠ” ë„Œì„¼ìŠ¤ í€´ì¦ˆ ë°©ì…ë‹ˆë‹¤. í€´ì¦ˆë¥¼ í’€ì–´ì„œ 'ì§€ì‹' ëŠ¥ë ¥ì¹˜ë¥¼ í–¥ìƒì‹œí‚¤ì„¸ìš”.");
+        showMessage("¿©±â´Â ³Í¼¾½º ÄûÁî ¹æÀÔ´Ï´Ù. ÄûÁî¸¦ Ç®¾î¼­ 'Áö½Ä' ´É·ÂÄ¡¸¦ Çâ»ó½ÃÅ°¼¼¿ä.");
     }
 
     if (object == category4) {
         enterScene(scene_4);
-        showMessage("ì—¬ê¸°ëŠ” í”„ë¡œê·¸ë˜ë° í€´ì¦ˆ ë°©ì…ë‹ˆë‹¤. í€´ì¦ˆë¥¼ í’€ì–´ì„œ 'ì§€ì‹' ëŠ¥ë ¥ì¹˜ë¥¼ í–¥ìƒì‹œí‚¤ì„¸ìš”.");
+        showMessage("¿©±â´Â ÇÁ·Î±×·¡¹Ö ÄûÁî ¹æÀÔ´Ï´Ù. ÄûÁî¸¦ Ç®¾î¼­ 'Áö½Ä' ´É·ÂÄ¡¸¦ Çâ»ó½ÃÅ°¼¼¿ä.");
     }
 
 
-    //ìˆ˜í•™ í€´ì¦ˆ ë°© ì…ì¥
-    //ì •ë‹µ ì—¬ë¶€ì— ê´€ê³„ì—†ì´ ë‹µì„ í´ë¦­í•˜ë©´ ë‹¤ìŒë¬¸ì œë¡œ ë„˜ì–´ê°
+    //¼öÇĞ ÄûÁî ¹æ ÀÔÀå
+    //Á¤´ä ¿©ºÎ¿¡ °ü°è¾øÀÌ ´äÀ» Å¬¸¯ÇÏ¸é ´ÙÀ½¹®Á¦·Î ³Ñ¾î°¨
     if (object == Ma_1_1 || object == Ma_1_2 || object == Ma_1_3 || object == Ma_1_4) {
         hideObject(Ma_1_1);
         hideObject(Ma_1_2);
@@ -112,17 +113,17 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
         hideObject(Ma_4_3);
         hideObject(Ma_4_4);
 
-        //í€´ì¦ˆë¥¼ ë‹¤ í’€ë©´ ë‹¤ì‹œ ëŒì•„ì˜´
+        //ÄûÁî¸¦ ´Ù Ç®¸é ´Ù½Ã µ¹¾Æ¿È
         enterScene(scene4);
     }
 
 
 
-    //start ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ 
+    //start ¹öÆ°À» ´©¸£¸é 
     else if (object = start_stage4) {
 
 
-        //start ë²„íŠ¼, end ë²„íŠ¼ ì‚¬ë¼ì§€ê²Œ í•œë‹¤. 
+        //start ¹öÆ°, end ¹öÆ° »ç¶óÁö°Ô ÇÑ´Ù. 
         hideObject(start_stage4);
         hideObject(quit);
         showObject(category1);
@@ -136,47 +137,47 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
 
 void setting_4() {
 
-    //í€´ì¦ˆë³„ ì¥ë©´ ìƒì„±
+    //ÄûÁîº° Àå¸é »ı¼º
     scene_1 = createScene("math_QUIZ", "Images/mathdungeon.png");
     scene_2 = createScene("english_QUIZ", "Images/englishdungeon.png");
     scene_3 = createScene("nonsense_QUIZ", "Images/nonsensedungeon.png");
     scene_4 = createScene("programming_QUIZ", "Images/programmingdungeon.png");
 
-    //start ë²„íŠ¼
+    //start ¹öÆ°
     start_stage4 = createObject("Images/startbutton.png");
     locateObject(start_stage4, scene4, 800, 300);
     scaleObject(start_stage4, 0.3f);
     showObject(start_stage4);
 
 
-    //end ë²„íŠ¼
+    //end ¹öÆ°
     quit = createObject("Images/endbutton.png");
     locateObject(quit, scene4, 1000, 320);
     scaleObject(quit, 0.4f);
     showObject(quit);
 
 
-    //ê²Œì„ ì¹´í…Œê³ ë¦¬ ìƒì„±   
-    //ì¹´í…Œê³ ë¦¬1: ë„Œì„¼ìŠ¤ í€´ì¦ˆ
+    //°ÔÀÓ Ä«Å×°í¸® »ı¼º   
+    //Ä«Å×°í¸®1: ³Í¼¾½º ÄûÁî
     category1 = createObject("Images/redbutton.png");
     locateObject(category1, scene4, 400, 400);
 
-    //ì¹´í…Œê³ ë¦¬2: ìˆ˜í•™ í€´ì¦ˆ
+    //Ä«Å×°í¸®2: ¼öÇĞ ÄûÁî
     category2 = createObject("Images/greenbutton.png");
     locateObject(category2, scene4, 700, 400);
 
-    //ì¹´í…Œê³ ë¦¬3: ì˜ì–´ë‹¨ì–´ í€´ì¦ˆ
+    //Ä«Å×°í¸®3: ¿µ¾î´Ü¾î ÄûÁî
     category3 = createObject("Images/yellowbutton.png");
     locateObject(category3, scene4, 1000, 400);
 
-    //ì¹´í…Œê³ ë¦¬4: í”„ë¡œê·¸ë˜ë° í€´ì¦ˆ
+    //Ä«Å×°í¸®4: ÇÁ·Î±×·¡¹Ö ÄûÁî
     category4 = createObject("Images/pinkbutton.png");
     locateObject(category4, scene4, 1300, 400);
 
 
 
-    //ì¹´í…Œê³ ë¦¬ë³„ í€´ì¦ˆ ë¬¸ì œ&ë‹µ ìƒì„±í•˜ê¸°
-    //ìˆ˜í•™ ë¬¸ì œ ìƒì„±
+    //Ä«Å×°í¸®º° ÄûÁî ¹®Á¦&´ä »ı¼ºÇÏ±â
+    //¼öÇĞ ¹®Á¦ »ı¼º
     Mquiz1 = createObject("Images/Mquiz1.png");
     locateObject(Mquiz1, scene_1, 500, 250);
     Mquiz2 = createObject("Images/Mquiz2.png");
@@ -185,7 +186,7 @@ void setting_4() {
     locateObject(Mquiz3, scene_1, 500, 250);
     Mquiz4 = createObject("Images/Mquiz4.png");
     locateObject(Mquiz4, scene_1, 500, 250);
-    //ìˆ˜í•™ ë‹µ ìƒì„±
+    //¼öÇĞ ´ä »ı¼º
     Ma_1_1 = createObject("Images/ma1-1.png");
     locateObject(Ma_1_1, scene_1, 400, 200);
     scaleObject(Ma_1_1, 0.4f);
@@ -238,12 +239,12 @@ void setting_4() {
     locateObject(Ma_4_4, scene_1, 1300, 200);
     scaleObject(Ma_4_4, 0.4f);
 
-    //ì˜ì–´ ë‹¨ì–´ ë¬¸ì œ ìƒì„±
+    //¿µ¾î ´Ü¾î ¹®Á¦ »ı¼º
     Equiz1 = createObject("Equiz1.png");
     Equiz2 = createObject("Equiz2.png");
     Equiz3 = createObject("Equiz3.png");
     Equiz4 = createObject("Equiz4.png");
-    //ì˜ì–´ ë‹µ ìƒì„±
+    //¿µ¾î ´ä »ı¼º
     Ea_1_1 = createObject("ea1-1.png");
     Ea_1_2 = createObject("ea1-2.png");
     Ea_1_3 = createObject("ea1-3.png");
@@ -264,12 +265,12 @@ void setting_4() {
     Ea_4_3 = createObject("ea4-3.png");
     Ea_4_4 = createObject("ea4-4.png");
 
-    //ë„Œì„¼ìŠ¤ ë¬¸ì œ ìƒì„±
+    //³Í¼¾½º ¹®Á¦ »ı¼º
     Nquiz1 = createObject("Nquiz1.png");
     Nquiz2 = createObject("Nquiz2.png");
     Nquiz3 = createObject("Nquiz3.png");
     Nquiz4 = createObject("Nquiz4.png");
-    //ë„Œì„¼ìŠ¤ ë‹µ ìƒì„±
+    //³Í¼¾½º ´ä »ı¼º
     Na_1_1 = createObject("na1-1.png");
     Na_1_2 = createObject("na1-2.png");
     Na_1_3 = createObject("na1-3.png");
@@ -290,12 +291,12 @@ void setting_4() {
     Na_4_3 = createObject("na4-3.png");
     Na_4_4 = createObject("na4-4.png");
 
-    //í”„ë¡œê·¸ë˜ë° ë¬¸ì œ ìƒì„±
+    //ÇÁ·Î±×·¡¹Ö ¹®Á¦ »ı¼º
     Pquiz1 = createObject("Pquiz1.png");
     Pquiz2 = createObject("Pquiz2.png");
     Pquiz3 = createObject("Pquiz3.png");
     Pquiz4 = createObject("Pquiz4.png");
-    //í”„ë¡œê·¸ë˜ë° ë‹µ ìƒì„±
+    //ÇÁ·Î±×·¡¹Ö ´ä »ı¼º
     Pa_1_1 = createObject("pa1-1.png");
     Pa_1_2 = createObject("pa1-2.png");
     Pa_1_3 = createObject("pa1-3.png");
@@ -319,34 +320,34 @@ void setting_4() {
 
 
 
-//ë©”ì¸ í•¨ìˆ˜
+//¸ŞÀÎ ÇÔ¼ö
 int Quiz_stage4() {
 
-    //ì½œë°± í•¨ìˆ˜ ë“±ë¡
+    //Äİ¹é ÇÔ¼ö µî·Ï
     setMouseCallback(mouseCallback_in_stage4);
 
 
 
-    //í€´ì¦ˆ ë©”ì¸ ë°© ì¥ë©´ ìƒì„±
+    //ÄûÁî ¸ŞÀÎ ¹æ Àå¸é »ı¼º
     //scene4 = createScene("dungeonbackground", "scene4.png");
-    showMessage("í€´ì¦ˆ ë°©ì— ì˜¤ì‹  ê²ƒì„ í™˜ì˜í•©ë‹ˆë‹¤. ì£¼ì–´ì§€ëŠ” í€´ì¦ˆë¥¼ í’€ì–´ 'ì§€ì‹' ëŠ¥ë ¥ì¹˜ë¥¼ í–¥ìƒì‹œí‚¤ì„¸ìš”.");
+    showMessage("ÄûÁî ¹æ¿¡ ¿À½Å °ÍÀ» È¯¿µÇÕ´Ï´Ù. ÁÖ¾îÁö´Â ÄûÁî¸¦ Ç®¾î 'Áö½Ä' ´É·ÂÄ¡¸¦ Çâ»ó½ÃÅ°¼¼¿ä.");
 
 
-    //ê° í€´ì¦ˆ ë°© ìƒì„±
+    //°¢ ÄûÁî ¹æ »ı¼º
     scene_1 = createScene("math_QUIZ", "Images/mathdungeon.png");
     scene_2 = createScene("english_QUIZ", "Images/englishdungeon.png");
     scene_3 = createScene("nonsense_QUIZ", "Images/nonsensedungeon.png");
     scene_4 = createScene("programming_QUIZ", "Images/programmingdungeon.png");
 
 
-    //start ë²„íŠ¼
+    //start ¹öÆ°
     start_stage4 = createObject("Images/startbutton.png");
     locateObject(start_stage4, scene4, 800, 300);
     scaleObject(start_stage4, 0.3f);
     showObject(start_stage4);
 
 
-    //end ë²„íŠ¼
+    //end ¹öÆ°
     quit = createObject("Images/endbutton.png");
     locateObject(quit, scene4, 1000, 320);
     scaleObject(quit, 0.4f);
@@ -354,27 +355,27 @@ int Quiz_stage4() {
 
 
 
-    //ê²Œì„ ì¹´í…Œê³ ë¦¬ ìƒì„±   
-    //ì¹´í…Œê³ ë¦¬1: ë„Œì„¼ìŠ¤ í€´ì¦ˆ
+    //°ÔÀÓ Ä«Å×°í¸® »ı¼º   
+    //Ä«Å×°í¸®1: ³Í¼¾½º ÄûÁî
     category1 = createObject("Images/redbutton.png");
     locateObject(category1, scene4, 400, 400);
 
-    //ì¹´í…Œê³ ë¦¬2: ìˆ˜í•™ í€´ì¦ˆ
+    //Ä«Å×°í¸®2: ¼öÇĞ ÄûÁî
     category2 = createObject("Images/greenbutton.png");
     locateObject(category2, scene4, 700, 400);
 
-    //ì¹´í…Œê³ ë¦¬3: ì˜ì–´ë‹¨ì–´ í€´ì¦ˆ
+    //Ä«Å×°í¸®3: ¿µ¾î´Ü¾î ÄûÁî
     category3 = createObject("Images/yellowbutton.png");
     locateObject(category3, scene4, 1000, 400);
 
-    //ì¹´í…Œê³ ë¦¬4: í”„ë¡œê·¸ë˜ë° í€´ì¦ˆ
+    //Ä«Å×°í¸®4: ÇÁ·Î±×·¡¹Ö ÄûÁî
     category4 = createObject("Images/pinkbutton.png");
     locateObject(category4, scene4, 1300, 400);
 
 
 
-    //ì¹´í…Œê³ ë¦¬ë³„ í€´ì¦ˆ ë¬¸ì œ&ë‹µ ìƒì„±í•˜ê¸°
-    //ìˆ˜í•™ ë¬¸ì œ ìƒì„±
+    //Ä«Å×°í¸®º° ÄûÁî ¹®Á¦&´ä »ı¼ºÇÏ±â
+    //¼öÇĞ ¹®Á¦ »ı¼º
     Mquiz1 = createObject("Images/Mquiz1.png");
     locateObject(Mquiz1, scene_1, 500, 250);
     Mquiz2 = createObject("Images/Mquiz2.png");
@@ -383,7 +384,7 @@ int Quiz_stage4() {
     locateObject(Mquiz3, scene_1, 500, 250);
     Mquiz4 = createObject("Images/Mquiz4.png");
     locateObject(Mquiz4, scene_1, 500, 250);
-    //ìˆ˜í•™ ë‹µ ìƒì„±
+    //¼öÇĞ ´ä »ı¼º
     Ma_1_1 = createObject("Images/ma1-1.png");
     locateObject(Ma_1_1, scene_1, 400, 200);
     scaleObject(Ma_1_1, 0.4f);
@@ -436,12 +437,12 @@ int Quiz_stage4() {
     locateObject(Ma_4_4, scene_1, 1300, 200);
     scaleObject(Ma_4_4, 0.4f);
 
-    //ì˜ì–´ ë‹¨ì–´ ë¬¸ì œ ìƒì„±
+    //¿µ¾î ´Ü¾î ¹®Á¦ »ı¼º
     Equiz1 = createObject("Images/Equiz1.png");
     Equiz2 = createObject("Images/Equiz2.png");
     Equiz3 = createObject("Images/Equiz3.png");
     Equiz4 = createObject("Images/Equiz4.png");
-    //ì˜ì–´ ë‹µ ìƒì„±
+    //¿µ¾î ´ä »ı¼º
     Ea_1_1 = createObject("Images/ea1-1.png");
     Ea_1_2 = createObject("Images/ea1-2.png");
     Ea_1_3 = createObject("Images/ea1-3.png");
@@ -462,12 +463,12 @@ int Quiz_stage4() {
     Ea_4_3 = createObject("Images/ea4-3.png");
     Ea_4_4 = createObject("Images/ea4-4.png");
 
-    //ë„Œì„¼ìŠ¤ ë¬¸ì œ ìƒì„±
+    //³Í¼¾½º ¹®Á¦ »ı¼º
     Nquiz1 = createObject("Images/Nquiz1.png");
     Nquiz2 = createObject("Images/Nquiz2.png");
     Nquiz3 = createObject("Images/Nquiz3.png");
     Nquiz4 = createObject("Images/Nquiz4.png");
-    //ë„Œì„¼ìŠ¤ ë‹µ ìƒì„±
+    //³Í¼¾½º ´ä »ı¼º
     Na_1_1 = createObject("Images/na1-1.png");
     Na_1_2 = createObject("Images/na1-2.png");
     Na_1_3 = createObject("Images/na1-3.png");
@@ -488,12 +489,12 @@ int Quiz_stage4() {
     Na_4_3 = createObject("Images/na4-3.png");
     Na_4_4 = createObject("Images/na4-4.png");
 
-    //í”„ë¡œê·¸ë˜ë° ë¬¸ì œ ìƒì„±
+    //ÇÁ·Î±×·¡¹Ö ¹®Á¦ »ı¼º
     Pquiz1 = createObject("Images/Pquiz1.png");
     Pquiz2 = createObject("Images/Pquiz2.png");
     Pquiz3 = createObject("Images/Pquiz3.png");
     Pquiz4 = createObject("Images/Pquiz4.png");
-    //í”„ë¡œê·¸ë˜ë° ë‹µ ìƒì„±
+    //ÇÁ·Î±×·¡¹Ö ´ä »ı¼º
     Pa_1_1 = createObject("Images/pa1-1.png");
     Pa_1_2 = createObject("Images/pa1-2.png");
     Pa_1_3 = createObject("Images/pa1-3.png");

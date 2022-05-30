@@ -1,7 +1,6 @@
 #define _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES	1
 using namespace std;
 
-
 #include <iostream>
 #include <windows.h> //windows.h 헤더 추가
 #include <stdio.h>
@@ -9,10 +8,12 @@ using namespace std;
 #include <stdlib.h>
 #include <time.h>
 
-extern ObjectID STR[6];
-ObjectID  ch1, hit_box;
-extern SceneID scene1;
-TimerID enemyTimer, playerJumpTimer, check_l, hitbox_Timer, jumpR_Timer, hitM_Timer;
+ObjectID STR[6];
+ObjectID  ch1, hit_box, fxxk_1;
+extern SceneID scene1, scene_stat, scene;
+TimerID enemyTimer, playerJumpTimer, check_l, hitbox_Timer, jumpR_Timer, hitM_Timer,back_Timer;
+extern int gametype;
+extern ObjectID door[4];
 
 clock_t start;
 float time_d;
@@ -31,13 +32,12 @@ int hit_y = 120;
 bool c_timer = false;
 bool c_jump = false;
 bool hit_check = false;
-float speed = 0.1;
+float speed = 1.1;
 int life = 3;
 int jridx, jdidx, hitidx = 0;
 
 #define ANIMATION_TIME		0.01f
 #define ANIMATION_STEP		5
-
 
 extern ObjectID createObject(const char* image, SceneID scene, int x, int y, bool shown);
 
@@ -56,6 +56,39 @@ char Hit_M[2][14] = {
 	"images/N9.png"
 };
 
+void setting_1() {
+	f_y[0] = 600;
+	ch1 = createObject("images/ch1.png", scene1, ch_x, ch_y, true);
+	srand((unsigned int)time(NULL));
+	char image[100];
+	for (int i = 0; i < 100; i++) {
+		f_x = f_x;
+		f_y[i] = 600 + 150 * i;
+		int x = rand() % 3;
+		sprintf(image, "Images/%d.png", x + 1);
+
+		floor_ob[i] = createObject(image, scene1, f_x, f_y[i], true);
+		check_hit[i] = x + 1;
+	}
+	for (int i = 0; i < 3; i++) {
+		c_life[i] = createObject("images/Heart_1.png", scene1, 50 + 60 * i, 100, true);
+	}
+	hit_box = createObject("Images/hitbox.png", scene1, hit_x, hit_y, false);
+
+	for (int i = 0; i < 5; i++) {
+		STR[i] = createObject("Images/STR.png", scene_stat, 204 + i * 137, 337, false);
+	}
+
+	enemyTimer = createTimer(ANIMATION_TIME);
+	playerJumpTimer = createTimer(0.06f);
+	hitbox_Timer = createTimer(0.06f);
+	jumpR_Timer = createTimer(0.03f);
+	hitM_Timer = createTimer(0.029f);
+	back_Timer = createTimer(5.0f);
+
+	startTimer(enemyTimer);
+}
+
 bool check_crush_apt(int x, int y, int rx, int ry, int size) {
 	return (y >= ry) && (y <= ry + size);
 }
@@ -68,6 +101,38 @@ bool collided_hit_apt(int i) {
 	return check_crush_apt(hit_x, hit_y + 50, f_x, f_y[i], 150);
 }
 
+void stat_check_STR() {
+	if (life == 3) {
+		showObject(STR[5]);
+		showObject(STR[4]);
+		showObject(STR[3]);
+		showObject(STR[2]);
+		showObject(STR[1]);
+		showObject(STR[0]);
+	}
+	else if (life == 2) {
+		showObject(STR[3]);
+		showObject(STR[2]);
+		showObject(STR[1]);
+		showObject(STR[0]);
+	}
+	else if (life == 1) {
+		showObject(STR[1]);
+		showObject(STR[0]);
+	}
+	else if (life == 0) {
+		showObject(STR[0]);
+	}
+}
+
+void endgame_1() {
+	fxxk_1 = createObject("Images/fXXk.png", scene_stat, 400, 460, true);
+	enterScene(scene_stat);
+	stat_check_STR();
+	gametype = -1;
+	startTimer(back_Timer);
+}
+
 void Timer_callback_1(TimerID timer)
 {
 	if (timer == enemyTimer) {
@@ -76,8 +141,6 @@ void Timer_callback_1(TimerID timer)
 		for (int i = 0; i < 100; i++) {
 			gravity -= 0.000003;
 			speed += 0.000002;
-			//	c_grv += 1;
-
 			f_y[i] -= speed;
 			if (collided_apt(i)) {
 				c_i = i;
@@ -85,7 +148,6 @@ void Timer_callback_1(TimerID timer)
 			}
 			locateObject(floor_ob[i], scene1, f_x, f_y[i]);
 		}
-
 		if (c_apt_ch) {
 			ch_y = f_y[c_i] - 100;
 			vel = -2;
@@ -96,7 +158,7 @@ void Timer_callback_1(TimerID timer)
 				locateObject(floor_ob[c_i], scene1, f_x, f_y[c_i] += f_y[99]);
 				hideObject(c_life[life]);
 				if (life == 0) {
-					showMessage("실패하셨습니다");
+					endgame_1();
 					stopTimer(enemyTimer);
 				}
 			}
@@ -184,7 +246,7 @@ void Timer_callback_1(TimerID timer)
 					showMessage("빨라진다");
 				}
 				if (h_i == 99) {
-					showMessage("endGame");
+					endgame_1();
 					stopTimer(enemyTimer);
 				}
 			}
@@ -193,9 +255,13 @@ void Timer_callback_1(TimerID timer)
 		hideObject(hit_box);
 		hit_check = false;
 		setTimer(hitbox_Timer, 0.06f);
-
 	}
-
+	if (timer == back_Timer) {
+		enterScene(scene);
+		hideObject(fxxk_1);
+		gametype = 0;
+		hideObject(door[0]);
+	}
 }
 
 void Keyboard_callback_1(KeyCode code, KeyState state) {
@@ -222,7 +288,6 @@ void Keyboard_callback_1(KeyCode code, KeyState state) {
 			clock_t end = clock();
 			jdidx = 0;
 			double time = double(end - start) / CLOCKS_PER_SEC; //초단위 변환
-//			printf("경과시간 : %0.3lf\n", time); //소수점 셋째 자리까지
 			startTimer(playerJumpTimer);
 			stopTimer(jumpR_Timer);
 			setTimer(jumpR_Timer, 0.3f);
@@ -233,57 +298,4 @@ void Keyboard_callback_1(KeyCode code, KeyState state) {
 
 		}
 	}
-}
-/*
-void stat_check_STR() {
-	if (life == 3) {
-		showObject(STR[4]);
-		showObject(STR[3]);
-		showObject(STR[2]);
-		showObject(STR[1]);
-		showObject(STR[0]);
-	}
-	else if (life ==2) {
-		showObject(STR[3]);
-		showObject(STR[2]);
-		showObject(STR[1]);
-		showObject(STR[0]);
-	}
-	else if (life ==1) {
-		showObject(STR[2]);
-		showObject(STR[1]);
-		showObject(STR[0]);
-	}
-	else if (life ==0) {
-		showObject(STR[1]);
-		showObject(STR[0]);
-	}
-}
-*/
-
-void setting_1() {
-	f_y[0] = 600;
-	ch1 = createObject("images/ch1.png", scene1, ch_x, ch_y, true);
-	srand((unsigned int)time(NULL));
-	char image[100];
-	for (int i = 0; i < 100; i++) {
-		f_x = f_x;
-		f_y[i] = 600 + 150 * i;
-		int x = rand() % 3;
-		sprintf(image, "Images/%d.png", x + 1);
-
-		floor_ob[i] = createObject(image, scene1, f_x, f_y[i], true);
-		check_hit[i] = x + 1;
-	}
-	for (int i = 0; i < 3; i++) {
-		c_life[i] = createObject("images/Heart_1.png", scene1, 50 + 60 * i, 100, true);
-	}
-	hit_box = createObject("Images/hitbox.png", scene1, hit_x, hit_y, false);
-
-	enemyTimer = createTimer(ANIMATION_TIME);
-	playerJumpTimer = createTimer(0.06f);
-	hitbox_Timer = createTimer(0.06f);
-	jumpR_Timer = createTimer(0.03f);
-	hitM_Timer = createTimer(0.029f);
-	startTimer(enemyTimer);
 }
