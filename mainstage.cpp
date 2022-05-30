@@ -2,6 +2,7 @@
 
 // gametype = 0 ¸ÞÀÎ, 1 = stage1, 2=stage2, 3=stage3, 4=stage4, 5=bossstage
 
+extern int Quiz_stage4(); //stage4
 extern void main_2();  // stage2
 extern void setting_3();
 extern ObjectID createObject(const char* image, SceneID scene, int x, int y, bool shown);
@@ -47,7 +48,7 @@ void Mouse_callback_m(ObjectID object, int x, int y, MouseAction action) {
 		else if (object == door[3]) {
 			gametype = 4;
 			enterScene(scene4);
-			
+			Quiz_stage4();
 			
 		}
 	}
