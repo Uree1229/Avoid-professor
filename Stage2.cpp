@@ -1,9 +1,9 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <bangtal.h>
 
+extern int gametype;
 extern SceneID scene, scene2;
 ObjectID box[10], door1, restart;
 int boxX[10] = { 200, 400, 600, 800, 1000, 300, 500, 700, 900, 1100 };
@@ -17,22 +17,22 @@ void gameEnd_2()
 {
     //당첨된 상자 개수만큼 능력치 상승
     if (plusLuc == 0) {
-        showMessage("당신이 연 상자 중에서 당첨은 모두 0개 입니다. 행운 능력치가 0만큼 상승합니다.");
+        showMessage("Among the boxes you opened, there is no treasure box in total. The lucky ability value goes up by 0.");
     }
     else if (plusLuc == 1) {
-        showMessage("당신이 연 상자 중에서 당첨은 모두 1개 입니다. 행운 능력치가 1만큼 상승합니다. ");
+        showMessage("Among the boxes you opened, there is one treasure box in total. The lucky ability value goes up by 1. ");
     }
     else if (plusLuc == 2) {
-        showMessage("당신이 연 상자 중에서 당첨은 모두 2개 입니다. 행운 능력치가 2만큼 상승합니다.");
+        showMessage("Among the boxes you opened, there are two treasure boxes in total. The lucky ability value goes up by 2.");
     }
     else if (plusLuc == 3) {
-        showMessage("당신이 연 상자 중에서 당첨은 모두 3개 입니다. 행운 능력치가 3만큼 상승합니다.");
+        showMessage("Among the boxes you opened, there are three treasure boxes in total. The lucky ability value goes up by 3.");
     }
     else if (plusLuc == 4) {
-        showMessage("당신이 연 상자 중에서 당첨은 모두 4개 입니다. 행운 능력치가 4만큼 상승합니다. ");
+        showMessage("Among the boxes you opened, there are four treasure boxes in total. The lucky ability value goes up by 4. ");
     }
     else if (plusLuc == 5) {
-        showMessage("당신이 연 상자 중에서 당첨은 모두 5개 입니다. 행운 능력치가 5만큼 상승합니다.");
+        showMessage("Among the boxes you opened, there are five treasure boxes in total. The lucky ability value goes up by 5.");
     }
 
     //restart 버튼
@@ -140,6 +140,7 @@ void mouseCallback_2(ObjectID object, int x, int y, MouseAction action)
     if (object == door1)
     {
         enterScene(scene);
+        gametype = 0;
     }
 
     //restart 클릭하면
@@ -159,7 +160,7 @@ void mouseCallback_2(ObjectID object, int x, int y, MouseAction action)
 // 인트로
 void intro_2()
 {
-    showMessage("이 방에서는 당신의 행운을 시험해 볼 수 있습니다. 10개의 상자 중 5개만이 당신의 행운 능력치를 올려줍니다. 총 5개의 상자를 열 수 있습니다. 한 번의 시도 이후 다시 한번 더 도전할 수 있는 기회를 드리겠습니다.");
+    showMessage("You can try your luck in this room. Only five out of ten boxes raise your luck level. A total of 5 boxes can be opened. I'll give you another chance to try after one try.");
 }
 
 void main_2()
