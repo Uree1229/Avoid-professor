@@ -8,7 +8,7 @@ extern ObjectID createObject(const char* image, SceneID scene, int x, int y, boo
 int gametype = 0;
 using namespace std;
 
-SceneID scene, scene1, scene2, scene3, scene4, scene_stat;
+SceneID scene, scene1, scene2, scene3, scene4, scene_stat, sceneB;
 ObjectID door[4];
 
 void setting_m() {
@@ -17,6 +17,7 @@ void setting_m() {
 	scene2 = createScene("main", "Images/scene2.png");
 	scene3 = createScene("main", "Images/scene3.png");
 	scene4 = createScene("main", "Images/scene4.png");
+	sceneB = createScene("main","Images/scene1.png");  //보스 이미지 파일 만들어야함
 	scene_stat = createScene("main", "Images/stat.png");
 
 	for (int i = 0; i < 4; i++) {

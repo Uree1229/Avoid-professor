@@ -214,7 +214,9 @@ void Timer_callback_3(TimerID timer) {
 	else if (timer == timer_cr) {
 		enterScene(scene);
 		hideObject(fxxk);
+		gametype = 0;
 		setTimer(timer_cr, 5.0f);
+		
 	}
 
 }
