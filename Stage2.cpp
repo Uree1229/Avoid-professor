@@ -7,7 +7,7 @@ extern int gametype;
 extern SceneID scene, scene2, scene_stat;
 ObjectID box[10], door1, restart, LUK[6];
 int boxX[10] = { 200, 400, 600, 800, 1000, 300, 500, 700, 900, 1100 };
-int boxY[10] = { 300, 300, 300, 300, 300, 500, 500, 500, 500, 500 };
+int boxY[10] = { 250, 250, 250, 250, 250, 450, 450, 450, 450, 450 };
 int realBox = 0, boxOpen = 0, plusLuc = 0;
 bool re = false;
 using namespace std;
