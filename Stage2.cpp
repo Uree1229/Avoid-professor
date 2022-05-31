@@ -4,13 +4,13 @@
 #include <bangtal.h>
 
 extern int gametype;
-extern SceneID scene, scene2;
-ObjectID box[10], door1, restart;
+extern SceneID scene, scene2, scene_stat;
+ObjectID box[10], door1, restart, LUK[6];
 int boxX[10] = { 200, 400, 600, 800, 1000, 300, 500, 700, 900, 1100 };
 int boxY[10] = { 300, 300, 300, 300, 300, 500, 500, 500, 500, 500 };
 int realBox = 0, boxOpen = 0, plusLuc = 0;
 bool re = false;
-
+using namespace std;
 
 //상자 5개 열었을때 
 void gameEnd_2()
@@ -45,7 +45,6 @@ void gameEnd_2()
     door1 = createObject("Images/door.png");
     locateObject(door1, scene2, 20, 0);
     showObject(door1);
-
 }
 
 
@@ -122,6 +121,36 @@ void openBox_2(int x)
     }
 }
 
+//스텟체크
+void checkLUK() {
+    if (plusLuc == 5) {
+        showObject(LUK[5]);
+        showObject(LUK[4]);
+        showObject(LUK[3]);
+        showObject(LUK[2]);
+        showObject(LUK[1]);
+        showObject(LUK[0]);
+    }
+    else if (plusLuc == 4) {
+        showObject(LUK[3]);
+        showObject(LUK[2]);
+        showObject(LUK[1]);
+        showObject(LUK[0]);
+    }
+    else if (plusLuc == 3) {
+        showObject(LUK[2]);
+        showObject(LUK[1]);
+        showObject(LUK[0]);
+    }
+    else if (plusLuc == 2) {
+        showObject(LUK[1]);
+        showObject(LUK[0]);
+    }
+    else if (plusLuc == 1) {
+        showObject(LUK[0]);
+    }
+}
+
 void mouseCallback_2(ObjectID object, int x, int y, MouseAction action)
 {
     //상자 열때
@@ -139,8 +168,9 @@ void mouseCallback_2(ObjectID object, int x, int y, MouseAction action)
     //나가는 문 클릭하면
     if (object == door1)
     {
-        enterScene(scene);
-        gametype = 0;
+        enterScene(scene_stat);
+        checkLUK();
+        gametype = -1;
     }
 
     //restart 클릭하면
@@ -151,11 +181,10 @@ void mouseCallback_2(ObjectID object, int x, int y, MouseAction action)
         boxOpen = 0;
         realBox = 0;
         boxmix_2();
-        //startGame(scene2);
-
     }
 
 }
+
 
 // 인트로
 void intro_2()
@@ -167,11 +196,11 @@ void main_2()
 {
     setMouseCallback(mouseCallback_2);
 
-    //scene2 = createScene("상자 찾기", "Images/stage2.png");
-
+    for (int i = 0; i < 5; i++) {
+        LUK[i] = createObject("Images/STR.png");
+        locateObject(LUK[i], scene_stat, 204 + i * 137, 137);
+    }
 
     boxmix_2();
     intro_2();
-
-    //startGame(scene2);
 }
