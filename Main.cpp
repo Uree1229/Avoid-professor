@@ -4,8 +4,10 @@
 extern SceneID scene;
 extern void Mouse_callback_m(ObjectID object, int x, int y, MouseAction action);
 extern void Mouse_callback_3(ObjectID object, int x, int y, MouseAction action);
+extern void Mouse_callback_B(ObjectID object, int x, int y, MouseAction action);
 extern void Keyboard_callback_3(KeyCode key, KeyState state);
 extern void Keyboard_callback_1(KeyCode key, KeyState state);
+extern void Keyboard_callback_B(KeyCode key, KeyState state);
 
 extern void Keyboard_callback_m(KeyCode key, KeyState state);
 extern void Timer_callback_3(TimerID timer);
@@ -36,12 +38,14 @@ int random_number(int start, int end) {
 void mouseCallback(ObjectID object, int x, int y, MouseAction action) {
 	Mouse_callback_m(object, x, y, action);
 	Mouse_callback_3(object, x, y, action);
+	Mouse_callback_B(object, x, y, action);
 }
 
 void keyboardCallback(KeyCode code, KeyState state) {
 	Keyboard_callback_3(code, state);
 	Keyboard_callback_m(code, state);
 	Keyboard_callback_1(code, state);
+	Keyboard_callback_B(code, state);
 
 }
 

@@ -6,12 +6,13 @@ extern void main_2();  // stage2
 extern void setting_1();  // stage1
 extern void setting_3();
 extern int Quiz_stage4(); //stage4
+extern void setting_B();
 extern ObjectID createObject(const char* image, SceneID scene, int x, int y, bool shown);
 int gametype = 0;
 using namespace std;
 
 SceneID scene, scene1, scene2, scene3, scene4, scene_stat, sceneB;
-ObjectID door[4];
+ObjectID door[5];
 
 void setting_m() {
 	scene = createScene("main", "Images/back.png");
@@ -19,11 +20,12 @@ void setting_m() {
 	scene2 = createScene("main", "Images/scene2.png");
 	scene3 = createScene("main", "Images/scene3.png");
 	scene4 = createScene("main", "Images/scene4.png");
-	sceneB = createScene("main","Images/scene1.png"); 
+	sceneB = createScene("main","Images/scene_B.png"); 
 	scene_stat = createScene("main", "Images/stat.png");
 	for (int i = 0; i < 4; i++) {
 		door[i] = createObject("Images/door.png", scene, i * 300 + 100, i + 100, true);
 	}
+	door[4] = createObject("Images/door.png",scene, 640, 360, true);
 }
 
 void Mouse_callback_m(ObjectID object, int x, int y, MouseAction action) {
@@ -51,6 +53,11 @@ void Mouse_callback_m(ObjectID object, int x, int y, MouseAction action) {
 			hideObject(door[3]);
 			Quiz_stage4();
 
+		}
+		else if (object == door[4]) {
+			gametype = 5;
+			enterScene(sceneB);
+			hideObject(door[4]);
 		}
 	}
 }
