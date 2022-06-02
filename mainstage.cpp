@@ -5,6 +5,8 @@
 extern void main_2();  // stage2
 extern void setting_1();  // stage1
 extern void setting_3();
+extern void setting_B();
+
 extern int Quiz_stage4(); //stage4
 extern void setting_B();
 extern ObjectID createObject(const char* image, SceneID scene, int x, int y, bool shown);
@@ -58,6 +60,7 @@ void Mouse_callback_m(ObjectID object, int x, int y, MouseAction action) {
 			gametype = 5;
 			enterScene(sceneB);
 			hideObject(door[4]);
+			setting_B();
 		}
 	}
 }
