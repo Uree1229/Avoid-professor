@@ -29,6 +29,11 @@ ObjectID createObject(const char* image, SceneID scene, int x, int y, bool shown
 	}
 	return object;
 }
+void set_default() {
+	setGameOption(GameOption::GAME_OPTION_ROOM_TITLE, 0);
+	setGameOption(GameOption::GAME_OPTION_MESSAGE_BOX_BUTTON, 0);
+	setGameOption(GameOption::GAME_OPTION_INVENTORY_BUTTON, 0);
+}
 
 int random_number(int start, int end) {
 	random_device rd;
@@ -57,6 +62,7 @@ void soundCallback(SoundID sound) {
 void timerCallback(TimerID timer) {
 	Timer_callback_3(timer);
 	Timer_callback_1(timer);
+	Timer_callback_B(timer);
 
 }
 
@@ -66,6 +72,7 @@ int main() {
 	setSoundCallback(soundCallback);
 	setTimerCallback(timerCallback);
 	setting_m();
+	set_default();
 
 	startGame(scene);
 }

@@ -52,7 +52,7 @@ void Mouse_callback_m(ObjectID object, int x, int y, MouseAction action) {
 		else if (object == door[3]) {
 			gametype = 4;
 			enterScene(scene4);
-			//hideObject(door[3]);
+			hideObject(door[3]);
 			Quiz_stage4();
 
 		}

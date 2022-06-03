@@ -3,9 +3,10 @@
 #include <stdlib.h>
 
 //sceneID ObjectID Á¤¸®
-extern ObjectID door[4];
-extern SceneID scene, scene4, scene_stat, scene_1, scene_2, scene_3;
+extern ObjectID door[5];
+extern SceneID scene, scene4, scene_stat;
 extern int gametype;
+SceneID  scene_1, scene_2, scene_3;
 
 ObjectID INT_6_1,INT_6_2,INT_6_3,INT_6_4,INT_6_5, INT_4_1,INT_4_2,INT_4_3,INT_4_4, INT_2_1,INT_2_2,INT_2_3, INT_0_1, INT_0_2, start_stage4, quit, play, fxxk_4, category1, category2, category3, INT[6], Mquiz1, Mquiz2, Mquiz3, Equiz1, Equiz2, Equiz3, Nquiz1, Nquiz2, Nquiz3, Ma_1_1, Ma_1_2, Ma_1_3, Ma_2_1, Ma_2_2, Ma_2_3, Ma_3_1, Ma_3_2, Ma_3_3, Ea_1_1, Ea_1_2, Ea_1_3, Ea_2_1, Ea_2_2, Ea_2_3, Ea_3_1, Ea_3_2, Ea_3_3, Na_1_1, Na_1_2, Na_1_3, Na_2_1, Na_2_2, Na_2_3, Na_3_1, Na_3_2, Na_3_3;
 
