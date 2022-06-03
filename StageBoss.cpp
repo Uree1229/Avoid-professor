@@ -1,15 +1,18 @@
 #include <bangtal.h>
 
-TimerID timer_b, timer_hp, Timer_sk1,Timer_sk2,Timer_range, timer_band;
+TimerID timer_b, timer_hp, Timer_sk1,Timer_sk2,Timer_range, timer_band, timer_stop;
 ObjectID hp_p[4], Player, range1,range2,range3;
 extern SceneID sceneB;
 extern int gametype;
 extern int random_number(int start, int end);
 extern ObjectID createObject(const char* image, SceneID scene, int x, int y, bool shown);
 using namespace std;
-int HP_p = 3, HP_b = 100, type, Player_x=0, Player_y=0,ply=120,sk1_x, sk1_y,sk2_x,sk2_y;
+int HP_p = 3, HP_b = 100, type=0, Player_x=0, Player_y=0,ply=120,sk1_x, sk1_y,sk2_x,sk2_y,
+num_1=0,num_2=0;
 void boss_skill_1();
 void boss_skill_2();
+void boss_skill_3();
+void boss_skill_4();
 
 void set_time() {
 	timer_b = createTimer(1800.f);
@@ -18,13 +21,17 @@ void set_time() {
 	Timer_sk2 = createTimer(3.0f);
 	Timer_range = createTimer(0.5f);
 	timer_band = createTimer(1.0f);
+	timer_stop = createTimer(5.0f);
 	startTimer(timer_b);
 	startTimer(timer_hp);
 	showTimer(timer_b);
 
 }
+
 void boss_attack() {
-	type = random_number(2, 2);
+	if (type == 0) {
+		type = random_number(1, 2);
+	}
 	switch (type) {
 	case 1:
 		boss_skill_1();
@@ -33,11 +40,14 @@ void boss_attack() {
 		boss_skill_2();
 		break;
 	case 3:
+		boss_skill_3();
 		break;
 	case 4:
+		boss_skill_4();
 		break;
+		}
 	}
-}
+	
 void setting_B() {
 	showMessage("aaa"); //보스의 입장대사
 	set_time();
@@ -45,7 +55,8 @@ void setting_B() {
 		hp_p[i] = createObject("Images/Heart.png", sceneB, 30 + 70 * i, 50, true);
 	}
 	Player = createObject("Images/ch1.png", sceneB, Player_x,Player_y, true);
-	boss_attack();
+	startTimer(timer_stop);
+	
 }
 void hp_player() {
 
@@ -70,6 +81,8 @@ void boss_skill_1() { //F 범위 공격 100,100
 		locateObject(range1, sceneB, sk1_x, sk1_y);
 		showObject(range1);
 		startTimer(Timer_sk1);
+		num_1++;
+		
 	}	
 }
 void boss_skill_2() { // 점프로 피하는 거
@@ -82,12 +95,13 @@ void boss_skill_2() { // 점프로 피하는 거
 		showObject(range2);
 		showObject(range3);
 		startTimer(Timer_sk2);
+		num_2++;
 	}
 }
 void boss_skill_3() { // 
 
 }
-void boss_skill_4() {
+void boss_skill_4() {// 허깅상태
 
 }
 bool range_damage() {
@@ -105,8 +119,10 @@ bool range_damage() {
 		}
 		else return false;
 		break;
+
 	case 3:
 		break;
+
 	case 4:
 		break;
 	}
@@ -168,14 +184,29 @@ void Timer_callback_B(TimerID timer) {
 		setTimer(Timer_range, 0.5f);
 		if (type == 1) {
 			hideObject(range1);
-			boss_skill_1();
+			if (num_1 == 5) {
+				type = 4;
+				num_1 = 0;
+				boss_attack();
+			}else boss_skill_1(); 
+			
 		}
 		else if (type == 2) {
 			hideObject(range2);
 			hideObject(range3);
-			boss_skill_2();
+			if (num_2 ==5) {
+				type = 4;
+				num_2 = 0;
+				boss_attack();
+			}
+			else boss_skill_2();
 		}
 		
+	}
+	else if (timer_stop) {
+		boss_attack();
+		setTimer(timer_stop, 5.0f);
+		//startTimer(timer_stop);
 	}
 	else if (timer == timer_band) {
 		ply = 120;
