@@ -145,6 +145,7 @@
     <ClCompile Include="Stage2.cpp" />
     <ClCompile Include="Stage3.cpp" />
     <ClCompile Include="Stage4.cpp" />
+    <ClCompile Include="StageBoss.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h" />
