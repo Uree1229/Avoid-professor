@@ -49,15 +49,19 @@ void boss_attack() {
 	}
 	
 void setting_B() {
-	showMessage("aaa"); //보스의 입장대사
-	set_time();
-	for (int i = 0; i < 3; i++) {
-		hp_p[i] = createObject("Images/Heart.png", sceneB, 30 + 70 * i, 50, true);
+	if (gametype ==5) {
+		showMessage("aaa"); //보스의 입장대사
+		set_time();
+		for (int i = 0; i < 3; i++) {
+			hp_p[i] = createObject("Images/Heart.png", sceneB, 30 + 70 * i, 50, true);
+		}
+		Player = createObject("Images/ch1.png", sceneB, Player_x, Player_y, true);
+		startTimer(timer_stop);
+
 	}
-	Player = createObject("Images/ch1.png", sceneB, Player_x,Player_y, true);
-	startTimer(timer_stop);
 	
 }
+
 void hp_player() {
 
 	if (HP_p >= 2 && HP_p < 3) { // hp=2
@@ -102,7 +106,7 @@ void boss_skill_3() { //
 
 }
 void boss_skill_4() {// 허깅상태
-
+	
 }
 bool range_damage() {
 	switch (type) {
@@ -155,62 +159,66 @@ void Keyboard_callback_B(KeyCode code, KeyState state) { // default = 0,0 -> 크�
 
 }
 void Timer_callback_B(TimerID timer) {
-	if (timer == timer_hp) {
+	if (gametype ==5) {
+		if (timer == timer_hp) {
 
-		hp_player();
-		hp_boss();
-		setTimer(timer_hp, 1.0f);
-		startTimer(timer_hp);
-	}
-	else if (timer == Timer_sk1) {
-		setObjectImage(range1, "Images/F.png");
-		setTimer(Timer_sk1, 3.0f);
-		startTimer(Timer_range);
-		if (range_damage() == true) {
-			HP_p--;
+			hp_player();
+			hp_boss();
+			setTimer(timer_hp, 1.0f);
+			startTimer(timer_hp);
 		}
-	}
-	else if (timer == Timer_sk2) {
-		setObjectImage(range2, "Images/E.png");
-		setObjectImage(range3, "Images/E-1.png");
-		setTimer(Timer_sk2, 3.0f);
-		startTimer(Timer_range);
-		if (range_damage() == true) {
-			HP_p--;
-		}
-	}
-	else if (timer == Timer_range) {
-	
-		setTimer(Timer_range, 0.5f);
-		if (type == 1) {
-			hideObject(range1);
-			if (num_1 == 5) {
-				type = 4;
-				num_1 = 0;
-				boss_attack();
-			}else boss_skill_1(); 
-			
-		}
-		else if (type == 2) {
-			hideObject(range2);
-			hideObject(range3);
-			if (num_2 ==5) {
-				type = 4;
-				num_2 = 0;
-				boss_attack();
+		else if (timer == Timer_sk1) {
+			setObjectImage(range1, "Images/F.png");
+			setTimer(Timer_sk1, 3.0f);
+			startTimer(Timer_range);
+			if (range_damage() == true) {
+				HP_p--;
 			}
-			else boss_skill_2();
 		}
-		
+		else if (timer == Timer_sk2) {
+			setObjectImage(range2, "Images/E.png");
+			setObjectImage(range3, "Images/E-1.png");
+			setTimer(Timer_sk2, 3.0f);
+			startTimer(Timer_range);
+			if (range_damage() == true) {
+				HP_p--;
+			}
+		}
+		else if (timer == Timer_range) {
+
+			setTimer(Timer_range, 0.5f);
+			if (type == 1) {
+				hideObject(range1);
+				if (num_1 == 5) {
+					type = 4;
+					num_1 = 0;
+					boss_attack();
+				}
+				else boss_skill_1();
+
+			}
+			else if (type == 2) {
+				hideObject(range2);
+				hideObject(range3);
+				if (num_2 == 5) {
+					type = 4;
+					num_2 = 0;
+					boss_attack();
+				}
+				else boss_skill_2();
+			}
+
+		}
+		else if (timer_stop) {
+			boss_attack();
+			setTimer(timer_stop, 5.0f);
+			//startTimer(timer_stop);
+		}
+		else if (timer == timer_band) {
+			ply = 120;
+			setObjectImage(Player, "Images/ch1.png");
+			setTimer(timer_band, 1.0f);
+		}
 	}
-	else if (timer_stop) {
-		boss_attack();
-		setTimer(timer_stop, 5.0f);
-		//startTimer(timer_stop);
-	}
-	else if (timer == timer_band) {
-		ply = 120;
-		setObjectImage(Player, "Images/ch1.png");
-		setTimer(timer_band, 1.0f);
-	}
+	
 }
