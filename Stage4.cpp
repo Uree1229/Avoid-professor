@@ -77,7 +77,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     if (object == category1)
     {
         enterScene(scene_1);
-        showMessage("여기는 수학 퀴즈 방입니다. 퀴즈를 풀어서 '지식' 능력치를 향상시키세요.");
+        showMessage("Welcome to Math Quiz stage, you can get INT stat by clearing math quiz in this stage");
         showObject(Mquiz1);
         showObject(Ma_1_1);
         showObject(Ma_1_2);
@@ -87,7 +87,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     if (object == category2)
     {
         enterScene(scene_1);
-        showMessage("여기는 영어 단어 퀴즈 방입니다. 퀴즈를 풀어서 '지식' 능력치를 향상시키세요.");
+        showMessage("Welcome to Englis Quiz stage, you can get INT stat by clearing english quiz in this stage.");
         showObject(Equiz1);
         showObject(Ea_1_1);
         showObject(Ea_1_2);
@@ -97,7 +97,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     if (object == category3)
     {
         enterScene(scene_1);
-        showMessage("여기는 넌센스 퀴즈 방입니다. 퀴즈를 풀어서 '지식' 능력치를 향상시키세요.");
+        showMessage("Welcome to Math Nonsense stage, you can get INT stat by clearing nonsense quiz in this stage.");
         showObject(Nquiz1);
         showObject(Na_1_1);
         showObject(Na_1_2);
@@ -374,7 +374,7 @@ int Quiz_stage4() {
 
     //퀴즈 메인 방 장면 생성
     //scene4 = createScene("dungeonbackground", "scene4.png");
-    showMessage("퀴즈 방에 오신 것을 환영합니다. 주어지는 퀴즈를 풀어 '지식' 능력치를 향상시키세요.");
+    showMessage("Welcome to Quiz stage. Clear the given quiz and get INT stat that help you clear the game.");
 
 
     //퀴즈 방 생성
