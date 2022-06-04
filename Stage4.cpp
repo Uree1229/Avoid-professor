@@ -87,7 +87,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     if (object == category2)
     {
         enterScene(scene_1);
-        showMessage("Welcome to Englis Quiz stage, you can get INT stat by clearing english quiz in this stage.");
+        showMessage("Welcome to English Quiz stage, you can get INT stat by clearing english quiz in this stage.");
         showObject(Equiz1);
         showObject(Ea_1_1);
         showObject(Ea_1_2);
@@ -97,7 +97,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     if (object == category3)
     {
         enterScene(scene_1);
-        showMessage("Welcome to Math Nonsense stage, you can get INT stat by clearing nonsense quiz in this stage.");
+        showMessage("Welcome to Nonsense Quiz stage, you can get INT stat by clearing nonsense quiz in this stage.");
         showObject(Nquiz1);
         showObject(Na_1_1);
         showObject(Na_1_2);
