@@ -12,7 +12,7 @@ extern int random_number(int start, int end);
 ObjectID start, keyblock[4], note[100], heart1, heart2, heart3, DEX[6], fxxk;
 extern ObjectID door[4];
 extern int gametype;
-int dex=0,keytype = 100, heart = 3, score_stack = 0, score = 0, notetype = 0, keyblock_x = 590, keyblock_y = 310, key_state = 0, speed = 100, note_stack = 0, note_x[200], note_y[200], note_s[200];
+int dex=0,keytype = 100, heart = 3, score_stack = 0, score = 0, notetype = 0, keyblock_x = 590, keyblock_y = 310, key_state = 0, speed = 10, note_stack = 0, note_x[200], note_y[200], note_s[200];
 
 void note_add() {
 

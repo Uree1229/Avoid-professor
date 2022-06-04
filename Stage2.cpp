@@ -152,7 +152,7 @@ void checkLUK() {
         showObject(LUK[0]);
     }
     else if (plusLuc == 1) {
-        luk = 3;
+        luk = 1;
         showObject(LUK[0]);
     }
     else {

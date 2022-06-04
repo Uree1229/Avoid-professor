@@ -2,18 +2,18 @@
 
 TimerID timer_b, timer_hp, Timer_sk1,Timer_sk2, Timer_sk3,Timer_range, timer_band, timer_stop, Timer_sk4;
 TimerID j_Timer_b, hitbox_Timer_b, h_Timer, timer_move_b;
-ObjectID hp_p[4], Player, range1,range2,range3, hp_b[100],hit_range_b[5],hit_box_b;
+ObjectID hp_p[4], Player, range1,range2,range3, hp_b[100],hit_range_b[5],hit_box_b,rage, rage1;
 extern SceneID sceneB;
 extern int gametype, dex, luk, str, Int;
 extern int random_number(int start, int end);
 extern ObjectID createObject(const char* image, SceneID scene, int x, int y, bool shown);
 using namespace std;
 
-int HP_p = 1, HP_b = 1, type=0, Player_x=0, Player_y=0,ply=120,sk1_x, sk1_y,sk2_x,sk2_y,num_1=0,num_2=0;
-//3, 100
+int HP_p = 3, HP_b = 30, type=0, Player_x=0, Player_y=0,ply=120,sk1_x, sk1_y,sk2_x,sk2_y,num_1=0,num_2=0, num_3=0;
+
 int vel_ch_b,hit_xb,hit_yb,x2_b,dx_b;
 bool c_jump_b = false;
-bool check1, check2, check3, check4, check0 = false;
+bool Rage=false, check1, check2, check3, check4, check0 = false;
 
 
 void boss_skill_1();
@@ -44,7 +44,22 @@ void set_time() {
 
 void boss_attack() {
 	if (type == 0) {
-		type = random_number(1,2);
+		if (HP_b <= 100 && HP_b >30) {
+			type = random_number(1, 2);
+		}
+		else if (HP_b >= 0 && HP_b <= 30 ) {
+			type = 3;
+			if (Rage == false) {
+				Rage = true;
+				rage = createObject("Images/rage.png", sceneB, 645,321,true);
+				rage1 = createObject("Images/rage.png", sceneB, 740, 321, true);
+
+			}
+		}
+		else if(HP_b == 0){
+			
+		}
+		
 	}
 	switch (type) {
 	case 1:
@@ -115,32 +130,6 @@ void show_boss_hitbox() {
 	}
 }
 
-void hide_boss_hitbox(int x) {
-	switch (x) {
-	case 0:
-		hideObject(hit_range_b[0]);
-		check0 = false;
-		break;
-	case 1:
-		hideObject(hit_range_b[1]);
-		check1 = false;
-		break;
-	case 2:
-		hideObject(hit_range_b[2]);
-		check2 = false;
-		break;
-	case 3:
-		hideObject(hit_range_b[3]);
-		check3 = false;
-		break;
-	case 4:
-		hideObject(hit_range_b[4]);
-		check4 = false;
-		break;
-
-	}
-}
-
 bool check_crush_b(int x, int y, int rx, int ry, int size) {
 	return (y >= ry - y) && (y <= ry + size) && (x >= rx - x) && (x <= rx + size);
 }
@@ -148,7 +137,11 @@ bool check_crush_b(int x, int y, int rx, int ry, int size) {
 void check_hit_b() {
 	if (check0 == true) {
 		if (check_crush_b(hit_xb, hit_yb, 650, 230, 100)) {
-			HP_b -= 1+1*str;
+			int LUk = random_number(1, 1 + luk);
+			if (LUk > 3) {
+				showMessage("critical!");
+			}
+			HP_b -= luk + 1 * str;
 			check0 = false;
 			hideObject(hit_range_b[0]);
 			startTimer(Timer_sk4);
@@ -158,7 +151,11 @@ void check_hit_b() {
 	}
 	if (check1 == true) {
 		if (check_crush_b(hit_xb, hit_yb, 670, 300, 100)) {
-			HP_b -= 1+1 * str;
+			int LUk = random_number(1, 1 + luk);
+			if (LUk > 3) {
+				showMessage("critical!");
+			}
+			HP_b -= luk + 1 * str;
 			check1 = false;
 			hideObject(hit_range_b[1]);
 			startTimer(Timer_sk4);
@@ -168,7 +165,11 @@ void check_hit_b() {
 	}
 	if (check2 == true) {
 		if (check_crush_b(hit_xb, hit_yb, 550, 300, 100)) {
-			HP_b -= 1+1 * str;
+			int LUk = random_number(1, 1 + luk);
+			if (LUk > 3) {
+				showMessage("critical!");
+			}
+			HP_b -= luk + 1 * str;
 			check2 = false;
 			hideObject(hit_range_b[2]);
 			startTimer(Timer_sk4);
@@ -177,7 +178,11 @@ void check_hit_b() {
 	}
 	if (check3 == true) {
 		if (check_crush_b(hit_xb, hit_yb, 780, 310, 100)) {
-			HP_b -= 1+1 * str;
+			int LUk = random_number(1, 1 + luk);
+			if (LUk > 3) {
+				showMessage("critical!");
+			}
+			HP_b -= luk + 1 * str;
 			check3 = false;
 			hideObject(hit_range_b[3]);
 			startTimer(Timer_sk4);
@@ -186,7 +191,11 @@ void check_hit_b() {
 	}
 	if (check4 == true) {
 		if (check_crush_b(hit_xb, hit_yb, 670, 400,  100)) {
-			HP_b -=1+ 1 * str;
+			int LUk = random_number(1, 1+luk);
+			if (LUk > 3) {
+				showMessage("critical!");
+			}
+			HP_b -=luk+ 1 * str;
 			check4 = false;
 			hideObject(hit_range_b[4]);
 			startTimer(Timer_sk4);
@@ -194,8 +203,6 @@ void check_hit_b() {
 		}
 	}
 }
-
-
 void hp_player() {
 
 	if (HP_p >= 2 && HP_p < 3) { // hp=2
@@ -260,8 +267,7 @@ void boss_skill_3() {
 		showObject(range2);
 		showObject(range3);
 		startTimer(Timer_sk3);
-		num_1++;
-		num_2++;
+		num_3++;
 	}
 }
 void boss_skill_4() {// Çã±ë»óÅÂ
@@ -360,12 +366,6 @@ void Timer_callback_B(TimerID timer) {
 			ending();
 			startTimer(timer_hp);
 		}
-//		if (timer == timer_move_b) {
-	//		Player_x += dx_b;
-		//
-			//setTimer(timer_move_b, 0.01f);
-		//	startTimer(timer_move_b);
-		//}
 
 		else if (timer == Timer_sk1 && type == 1) {
 			setObjectImage(range1, "Images/F.png");
@@ -444,10 +444,9 @@ void Timer_callback_B(TimerID timer) {
 				hideObject(range1);
 				hideObject(range2);
 				hideObject(range3);
-				if (num_1==(20-Int*2) && num_2 == (20 - Int * 2)) {
+				if (num_3== (1)) { //20 - Int * 2
 					type = 4;
-					num_1 = 0;
-					num_2 = 0;
+					num_3 = 0;
 					boss_attack();
 				}
 				else {
