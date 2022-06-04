@@ -11,7 +11,7 @@ SceneID  scene_1, scene_2, scene_3;
 
 ObjectID INT_6_1, INT_6_2, INT_6_3, INT_6_4, INT_6_5, INT_4_1, INT_4_2, INT_4_3, INT_4_4, INT_2_1, INT_2_2, INT_2_3, INT_0_1, INT_0_2, start_stage4, quit, play, fxxk_4, category1, category2, category3, INT[6], Mquiz1, Mquiz2, Mquiz3, Equiz1, Equiz2, Equiz3, Nquiz1, Nquiz2, Nquiz3, Ma_1_1, Ma_1_2, Ma_1_3, Ma_2_1, Ma_2_2, Ma_2_3, Ma_3_1, Ma_3_2, Ma_3_3, Ea_1_1, Ea_1_2, Ea_1_3, Ea_2_1, Ea_2_2, Ea_2_3, Ea_3_1, Ea_3_2, Ea_3_3, Na_1_1, Na_1_2, Na_1_3, Na_2_1, Na_2_2, Na_2_3, Na_3_1, Na_3_2, Na_3_3;
 
-int life_4 = 3;        //처음 주어지는 life 는 3이다. 
+int life_4 = 0;        //처음 주어지는 life 는 3이다. 
                        //문제를 틀릴 때마다 life가 1씩 감소한다.
                        //남은 life에 따라 INT 스탯을 부여한다. 
 
@@ -110,7 +110,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     //1번 문제
     if (object == Ma_1_2 || object == Ma_1_3)
     {
-        life_4 -= 1; //정답이 아니면 INT를 -1 한다
+        //life_4 -= 1; //정답이 아니면 INT를 -1 한다
 
         hideObject(Ma_1_1);
         hideObject(Ma_1_2);
@@ -123,6 +123,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     }
     else if (object == Ma_1_1)
     {
+        life_4 += 1;
         hideObject(Ma_1_1);
         hideObject(Ma_1_2);
         hideObject(Ma_1_3);
@@ -135,7 +136,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     //2번 문제
     if (object == Ma_2_2 || object == Ma_2_3)
     {
-        life_4 -= 1;
+        //life_4 -= 1;
 
         hideObject(Ma_2_1);
         hideObject(Ma_2_2);
@@ -148,11 +149,12 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     }
     else if (object == Ma_2_1)
     {
+        life_4 += 1;
         hideObject(Ma_2_1);
         hideObject(Ma_2_2);
         hideObject(Ma_2_3);
         hideObject(Mquiz2);
-        showObject(Mquiz3);
+        showObject(Mquiz2);
         showObject(Ma_3_1);
         showObject(Ma_3_2);
         showObject(Ma_3_3);
@@ -160,7 +162,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     //3번 문제
     if (object == Ma_3_1 || object == Ma_3_2)
     {
-        life_4 -= 1;
+        //life_4 -= 1;
 
         hideObject(Ma_3_1);
         hideObject(Ma_3_2);
@@ -175,6 +177,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     }
     else if (object == Ma_3_3)
     {
+        life_4 += 1;
         hideObject(Ma_3_1);
         hideObject(Ma_3_2);
         hideObject(Ma_3_3);
@@ -194,7 +197,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     //1번 문제
     if (object == Ea_1_2 || object == Ea_1_3)
     {
-        life_4 -= 1;
+        //life_4 -= 1;
 
         hideObject(Ea_1_1);
         hideObject(Ea_1_2);
@@ -207,6 +210,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     }
     else if (object == Ea_1_1)
     {
+        life_4 += 1;
         hideObject(Ea_1_1);
         hideObject(Ea_1_2);
         hideObject(Ea_1_3);
@@ -219,7 +223,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     //2번 문제
     if (object == Ea_2_1 || object == Ea_2_2)
     {
-        life_4 -= 1;
+        //life_4 -= 1;
 
         hideObject(Ea_2_1);
         hideObject(Ea_2_2);
@@ -232,6 +236,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     }
     else if (object == Ea_2_3)
     {
+        life_4 += 1;
         hideObject(Ea_2_1);
         hideObject(Ea_2_2);
         hideObject(Ea_2_3);
@@ -244,7 +249,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     //3번 문제
     if (object == Ea_3_1 || object == Ea_3_2)
     {
-        life_4 -= 1;
+        //life_4 -= 1;
 
         hideObject(Ea_3_1);
         hideObject(Ea_3_2);
@@ -259,6 +264,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     }
     else if (object == Ea_3_3)
     {
+        life_4 += 1;
         hideObject(Ea_3_1);
         hideObject(Ea_3_2);
         hideObject(Ea_3_3);
@@ -277,8 +283,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     //1번 문제
     if (object == Na_1_2 || object == Na_1_3)
     {
-        life_4 -= 1;
-
+        //life_4 -= 1;
         hideObject(Na_1_1);
         hideObject(Na_1_2);
         hideObject(Na_1_3);
@@ -290,6 +295,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     }
     else if (object == Na_1_1)
     {
+        life_4 += 1;
         hideObject(Na_1_1);
         hideObject(Na_1_2);
         hideObject(Na_1_3);
@@ -302,7 +308,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     //2번 문제
     if (object == Na_2_2 || object == Na_2_3)
     {
-        life_4 -= 1;
+        //life_4 -= 1;
 
         hideObject(Na_2_1);
         hideObject(Na_2_2);
@@ -315,6 +321,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     }
     else if (object == Na_2_1)
     {
+        life_4 += 1;
         hideObject(Na_2_1);
         hideObject(Na_2_2);
         hideObject(Na_2_3);
@@ -327,7 +334,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     //3번 문제
     if (object == Na_3_2 || object == Na_3_3)
     {
-        life_4 -= 1;
+        //life_4 -= 1;
 
         hideObject(Na_3_1);
         hideObject(Na_3_2);
@@ -342,6 +349,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     }
     else if (object == Na_3_1)
     {
+        life_4 += 1;
         hideObject(Na_3_1);
         hideObject(Na_3_2);
         hideObject(Na_3_3);
@@ -374,7 +382,7 @@ int Quiz_stage4() {
 
     //퀴즈 메인 방 장면 생성
     //scene4 = createScene("dungeonbackground", "scene4.png");
-    showMessage("Welcome to Quiz stage. Clear the given quiz and get INT stat that help you clear the game.");
+    showMessage("Welcome to Quiz stage.Clear the given quiz and get INT stat that help you clear the game.");
 
 
     //퀴즈 방 생성
