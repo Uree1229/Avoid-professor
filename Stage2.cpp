@@ -18,22 +18,22 @@ void gameEnd_2()
 {
     //당첨된 상자 개수만큼 능력치 상승
     if (plusLuc == 0) {
-        showMessage("Among the boxes you opened, there is no treasure box in total. The lucky ability value goes up by 0.");
+        showMessage("Among the tests you took, there is no PASS in total. The lucky ability value goes up by 0.");
     }
     else if (plusLuc == 1) {
-        showMessage("Among the boxes you opened, there is one treasure box in total. The lucky ability value goes up by 1. ");
+        showMessage("Among the tests you took, there is one PASSes in total. The lucky ability value goes up by 1. ");
     }
     else if (plusLuc == 2) {
-        showMessage("Among the boxes you opened, there are two treasure boxes in total. The lucky ability value goes up by 2.");
+        showMessage("Among the tests you took, there are two PASSes in total. The lucky ability value goes up by 2.");
     }
     else if (plusLuc == 3) {
-        showMessage("Among the boxes you opened, there are three treasure boxes in total. The lucky ability value goes up by 3.");
+        showMessage("Among the tests you took, there are three PASSes in total. The lucky ability value goes up by 3.");
     }
     else if (plusLuc == 4) {
-        showMessage("Among the boxes you opened, there are four treasure boxes in total. The lucky ability value goes up by 4. ");
+        showMessage("Among the tests you took, there are four PASSes in total. The lucky ability value goes up by 4. ");
     }
     else if (plusLuc == 5) {
-        showMessage("Among the boxes you opened, there are five treasure boxes in total. The lucky ability value goes up by 5.");
+        showMessage("Among the tests you took, there are five PASSes in total. The lucky ability value goes up by 5.");
     }
 
     //restart 버튼
@@ -198,7 +198,7 @@ void mouseCallback_2(ObjectID object, int x, int y, MouseAction action)
 // 인트로
 void intro_2()
 {
-    showMessage("You can try your luck in this room. Only five out of ten boxes raise your luck level. A total of 5 boxes can be opened. I'll give you another chance to try after one try.");
+    showMessage("Take a test and check your luck. Only 5 out of 10 test papers will increase your luck level. You have another chance to take the test again.");
 }
 
 void main_2()
