@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//sceneID ObjectID Á¤¸®
+//sceneID ObjectID ì •ë¦¬
 extern ObjectID door[5];
 extern SceneID scene, scene4, scene_stat;
 extern int gametype;
@@ -11,15 +11,15 @@ SceneID  scene_1, scene_2, scene_3;
 
 ObjectID INT_6_1,INT_6_2,INT_6_3,INT_6_4,INT_6_5, INT_4_1,INT_4_2,INT_4_3,INT_4_4, INT_2_1,INT_2_2,INT_2_3, INT_0_1, INT_0_2, start_stage4, quit, play, fxxk_4, category1, category2, category3, INT[6], Mquiz1, Mquiz2, Mquiz3, Equiz1, Equiz2, Equiz3, Nquiz1, Nquiz2, Nquiz3, Ma_1_1, Ma_1_2, Ma_1_3, Ma_2_1, Ma_2_2, Ma_2_3, Ma_3_1, Ma_3_2, Ma_3_3, Ea_1_1, Ea_1_2, Ea_1_3, Ea_2_1, Ea_2_2, Ea_2_3, Ea_3_1, Ea_3_2, Ea_3_3, Na_1_1, Na_1_2, Na_1_3, Na_2_1, Na_2_2, Na_2_3, Na_3_1, Na_3_2, Na_3_3;
 
-int life_4 = 3;        //Ã³À½ ÁÖ¾îÁö´Â life ´Â 3ÀÌ´Ù. 
-                       //¹®Á¦¸¦ Æ²¸± ¶§¸¶´Ù life°¡ 1¾¿ °¨¼ÒÇÑ´Ù.
-                       //³²Àº life¿¡ µû¶ó INT ½ºÅÈÀ» ºÎ¿©ÇÑ´Ù. 
+int life_4 = 3;        //ì²˜ìŒ ì£¼ì–´ì§€ëŠ” life ëŠ” 3ì´ë‹¤. 
+                       //ë¬¸ì œë¥¼ í‹€ë¦´ ë•Œë§ˆë‹¤ lifeê°€ 1ì”© ê°ì†Œí•œë‹¤.
+                       //ë‚¨ì€ lifeì— ë”°ë¼ INT ìŠ¤íƒ¯ì„ ë¶€ì—¬í•œë‹¤. 
 
 extern ObjectID createObject(const char* image, SceneID scene, int x, int y, bool shown);
 
 
 
-//Á¡¼ö¿¡ µû¶ó stat ºÎ¿©
+//ì ìˆ˜ì— ë”°ë¼ stat ë¶€ì—¬
 void stat_check_stage4() 
 {
     if (life_4 == 3) {
@@ -53,11 +53,11 @@ void stat_check_stage4()
     }
 }
 
-//Äİ¹éÇÔ¼ö Á¤ÀÇ 
+//ì½œë°±í•¨ìˆ˜ ì •ì˜ 
 void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
 {
 
-    //Á¾·á ¹öÆ°ÀÌ ´­·ÁÁö¸é stat °á°ú ³ª¿À¸é¼­ ¸ŞÀÎ½ºÅ×ÀÌÁö·Î µ¹¾Æ°¡±â
+    //ì¢…ë£Œ ë²„íŠ¼ì´ ëˆŒë ¤ì§€ë©´ stat ê²°ê³¼ ë‚˜ì˜¤ë©´ì„œ ë©”ì¸ìŠ¤í…Œì´ì§€ë¡œ ëŒì•„ê°€ê¸°
     if (object == quit)
     {
         //scene_stat = createScene("scene_stat", "Images/stat.png");
@@ -73,11 +73,11 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     }    
 
 
-    //¹öÆ° ´©¸£¸é °¢°¢ÀÇ ÄûÁî ¹æÀ¸·Î ÀÔÀå
+    //ë²„íŠ¼ ëˆ„ë¥´ë©´ ê°ê°ì˜ í€´ì¦ˆ ë°©ìœ¼ë¡œ ì…ì¥
     if (object == category1)
     {
         enterScene(scene_1);
-        showMessage("¿©±â´Â ¼öÇĞ ÄûÁî ¹æÀÔ´Ï´Ù. ÄûÁî¸¦ Ç®¾î¼­ 'Áö½Ä' ´É·ÂÄ¡¸¦ Çâ»ó½ÃÅ°¼¼¿ä.");
+        showMessage("ì—¬ê¸°ëŠ” ìˆ˜í•™ í€´ì¦ˆ ë°©ì…ë‹ˆë‹¤. í€´ì¦ˆë¥¼ í’€ì–´ì„œ 'ì§€ì‹' ëŠ¥ë ¥ì¹˜ë¥¼ í–¥ìƒì‹œí‚¤ì„¸ìš”.");
         showObject(Mquiz1);
         showObject(Ma_1_1);
         showObject(Ma_1_2);
@@ -87,7 +87,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     if (object == category2)
     {
         enterScene(scene_1);
-        showMessage("¿©±â´Â ¿µ¾î ´Ü¾î ÄûÁî ¹æÀÔ´Ï´Ù. ÄûÁî¸¦ Ç®¾î¼­ 'Áö½Ä' ´É·ÂÄ¡¸¦ Çâ»ó½ÃÅ°¼¼¿ä.");
+        showMessage("ì—¬ê¸°ëŠ” ì˜ì–´ ë‹¨ì–´ í€´ì¦ˆ ë°©ì…ë‹ˆë‹¤. í€´ì¦ˆë¥¼ í’€ì–´ì„œ 'ì§€ì‹' ëŠ¥ë ¥ì¹˜ë¥¼ í–¥ìƒì‹œí‚¤ì„¸ìš”.");
         showObject(Equiz1);
         showObject(Ea_1_1);
         showObject(Ea_1_2);
@@ -97,7 +97,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     if (object == category3)
     {
         enterScene(scene_1);
-        showMessage("¿©±â´Â ³Í¼¾½º ÄûÁî ¹æÀÔ´Ï´Ù. ÄûÁî¸¦ Ç®¾î¼­ 'Áö½Ä' ´É·ÂÄ¡¸¦ Çâ»ó½ÃÅ°¼¼¿ä.");
+        showMessage("ì—¬ê¸°ëŠ” ë„Œì„¼ìŠ¤ í€´ì¦ˆ ë°©ì…ë‹ˆë‹¤. í€´ì¦ˆë¥¼ í’€ì–´ì„œ 'ì§€ì‹' ëŠ¥ë ¥ì¹˜ë¥¼ í–¥ìƒì‹œí‚¤ì„¸ìš”.");
         showObject(Nquiz1);
         showObject(Na_1_1);
         showObject(Na_1_2);
@@ -105,12 +105,12 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     }
 
 
-    //¼öÇĞ ÄûÁî ¹æ ÀÔÀå    ÄûÁî´Â Á¤´ä ¿©ºÎ¿¡ °ü°è¾øÀÌ ´äÀ» Å¬¸¯ÇÏ¸é ´ÙÀ½¹®Á¦·Î ³Ñ¾î°¨
+    //ìˆ˜í•™ í€´ì¦ˆ ë°© ì…ì¥    í€´ì¦ˆëŠ” ì •ë‹µ ì—¬ë¶€ì— ê´€ê³„ì—†ì´ ë‹µì„ í´ë¦­í•˜ë©´ ë‹¤ìŒë¬¸ì œë¡œ ë„˜ì–´ê°
     
-    //1¹ø ¹®Á¦
+    //1ë²ˆ ë¬¸ì œ
     if (object == Ma_1_2 || object == Ma_1_3) 
     {
-        life_4 -= 1; //Á¤´äÀÌ ¾Æ´Ï¸é INT¸¦ -1 ÇÑ´Ù
+        life_4 -= 1; //ì •ë‹µì´ ì•„ë‹ˆë©´ INTë¥¼ -1 í•œë‹¤
 
         hideObject(Ma_1_1);
         hideObject(Ma_1_2);
@@ -132,7 +132,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
         showObject(Ma_2_2);
         showObject(Ma_2_3);
     }
-    //2¹ø ¹®Á¦
+    //2ë²ˆ ë¬¸ì œ
     if (object == Ma_2_2 || object == Ma_2_3)
     {
         life_4 -= 1;
@@ -157,17 +157,17 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
         showObject(Ma_3_2);
         showObject(Ma_3_3);
     }
-    //3¹ø ¹®Á¦
+    //3ë²ˆ ë¬¸ì œ
     if (object == Ma_3_1 || object == Ma_3_2)
     {
         life_4 -= 1;
 
-        hideObject(Ma_3_3);
+        hideObject(Ma_3_1);
         hideObject(Ma_3_2);
         hideObject(Ma_3_3);
         hideObject(Mquiz3);
 
-        enterScene(scene4);   //ÄûÁî¸¦ ´Ù Ç®¸é ³ª°¡´Â ¹æÀ¸·Î µ¹¾Æ¿È
+        enterScene(scene4);   //í€´ì¦ˆë¥¼ ë‹¤ í’€ë©´ ë‚˜ê°€ëŠ” ë°©ìœ¼ë¡œ ëŒì•„ì˜´
         hideObject(start_stage4);
         hideObject(category1);
         hideObject(category2);
@@ -180,7 +180,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
         hideObject(Ma_3_3);
         hideObject(Mquiz3);
 
-        enterScene(scene4);   //ÄûÁî¸¦ ´Ù Ç®¸é ³ª°¡´Â ¹æÀ¸·Î µ¹¾Æ¿È
+        enterScene(scene4);   //í€´ì¦ˆë¥¼ ë‹¤ í’€ë©´ ë‚˜ê°€ëŠ” ë°©ìœ¼ë¡œ ëŒì•„ì˜´
 
         hideObject(start_stage4);
         hideObject(category1);
@@ -189,9 +189,9 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     }
 
 
-    //¿µ¾î ÄûÁî ¹æ ÀÔÀå
+    //ì˜ì–´ í€´ì¦ˆ ë°© ì…ì¥
     
-    //1¹ø ¹®Á¦
+    //1ë²ˆ ë¬¸ì œ
     if (object == Ea_1_2 || object == Ea_1_3)
     {
         life_4 -= 1;
@@ -216,12 +216,12 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
         showObject(Ea_2_2);
         showObject(Ea_2_3);
     }
-    //2¹ø ¹®Á¦
+    //2ë²ˆ ë¬¸ì œ
     if (object == Ea_2_1 || object == Ea_2_2)
     {
         life_4 -= 1;
 
-        hideObject(Ea_2_2);
+        hideObject(Ea_2_1);
         hideObject(Ea_2_2);
         hideObject(Ea_2_3);
 
@@ -232,7 +232,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     }
     else if (object == Ea_2_3)
     {
-        hideObject(Ea_2_2);
+        hideObject(Ea_2_1);
         hideObject(Ea_2_2);
         hideObject(Ea_2_3);
 
@@ -241,16 +241,16 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
         showObject(Ea_3_2);
         showObject(Ea_3_3);
     }
-    //3¹ø ¹®Á¦
+    //3ë²ˆ ë¬¸ì œ
     if (object == Ea_3_1 || object == Ea_3_2)
     {
         life_4 -= 1;
 
-        hideObject(Ea_3_3);
+        hideObject(Ea_3_1);
         hideObject(Ea_3_2);
         hideObject(Ea_3_3);
 
-        enterScene(scene4);   //ÄûÁî¸¦ ´Ù Ç®¸é ³ª°¡´Â ¹æÀ¸·Î µ¹¾Æ¿È
+        enterScene(scene4);   //í€´ì¦ˆë¥¼ ë‹¤ í’€ë©´ ë‚˜ê°€ëŠ” ë°©ìœ¼ë¡œ ëŒì•„ì˜´
 
         hideObject(start_stage4);
         hideObject(category1);
@@ -259,11 +259,11 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     }
     else if (object == Ea_3_3)
     {
-        hideObject(Ea_3_3);
+        hideObject(Ea_3_1);
         hideObject(Ea_3_2);
         hideObject(Ea_3_3);
 
-        enterScene(scene4);   //ÄûÁî¸¦ ´Ù Ç®¸é ³ª°¡´Â ¹æÀ¸·Î µ¹¾Æ¿È
+        enterScene(scene4);   //í€´ì¦ˆë¥¼ ë‹¤ í’€ë©´ ë‚˜ê°€ëŠ” ë°©ìœ¼ë¡œ ëŒì•„ì˜´
 
         hideObject(start_stage4);
         hideObject(category1);
@@ -272,9 +272,9 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     }
 
 
-    //³Í¼¾½º ÄûÁî ¹æ ÀÔÀå
+    //ë„Œì„¼ìŠ¤ í€´ì¦ˆ ë°© ì…ì¥
 
-    //1¹ø ¹®Á¦
+    //1ë²ˆ ë¬¸ì œ
     if (object == Na_1_2 || object == Na_1_3)
     {
         life_4 -= 1;
@@ -299,12 +299,12 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
         showObject(Na_2_2);
         showObject(Na_2_3);
     }
-    //2¹ø ¹®Á¦
+    //2ë²ˆ ë¬¸ì œ
     if (object == Na_2_2 || object == Na_2_3)
     {
         life_4 -= 1;
 
-        hideObject(Na_2_2);
+        hideObject(Na_2_1);
         hideObject(Na_2_2);
         hideObject(Na_2_3);
 
@@ -315,7 +315,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     }
     else if (object == Na_2_1)
     {
-        hideObject(Na_2_2);
+        hideObject(Na_2_1);
         hideObject(Na_2_2);
         hideObject(Na_2_3);
 
@@ -324,16 +324,16 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
         showObject(Na_3_2);
         showObject(Na_3_3);
     }
-    //3¹ø ¹®Á¦
+    //3ë²ˆ ë¬¸ì œ
     if (object == Na_3_2 || object == Na_3_3)
     {
         life_4 -= 1;
 
-        hideObject(Na_3_3);
+        hideObject(Na_3_1);
         hideObject(Na_3_2);
         hideObject(Na_3_3);
 
-        enterScene(scene4);   //ÄûÁî¸¦ ´Ù Ç®¸é ³ª°¡´Â ¹æÀ¸·Î µ¹¾Æ¿È
+        enterScene(scene4);   //í€´ì¦ˆë¥¼ ë‹¤ í’€ë©´ ë‚˜ê°€ëŠ” ë°©ìœ¼ë¡œ ëŒì•„ì˜´
 
         hideObject(start_stage4);
         hideObject(category1);
@@ -342,11 +342,11 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     }
     else if (object == Na_3_1)
     {
-        hideObject(Na_3_3);
+        hideObject(Na_3_1);
         hideObject(Na_3_2);
         hideObject(Na_3_3);
 
-        enterScene(scene4);   //ÄûÁî¸¦ ´Ù Ç®¸é ³ª°¡´Â ¹æÀ¸·Î µ¹¾Æ¿È
+        enterScene(scene4);   //í€´ì¦ˆë¥¼ ë‹¤ í’€ë©´ ë‚˜ê°€ëŠ” ë°©ìœ¼ë¡œ ëŒì•„ì˜´
 
         hideObject(start_stage4);
         hideObject(category1);
@@ -355,7 +355,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
     }
 
 
-    //start ¹öÆ°À» ´©¸£¸é 
+    //start ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ 
     if (object = start_stage4) 
     {
         showObject(category1);
@@ -365,80 +365,80 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
 }
 
 
-//¸ŞÀÎ ÇÔ¼ö
+//ë©”ì¸ í•¨ìˆ˜
 int Quiz_stage4() {
 
-    //Äİ¹é ÇÔ¼ö µî·Ï
+    //ì½œë°± í•¨ìˆ˜ ë“±ë¡
     
 
 
-    //ÄûÁî ¸ŞÀÎ ¹æ Àå¸é »ı¼º
+    //í€´ì¦ˆ ë©”ì¸ ë°© ì¥ë©´ ìƒì„±
     //scene4 = createScene("dungeonbackground", "scene4.png");
-    showMessage("ÄûÁî ¹æ¿¡ ¿À½Å °ÍÀ» È¯¿µÇÕ´Ï´Ù. ÁÖ¾îÁö´Â ÄûÁî¸¦ Ç®¾î 'Áö½Ä' ´É·ÂÄ¡¸¦ Çâ»ó½ÃÅ°¼¼¿ä.");
+    showMessage("í€´ì¦ˆ ë°©ì— ì˜¤ì‹  ê²ƒì„ í™˜ì˜í•©ë‹ˆë‹¤. ì£¼ì–´ì§€ëŠ” í€´ì¦ˆë¥¼ í’€ì–´ 'ì§€ì‹' ëŠ¥ë ¥ì¹˜ë¥¼ í–¥ìƒì‹œí‚¤ì„¸ìš”.");
 
 
-    //ÄûÁî ¹æ »ı¼º
+    //í€´ì¦ˆ ë°© ìƒì„±
     scene_1 = createScene("math_QUIZ", "Images/mathdungeon.png");
     //scene_2 = createScene("english_QUIZ", "Images/englishdungeon.png");
     //scene_3 = createScene("nonsense_QUIZ", "Images/nonsensedungeon.png");
    
 
-    //start ¹öÆ°
+    //start ë²„íŠ¼
     start_stage4 = createObject("Images/startbutton.png", scene4, 750, 300, false);
     scaleObject(start_stage4, 0.5f);
     showObject(start_stage4);
 
 
-    //³ª°¡´Â ¹®(¹öÆ°)
+    //ë‚˜ê°€ëŠ” ë¬¸(ë²„íŠ¼)
     quit = createObject("Images/door.png", scene4, 480, 200, false);
     showObject(quit);
 
 
-    //stat »ı¼º
+    //stat ìƒì„±
     
     INT_6_4 = createObject("Images/INT.png", scene_stat, 204 + 548, 237, false);
     INT_6_3 = createObject("Images/INT.png", scene_stat, 204 + 411, 237, false);
     INT_6_2 = createObject("Images/INT.png", scene_stat, 204 + 274, 237, false);
     INT_6_1 = createObject("Images/INT.png", scene_stat, 204 + 137, 237, false);
-    INT_6_5 = createObject("Images/INT.png", scene_stat, 204, 237, false);        //´Ù ¸Â¾ÒÀ» ¶§  
+    INT_6_5 = createObject("Images/INT.png", scene_stat, 204, 237, false);        //ë‹¤ ë§ì•˜ì„ ë•Œ  
     INT_4_1 = createObject("Images/INT.png", scene_stat, 204 + 411, 237, false);
     INT_4_2 = createObject("Images/INT.png", scene_stat, 204 + 274, 237, false);
     INT_4_3 = createObject("Images/INT.png", scene_stat, 204 + 137, 237, false); 
-    INT_4_4 = createObject("Images/INT.png", scene_stat, 204, 237, false);        //ÇÏ³ª Æ²·ÈÀ» ¶§
+    INT_4_4 = createObject("Images/INT.png", scene_stat, 204, 237, false);        //í•˜ë‚˜ í‹€ë ¸ì„ ë•Œ
     INT_2_1 = createObject("Images/INT.png", scene_stat, 204 + 274, 237, false);
     INT_2_2 = createObject("Images/INT.png", scene_stat, 204 + 137, 237, false);  
-    INT_2_3 = createObject("Images/INT.png", scene_stat, 204, 237, false);        //µÎ ¹®Á¦ Æ²·ÈÀ» ¶§
+    INT_2_3 = createObject("Images/INT.png", scene_stat, 204, 237, false);        //ë‘ ë¬¸ì œ í‹€ë ¸ì„ ë•Œ
     INT_0_1 = createObject("Images/INT.png", scene_stat, 204 + 137, 237, false);    
-    INT_0_2 = createObject("Images/INT.png", scene_stat, 204, 237, false);        //¼¼ ¹®Á¦ ´Ù Æ²·ÈÀ» ¶§
+    INT_0_2 = createObject("Images/INT.png", scene_stat, 204, 237, false);        //ì„¸ ë¬¸ì œ ë‹¤ í‹€ë ¸ì„ ë•Œ
     
 
 
-    //°ÔÀÓ Ä«Å×°í¸® »ı¼º   
-    //Ä«Å×°í¸®1: ³Í¼¾½º ÄûÁî
+    //ê²Œì„ ì¹´í…Œê³ ë¦¬ ìƒì„±   
+    //ì¹´í…Œê³ ë¦¬1: ë„Œì„¼ìŠ¤ í€´ì¦ˆ
     category1 = createObject("Images/redbutton.png", scene4, 600, 550, false);    
-    //Ä«Å×°í¸®2: ¼öÇĞ ÄûÁî
+    //ì¹´í…Œê³ ë¦¬2: ìˆ˜í•™ í€´ì¦ˆ
     category2 = createObject("Images/greenbutton.png", scene4, 900, 550, false);    
-    //Ä«Å×°í¸®3: ¿µ¾î´Ü¾î ÄûÁî
+    //ì¹´í…Œê³ ë¦¬3: ì˜ì–´ë‹¨ì–´ í€´ì¦ˆ
     category3 = createObject("Images/yellowbutton.png", scene4, 1200, 550, false);   
    
 
 
-    //Ä«Å×°í¸®º° ÄûÁî ¹®Á¦&´ä »ı¼ºÇÏ±â
-    //¼öÇĞ ¹®Á¦ »ı¼º
+    //ì¹´í…Œê³ ë¦¬ë³„ í€´ì¦ˆ ë¬¸ì œ&ë‹µ ìƒì„±í•˜ê¸°
+    //ìˆ˜í•™ ë¬¸ì œ ìƒì„±
     Mquiz1 = createObject("Images/Mquiz1.png", scene_1, 500, 250, false);
     scaleObject(Mquiz1, 2.3f);
     Mquiz2 = createObject("Images/Mquiz2.png", scene_1, 500, 250, false);
     scaleObject(Mquiz2, 2.3f);    
     Mquiz3 = createObject("Images/Mquiz3.png", scene_1, 500, 250, false);
     scaleObject(Mquiz3, 2.3f);   
-    //¿µ¾î ´Ü¾î ¹®Á¦ »ı¼º
+    //ì˜ì–´ ë‹¨ì–´ ë¬¸ì œ ìƒì„±
     Equiz1 = createObject("Images/Equiz1.png", scene_1, 500, 250, false);
     scaleObject(Equiz1, 2.3f);
     Equiz2 = createObject("Images/Equiz2.png", scene_1, 500, 250, false);
     scaleObject(Equiz2, 2.3f);
     Equiz3 = createObject("Images/Equiz3.png", scene_1, 500, 250, false);
     scaleObject(Equiz3, 2.3f);
-    //³Í¼¾½º ¹®Á¦ »ı¼º
+    //ë„Œì„¼ìŠ¤ ë¬¸ì œ ìƒì„±
     Nquiz1 = createObject("Images/Nquiz1.png", scene_1, 500, 250, false);
     scaleObject(Nquiz1, 2.3f);
     Nquiz2 = createObject("Images/Nquiz2.png", scene_1, 500, 250, false);
@@ -447,7 +447,7 @@ int Quiz_stage4() {
     scaleObject(Nquiz3, 2.3f);
     
 
-    //¼öÇĞ ´ä »ı¼º
+    //ìˆ˜í•™ ë‹µ ìƒì„±
     Ma_1_1 = createObject("Images/ma1-1.png", scene_1, 550, 200, false);
     scaleObject(Ma_1_1, 0.5f);
     Ma_1_2 = createObject("Images/ma1-2.png", scene_1, 850, 200, false);
@@ -470,7 +470,7 @@ int Quiz_stage4() {
     scaleObject(Ma_3_3, 0.5f);
         
   
-    //¿µ¾î ´ä »ı¼º
+    //ì˜ì–´ ë‹µ ìƒì„±
     Ea_1_1 = createObject("Images/ea1-1.png", scene_1, 550, 200, false);
     scaleObject(Ea_1_1, 0.5f);
     Ea_1_2 = createObject("Images/ea1-2.png", scene_1, 850, 200, false);
@@ -493,7 +493,7 @@ int Quiz_stage4() {
     scaleObject(Ea_3_3, 0.5f);
 
     
-    //³Í¼¾½º ´ä »ı¼º
+    //ë„Œì„¼ìŠ¤ ë‹µ ìƒì„±
     Na_1_1 = createObject("Images/na1-1.png", scene_1, 550, 200, false);
     scaleObject(Na_1_1, 0.5f);
     Na_1_2 = createObject("Images/na1-2.png", scene_1, 850, 200, false);
