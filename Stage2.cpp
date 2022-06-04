@@ -9,6 +9,7 @@ ObjectID box[10], door1, restart, LUK[6];
 int boxX[10] = { 200, 400, 600, 800, 1000, 300, 500, 700, 900, 1100 };
 int boxY[10] = { 250, 250, 250, 250, 250, 450, 450, 450, 450, 450 };
 int realBox = 0, boxOpen = 0, plusLuc = 0;
+int luk=0;
 bool re = false;
 using namespace std;
 
@@ -124,6 +125,7 @@ void openBox_2(int x)
 //스텟체크
 void checkLUK() {
     if (plusLuc == 5) {
+        luk = 5;
         showObject(LUK[5]);
         showObject(LUK[4]);
         showObject(LUK[3]);
@@ -132,22 +134,29 @@ void checkLUK() {
         showObject(LUK[0]);
     }
     else if (plusLuc == 4) {
+        luk = 4;
         showObject(LUK[3]);
         showObject(LUK[2]);
         showObject(LUK[1]);
         showObject(LUK[0]);
     }
     else if (plusLuc == 3) {
+        luk = 3;
         showObject(LUK[2]);
         showObject(LUK[1]);
         showObject(LUK[0]);
     }
     else if (plusLuc == 2) {
+        luk = 2;
         showObject(LUK[1]);
         showObject(LUK[0]);
     }
     else if (plusLuc == 1) {
+        luk = 3;
         showObject(LUK[0]);
+    }
+    else {
+        luk = 0;
     }
 }
 
@@ -194,10 +203,10 @@ void intro_2()
 
 void main_2()
 {
-    setMouseCallback(mouseCallback_2);
+   
 
     for (int i = 0; i < 5; i++) {
-        LUK[i] = createObject("Images/STR.png");
+        LUK[i] = createObject("Images/LUK.png");
         locateObject(LUK[i], scene_stat, 204 + i * 137, 137);
     }
 

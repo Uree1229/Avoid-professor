@@ -35,6 +35,7 @@ void Mouse_callback_m(ObjectID object, int x, int y, MouseAction action) {
 		if (object == door[0]) {
 			gametype = 1;
 			enterScene(scene1);
+			hideObject(door[0]);
 			setting_1();
 		}
 		else if (object == door[1]) {

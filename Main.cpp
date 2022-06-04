@@ -5,6 +5,8 @@ extern SceneID scene;
 extern void Mouse_callback_m(ObjectID object, int x, int y, MouseAction action);
 extern void Mouse_callback_3(ObjectID object, int x, int y, MouseAction action);
 extern void Mouse_callback_B(ObjectID object, int x, int y, MouseAction action);
+extern void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action);
+extern void mouseCallback_2(ObjectID object, int x, int y, MouseAction action);
 
 extern void Keyboard_callback_3(KeyCode key, KeyState state);
 extern void Keyboard_callback_1(KeyCode key, KeyState state);
@@ -46,6 +48,8 @@ void mouseCallback(ObjectID object, int x, int y, MouseAction action) {
 	Mouse_callback_m(object, x, y, action);
 	Mouse_callback_3(object, x, y, action);
 	Mouse_callback_B(object, x, y, action);
+	mouseCallback_in_stage4(object, x, y, action);
+	mouseCallback_2(object, x, y, action);
 }
 
 void keyboardCallback(KeyCode code, KeyState state) {
@@ -71,8 +75,9 @@ int main() {
 	setKeyboardCallback(keyboardCallback);
 	setSoundCallback(soundCallback);
 	setTimerCallback(timerCallback);
+
 	setting_m();
-	set_default();
+	//set_default();
 
 	startGame(scene);
 }

@@ -4,7 +4,7 @@
 
 using namespace std;
 
-TimerID timer_cr, timer_del, timer_cre, timer_drop;
+TimerID timer_cr, timer_del, timer_drop;
 
 extern SceneID scene, scene3, scene_stat;
 extern ObjectID createObject(const char* image, SceneID scene, int x, int y, bool shown);
@@ -12,8 +12,7 @@ extern int random_number(int start, int end);
 ObjectID start, keyblock[4], note[100], heart1, heart2, heart3, DEX[6], fxxk;
 extern ObjectID door[4];
 extern int gametype;
-int keytype = 100, heart = 3, score_stack = 0, score = 0, notetype = 0, keyblock_x = 590, keyblock_y = 310, key_state = 0, speed = 100, note_stack = 0, note_x[200], note_y[200], note_s[200];
-Second time_DEL = 0.25f;
+int dex=0,keytype = 100, heart = 3, score_stack = 0, score = 0, notetype = 0, keyblock_x = 590, keyblock_y = 310, key_state = 0, speed = 100, note_stack = 0, note_x[200], note_y[200], note_s[200];
 
 void note_add() {
 
@@ -57,7 +56,7 @@ void note_add() {
 
 }
 void setting_3() {
-	timer_del = createTimer(time_DEL);
+	timer_del = createTimer(0.25f);
 	start = createObject("Images/start.png", scene3, 200, 200, true);
 	heart1 = createObject("Images/Heart.png", scene3, 30, 40, true);
 	heart2 = createObject("Images/Heart.png", scene3, 100, 40, true);
@@ -71,6 +70,7 @@ void setting_3() {
 }
 void stat_check_DEX() {
 	if (score_stack > 55) {
+		dex = 5;
 		showObject(DEX[4]);
 		showObject(DEX[3]);
 		showObject(DEX[2]);
@@ -78,22 +78,29 @@ void stat_check_DEX() {
 		showObject(DEX[0]);
 	}
 	else if (score_stack <= 55 && score_stack > 45) {
+		dex = 4;
 		showObject(DEX[3]);
 		showObject(DEX[2]);
 		showObject(DEX[1]);
 		showObject(DEX[0]);
 	}
 	else if (score_stack <= 45 && score_stack > 35) {
+		dex = 3;
 		showObject(DEX[2]);
 		showObject(DEX[1]);
 		showObject(DEX[0]);
 	}
 	else if (score_stack <= 35 && score_stack > 25) {
+		dex = 2;
 		showObject(DEX[1]);
 		showObject(DEX[0]);
 	}
 	else if (score_stack <= 25 && score_stack > 15) {
+		dex = 1;
 		showObject(DEX[0]);
+	}
+	else {
+		dex = 0;
 	}
 
 }
@@ -134,7 +141,7 @@ void Timer_callback_3(TimerID timer) {
 
 		keytype = 0;
 
-		setTimer(timer_del, time_DEL);
+		setTimer(timer_del, 0.25f);
 
 	}
 	else if (timer == timer_drop) {
@@ -213,9 +220,9 @@ void Timer_callback_3(TimerID timer) {
 	}
 	else if (timer == timer_cr) {
 		hideObject(fxxk);
-		gametype = 0;
 		setTimer(timer_cr, 5.0f);
-		
+		stopTimer(timer_del);	
+		stopTimer(timer_drop);
 	}
 
 }
@@ -230,9 +237,9 @@ void Mouse_callback_3(ObjectID object, int x, int y, MouseAction action) {
 
 
 void Keyboard_callback_3(KeyCode key, KeyState state) {
-	if (state == KeyState::KEY_PRESSED) { //key_state = block keyboard error
+	if (state == KeyState::KEY_PRESSED && gametype == 3 ) { //key_state = block keyboard error
 
-		if (gametype == 3 && keytype == 0) {
+		if ( keytype == 0) {
 			switch (key) {
 
 			case KeyCode::KEY_DOWN_ARROW:

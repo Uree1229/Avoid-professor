@@ -6,6 +6,7 @@
 extern ObjectID door[5];
 extern SceneID scene, scene4, scene_stat;
 extern int gametype;
+int Int=0;
 SceneID  scene_1, scene_2, scene_3;
 
 ObjectID INT_6_1,INT_6_2,INT_6_3,INT_6_4,INT_6_5, INT_4_1,INT_4_2,INT_4_3,INT_4_4, INT_2_1,INT_2_2,INT_2_3, INT_0_1, INT_0_2, start_stage4, quit, play, fxxk_4, category1, category2, category3, INT[6], Mquiz1, Mquiz2, Mquiz3, Equiz1, Equiz2, Equiz3, Nquiz1, Nquiz2, Nquiz3, Ma_1_1, Ma_1_2, Ma_1_3, Ma_2_1, Ma_2_2, Ma_2_3, Ma_3_1, Ma_3_2, Ma_3_3, Ea_1_1, Ea_1_2, Ea_1_3, Ea_2_1, Ea_2_2, Ea_2_3, Ea_3_1, Ea_3_2, Ea_3_3, Na_1_1, Na_1_2, Na_1_3, Na_2_1, Na_2_2, Na_2_3, Na_3_1, Na_3_2, Na_3_3;
@@ -22,6 +23,7 @@ extern ObjectID createObject(const char* image, SceneID scene, int x, int y, boo
 void stat_check_stage4() 
 {
     if (life_4 == 3) {
+        Int = 5;
         showObject(INT_6_1);
         showObject(INT_6_2);
         showObject(INT_6_3);
@@ -29,19 +31,25 @@ void stat_check_stage4()
         showObject(INT_6_5);
     }
     else if (life_4 == 2) {
+        Int = 4;
         showObject(INT_4_1);
         showObject(INT_4_2);
         showObject(INT_4_3);
         showObject(INT_4_4);
     }
     else if (life_4 == 1) {
+        Int = 3;
         showObject(INT_2_1);
         showObject(INT_2_2);
         showObject(INT_2_3);
     }
     else if (life_4 == 0) {
+        Int = 2;
         showObject(INT_0_1);
         showObject(INT_0_2);
+    }
+    else {
+        Int = 1;
     }
 }
 
@@ -361,7 +369,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
 int Quiz_stage4() {
 
     //콜백 함수 등록
-    setMouseCallback(mouseCallback_in_stage4);
+    
 
 
     //퀴즈 메인 방 장면 생성
