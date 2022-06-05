@@ -1,5 +1,8 @@
 대학생의 하루일과
 ==========
+
+****소개링크https://youtu.be/vrcLLnHEKLI
+
 스토리) 새 학기가 시작되고 오늘도 열심히 대학에 다니는 주인공, 주인공은 이번학기 A+를 받는 것이 목표이다. 그러나 죽음의 시간표 속에서 오늘도 쌓여있는 과제들과 강의들.. 그리고 가차없이 F를 주기로 악명이 자자한 교수님. 하지만 의지의 주인공, 이번 학기를 무사히 마치기 위해서는 이런 시련도 극복할 수 있어야 한다. 과연 주인공은 오늘 하루도 잘 해결할 수 있을까? A new semester has begun. The main character, who is attending college diligently today, aims to get an A+ this semester. But in the timetable of death, the tasks and lectures that are piled up today... And professor who is notorious for giving F without mercy... it seems to be difficult to get over this situation. However, in order to finish this semester safely, with the power of will, such trials must be overcome. Will the main character be able to do it well today?
 
 -능력치(status)
