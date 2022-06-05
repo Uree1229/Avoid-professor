@@ -26,12 +26,12 @@ Space bar: You can jump. The longer you press it, the stronger you jump
 
 R: Swing your fist and break down the building. 
 
-Stage2 : +LUK / Open Box
+Stage2 : +LUK / Luck Exam
 ------
 설명) 쪽지시험을 보며 당신의 행운을 확인하세요. 10개의 시험지중 5개의 PASS 시험지만이 당신의 행운 능력치를 올려줍니다. 이후에 한번 더 시험을 칠 수 있는 기회를 드리겠습니다.
 Take a test and check your luck. Only 5 out of 10 test papers will increase your luck level. You have another chance to take the test again.
 
-Stage3 : +DEX / Rhythm Game
+Stage3 : +DEX / Attendence Check 
 ------
 비대면 수업에서 출석체크를 할 때엔 교수님의 호명에 바로 채팅을 칠 수 있는 민첩함이 중요하다. 출석체크를 알맞은 타이밍에 성공하면서 민첩성을 높이자. 
 When checking attendance, it is important to be agile to chat directly to the professor's call. Let's increase SPEED by successfully checking attendance at the right time.
@@ -39,7 +39,7 @@ When checking attendance, it is important to be agile to chat directly to the pr
 조작법) 상하좌우 키보드를 이용해 출석체크가 사각형 안에 들어올 때에 맞춰 알맞은 키보드를 누릅니다. 3번 틀리면 게임오버.
 Using the up, down, left, and right keyboard, press the appropriate keyboard as the attendance check enters the square. If you get it wrong three times, game over.
 
-Stage4 : +INT / Puzzle Game
+Stage4 : +INT / Self Study
 ------
 설명) 주인공이 공부를 하면서 지식을 얻고자 합니다. 문제를 풀며 지식을 향상시키세요. 
 Player conducts intelligence training to beat the final boss. Improve your intelligence by solving problems.
