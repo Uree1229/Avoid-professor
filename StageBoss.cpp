@@ -13,7 +13,7 @@ extern int random_number(int start, int end);
 extern ObjectID createObject(const char* image, SceneID scene, int x, int y, bool shown);
 using namespace std;
 
-int HP_p = 3, HP_b = 1, type = 0, Player_x = 0, Player_y = 0, ply = 120, sk1_x, sk1_y, sk2_x, sk2_y, num_1 = 0, num_2 = 0, num_3 = 0;
+int HP_p = 3, HP_b = 100, type = 0, Player_x = 0, Player_y = 0, ply = 120, sk1_x, sk1_y, sk2_x, sk2_y, num_1 = 0, num_2 = 0, num_3 = 0;
 
 int vel_ch_b, hit_xb, hit_yb, x2_b, dx_b, walkidx, walkL, walkR, jumpL, jumpR, jumpidx, time_stack=30;
 bool c_jump_b = false;
@@ -93,7 +93,7 @@ void set_time() {
 void boss_attack() {
     if (type == 0) {
         if (HP_b <= 100 && HP_b > 30) {
-            type = random_number(1, 2);
+            type = random_number(1,1);
         }
         else if (HP_b >= 0 && HP_b <= 30) {
             type = 3;
@@ -103,9 +103,6 @@ void boss_attack() {
                 rage1 = createObject("Images/rage.png", sceneB, 740, 321, true);
 
             }
-        }
-        else if (HP_b == 0) {
-
         }
 
     }
@@ -267,7 +264,6 @@ void hp_player() {
         hideObject(hp_p[1]);
     }
 }
-//없에야됨
 void hp_boss() {
 
     int i = 100 - HP_b;
@@ -279,7 +275,6 @@ void hp_boss() {
 
 void boss_skill_1() { //F 범위 공격 100,100
     if (type == 1) {
-        Int = 50;
         sk1_x = random_number(0, 1280), sk1_y = random_number(60, 80);
         range1 = createObject("Images/Range.png", sceneB, sk1_x, sk1_y, false);
         locateObject(range1, sceneB, sk1_x, sk1_y);
@@ -326,23 +321,23 @@ void boss_skill_4() {// 허깅상태
 void ending() {
     if (HP_b < 0) {
         if (time_stack <30 && time_stack >=25 ) {
-            Ap = createObject("Images/A+.png", scene_stat, 400, 360, true);
+            Ap = createObject("Images/A+.png", scene_stat, 400, 160, true);
         }
         else if (time_stack < 25 && time_stack >= 20) {
-            A = createObject("Images/A.png", scene_stat, 400, 360, true);
+            A = createObject("Images/A.png", scene_stat, 400, 160, true);
         }
         else if (time_stack < 20 && time_stack >= 15) {
-            B = createObject("Images/B.png", scene_stat, 400, 360, true);
+            B = createObject("Images/B.png", scene_stat, 400, 160, true);
         }
         else if (time_stack < 15 && time_stack > 0) {
-            C = createObject("Images/C.png", scene_stat, 400, 360, true);
+            C = createObject("Images/C.png", scene_stat, 400, 160, true);
         }
         enterScene(scene_stat);
         showMessage("Clear");
         gametype = 10;
     }
     else if (HP_p == 0 || time_stack == 0) {
-        F = createObject("Images/F_1.png", scene_stat,400,360, true );
+        F = createObject("Images/F_1.png", scene_stat,400,160, true );
         enterScene(scene_stat);
         showMessage("Bug CUT~~~");
         
@@ -405,8 +400,8 @@ void Keyboard_callback_B(KeyCode code, KeyState state) { // default = 0,0 -> 크�
             Player_y = 0;
             dont_move = false;
         }
-        else if (code == KeyCode::KEY_LEFT_ARROW && dont_move == false && ply == 120) {// 좌 이동 dex로 스피드 조정
-            if (walkRb == false && walkLb == false && c_jump_b == false) {
+        else if (code == KeyCode::KEY_LEFT_ARROW) {// 좌 이동 dex로 스피드 조정
+            if (ply == 120&&walkRb == false && walkLb == false && c_jump_b == false) {
                 walkLb = true;
                 walkidx = 1;
                 setTimer(boss_Walk_Timer, 0.06f);
@@ -416,8 +411,8 @@ void Keyboard_callback_B(KeyCode code, KeyState state) { // default = 0,0 -> 크�
 
         }
 
-        else if (code == KeyCode::KEY_RIGHT_ARROW && dont_move == false&&ply == 120) { //우 이동
-            if (walkRb == false && walkLb == false && c_jump_b == false) {
+        else if (code == KeyCode::KEY_RIGHT_ARROW) { //우 이동
+            if (ply == 120&&walkRb == false && walkLb == false && c_jump_b == false) {
                 walkRb = true;
                 walkidx = 0;
                 setTimer(boss_Walk_Timer, 0.06f);

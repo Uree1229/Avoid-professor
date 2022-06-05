@@ -9,7 +9,7 @@ extern void main_2();     // stage2
 extern void setting_3();
 extern void setting_B();  //stage boss
 extern int Quiz_stage4(); //stage4
-extern TimerID first_Timer;
+TimerID first_Timer;
 extern void setting_B();
 extern ObjectID createObject(const char* image, SceneID scene, int x, int y, bool shown);
 int gametype = -2, type_type=0;
@@ -19,7 +19,7 @@ SceneID scene_back,scene, scene1, scene2, scene3, scene4, scene_stat, sceneB;
 ObjectID door[5], start_game;
 
 void setting_m() {
-
+	first_Timer = createTimer(720.00f);
 	scene_back = createScene("background", "Images/back.png");
 	scene = createScene("main", "Images/main.png");
 	scene1 = createScene("1", "Images/ap_scene.png");
@@ -36,15 +36,18 @@ void setting_m() {
 	boss_bgm = createSound("Sounds/boss_bgm.mp3");
 
 	start_game = createObject("Images/startbutton.png", scene_back, 640, 220, true);
+	playSound(start_bgm);
 }
 
 void Mouse_callback_m(ObjectID object, int x, int y, MouseAction action) {
 	if (gametype == -2&& object == start_game) {
+		showTimer(first_Timer);
 		enterScene(scene);
 		gametype = 0;
 	}
 	if (gametype == 0) {
 		if (object == door[0] && type_type ==0) {
+			showTimer(first_Timer);
 			gametype = 1;
 			enterScene(scene1);
 			setObjectImage(door[0], "Images/check.png");
@@ -53,6 +56,7 @@ void Mouse_callback_m(ObjectID object, int x, int y, MouseAction action) {
 			
 		}
 		else if (object == door[1] && type_type == 1) {
+			showTimer(first_Timer);
 			gametype = 2;
 			enterScene(scene2);
 			setObjectImage(door[1], "Images/check.png");
@@ -61,6 +65,7 @@ void Mouse_callback_m(ObjectID object, int x, int y, MouseAction action) {
 			setTimer(first_Timer, 900.f);
 		}
 		else if (object == door[2] && type_type == 2) {
+			showTimer(first_Timer);
 			gametype = 3;
 			enterScene(scene3);
 			setObjectImage(door[2], "Images/check.png");
@@ -69,6 +74,7 @@ void Mouse_callback_m(ObjectID object, int x, int y, MouseAction action) {
 			setTimer(first_Timer, 1080.f);
 		}
 		else if (object == door[3] && type_type == 3) {
+			showTimer(first_Timer);
 			gametype = 4;
 			enterScene(scene4);
 			setObjectImage(door[3], "Images/check.png");
@@ -77,7 +83,8 @@ void Mouse_callback_m(ObjectID object, int x, int y, MouseAction action) {
 			setTimer(first_Timer, 1260.f);
 
 		}
-		else if (object == door[4] && type_type == 4) {
+		else if (object == door[4] && type_type == 0) {
+			showTimer(first_Timer);
 			gametype = 5;
 			enterScene(sceneB);
 			setObjectImage(door[4], "Images/check.png");

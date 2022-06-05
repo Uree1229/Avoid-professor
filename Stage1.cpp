@@ -9,7 +9,7 @@ using namespace std;
 ObjectID STR[6];
 ObjectID  ch1, hit_box, fxxk_1;
 extern SceneID scene1, scene_stat, scene;
-TimerID enemyTimer, playerJumpTimer, check_l, hitbox_Timer, jumpR_Timer, hitM_Timer, back_Timer, first_Timer;
+TimerID enemyTimer, playerJumpTimer, check_l, hitbox_Timer, jumpR_Timer, hitM_Timer, back_Timer;
 extern int gametype;
 extern ObjectID door[4];
 
@@ -84,8 +84,7 @@ void setting_1() {
     jumpR_Timer = createTimer(0.03f);
     hitM_Timer = createTimer(0.029f);
     back_Timer = createTimer(1.0f);
-    first_Timer = createTimer(720.00f);
-    showTimer(first_Timer);
+
 
     startTimer(enemyTimer);
 }
