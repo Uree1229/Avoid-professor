@@ -18,7 +18,7 @@ float time_d;
 
 ObjectID floor_ob[100], c_life[3];
 int check_hit[100];
-int f_x = 250, str = 0;
+int f_x = 300, str = 0;
 int f_y[100];
 int ch_y = 20;
 int ch_x = 620;
@@ -250,7 +250,7 @@ void Timer_callback_1(TimerID timer)
                     if ((h_i + 1) % 10 == 0) {
                         gravity -= 0.055;
                         speed += 0.055;
-                        showMessage("빨라진다");
+                        showMessage("Speed Up!");
                     }
                     if (h_i == 99) {
                         endgame_1();

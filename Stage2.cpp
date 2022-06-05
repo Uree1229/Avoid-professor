@@ -43,7 +43,7 @@ void gameEnd_2()
         showObject(restart);
 
     //다음 씬으로 넘어감
-    door1 = createObject("Images/door.png");
+    door1 = createObject("Images/door1.png");
     locateObject(door1, scene2, 20, 0);
     showObject(door1);
 }

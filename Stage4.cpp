@@ -66,7 +66,6 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
         showObject(fxxk_4);
         stat_check_stage4();
         gametype = -1;
-        hideObject(door[3]);
 
 
 
@@ -398,7 +397,7 @@ int Quiz_stage4() {
 
 
     //나가는 문(버튼)
-    quit = createObject("Images/door.png", scene4, 480, 200, false);
+    quit = createObject("Images/door1.png", scene4, 480, 200, false);
     showObject(quit);
 
 

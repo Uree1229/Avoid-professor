@@ -1,7 +1,7 @@
 #include <bangtal.h>
 #include <random>
 
-extern SceneID scene;
+extern SceneID scene_back;
 extern void Mouse_callback_m(ObjectID object, int x, int y, MouseAction action);
 extern void Mouse_callback_3(ObjectID object, int x, int y, MouseAction action);
 extern void Mouse_callback_B(ObjectID object, int x, int y, MouseAction action);
@@ -79,5 +79,5 @@ int main() {
 	setting_m();
 	//set_default();
 
-	startGame(scene);
+	startGame(scene_back);
 }
