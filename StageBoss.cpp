@@ -1,19 +1,31 @@
 #include <bangtal.h>
 
+<<<<<<< Updated upstream
 TimerID timer_b, timer_hp, Timer_sk1,Timer_sk2, Timer_sk3,Timer_range, timer_band, timer_stop, Timer_sk4;
 TimerID j_Timer_b, hitbox_Timer_b, h_Timer, timer_move_b,boss_Jump_Timer,boss_Walk_Timer;
 ObjectID hp_p[4], Player, range1,range2,range3, hp_b[100],hit_range_b[5],hit_box_b,rage, rage1;
+=======
+TimerID timer_b, timer_hp, Timer_sk1, Timer_sk2, Timer_sk3, Timer_range, timer_band, timer_stop, Timer_sk4;
+TimerID j_Timer_b, hitbox_Timer_b, h_Timer, timer_move_b, boss_Jump_Timer, boss_Walk_Timer;
+ObjectID hp_p[4], Player, range1, range2, range3, hp_b[100], hit_range_b[5], hit_box_b, rage, rage1;
+>>>>>>> Stashed changes
 extern SceneID sceneB;
 extern int gametype, dex, luk, str, Int;
 extern int random_number(int start, int end);
 extern ObjectID createObject(const char* image, SceneID scene, int x, int y, bool shown);
 using namespace std;
 
-int HP_p = 3, HP_b = 30, type=0, Player_x=0, Player_y=0,ply=120,sk1_x, sk1_y,sk2_x,sk2_y,num_1=0,num_2=0, num_3=0;
+int HP_p = 3, HP_b = 30, type = 0, Player_x = 0, Player_y = 0, ply = 120, sk1_x, sk1_y, sk2_x, sk2_y, num_1 = 0, num_2 = 0, num_3 = 0;
 
+<<<<<<< Updated upstream
 int vel_ch_b,hit_xb,hit_yb,x2_b,dx_b,walkidx,walkL,walkR,jumpL,jumpR,jumpidx;
 bool c_jump_b = false;
 bool Rage=false, check1, check2, check3, check4, check0,walkLb,walkRb,dont_move = false;
+=======
+int vel_ch_b, hit_xb, hit_yb, x2_b, dx_b, walkidx, walkL, walkR, jumpL, jumpR, jumpidx;
+bool c_jump_b = false;
+bool Rage = false, check1, check2, check3, check4, check0, walkLb, walkRb, dont_move = false;
+>>>>>>> Stashed changes
 
 char boss_JumpL[20][100]{
 	   "images/R_J1.png",
@@ -59,7 +71,7 @@ char boss_WalkL[6][20]{
 
 
 void boss_skill_1();
-void boss_skill_2(); 
+void boss_skill_2();
 void boss_skill_3();
 void boss_skill_4();
 
@@ -77,8 +89,11 @@ void set_time() {
 	hitbox_Timer_b = createTimer(0.06f);
 	boss_Walk_Timer = createTimer(0.06f);
 	boss_Jump_Timer = createTimer(0.06f);
+<<<<<<< Updated upstream
+=======
 
-	
+>>>>>>> Stashed changes
+
 
 	startTimer(timer_b);
 	startTimer(timer_hp);
@@ -88,22 +103,22 @@ void set_time() {
 
 void boss_attack() {
 	if (type == 0) {
-		if (HP_b <= 100 && HP_b >30) {
+		if (HP_b <= 100 && HP_b > 30) {
 			type = random_number(1, 2);
 		}
-		else if (HP_b >= 0 && HP_b <= 30 ) {
+		else if (HP_b >= 0 && HP_b <= 30) {
 			type = 3;
 			if (Rage == false) {
 				Rage = true;
-				rage = createObject("Images/rage.png", sceneB, 645,321,true);
+				rage = createObject("Images/rage.png", sceneB, 645, 321, true);
 				rage1 = createObject("Images/rage.png", sceneB, 740, 321, true);
 
 			}
 		}
-		else if(HP_b == 0){
-			
+		else if (HP_b == 0) {
+
 		}
-		
+
 	}
 	switch (type) {
 	case 1:
@@ -114,24 +129,29 @@ void boss_attack() {
 		break;
 	case 3:
 		boss_skill_3();
-		
+
 		break;
 	case 4:
 		boss_skill_4();
 		break;
-		}
 	}
-	
+}
+
 void setting_B() {
+<<<<<<< Updated upstream
 	if (gametype ==5) {
 		showMessage("aaa"); //Î≥¥Ïä§Ïùò ÏûÖÏû•ÎåÄÏÇ¨
+=======
+	if (gametype == 5) {
+		showMessage("aaa"); //∫∏Ω∫¿« ¿‘¿Â¥ÎªÁ
+>>>>>>> Stashed changes
 		set_time();
 		for (int i = 0; i < 3; i++) {
 			hp_p[i] = createObject("Images/Heart.png", sceneB, 30 + 70 * i, 50, true);
-		}	
+		}
 		Player = createObject("Images/ch1.png", sceneB, Player_x, Player_y, true);
 		for (int i = 0; i < 100; i++) {
-			hp_b[i] = createObject("Images/HP_boss.png", sceneB, 1110 - 9*i,670, true);
+			hp_b[i] = createObject("Images/HP_boss.png", sceneB, 1110 - 9 * i, 670, true);
 		}
 		hit_range_b[0] = createObject("images/hit_range.png", sceneB, 650, 230, false);
 		hit_range_b[1] = createObject("images/hit_range.png", sceneB, 670, 300, false);
@@ -142,13 +162,17 @@ void setting_B() {
 
 		startTimer(timer_stop);
 
+<<<<<<< Updated upstream
 		 // ÏßÄÏõåÏïºÌï®
+=======
+		// ¡ˆøˆæﬂ«‘
+>>>>>>> Stashed changes
 	}
-	
+
 }
 
 void show_boss_hitbox() {
-	int x = random_number(0,4);
+	int x = random_number(0, 4);
 	x2_b = x;
 	switch (x) {
 	case 0:
@@ -189,8 +213,8 @@ void check_hit_b() {
 			check0 = false;
 			hideObject(hit_range_b[0]);
 			startTimer(Timer_sk4);
-			
-			
+
+
 		}
 	}
 	if (check1 == true) {
@@ -203,8 +227,8 @@ void check_hit_b() {
 			check1 = false;
 			hideObject(hit_range_b[1]);
 			startTimer(Timer_sk4);
-		
-		
+
+
 		}
 	}
 	if (check2 == true) {
@@ -217,7 +241,7 @@ void check_hit_b() {
 			check2 = false;
 			hideObject(hit_range_b[2]);
 			startTimer(Timer_sk4);
-			
+
 		}
 	}
 	if (check3 == true) {
@@ -230,20 +254,20 @@ void check_hit_b() {
 			check3 = false;
 			hideObject(hit_range_b[3]);
 			startTimer(Timer_sk4);
-			
+
 		}
 	}
 	if (check4 == true) {
-		if (check_crush_b(hit_xb, hit_yb, 670, 400,  100)) {
-			int LUk = random_number(1, 1+luk);
+		if (check_crush_b(hit_xb, hit_yb, 670, 400, 100)) {
+			int LUk = random_number(1, 1 + luk);
 			if (LUk > 3) {
 				showMessage("critical!");
 			}
-			HP_b -=luk+ 1 * str;
+			HP_b -= luk + 1 * str;
 			check4 = false;
 			hideObject(hit_range_b[4]);
 			startTimer(Timer_sk4);
-			
+
 		}
 	}
 }
@@ -265,11 +289,11 @@ void hp_player() {
 //ÏóÜÏóêÏïºÎê®
 void hp_boss() {
 
-	int i = 100-HP_b;
+	int i = 100 - HP_b;
 	for (int j = 0; j < i; j++) {
 		hideObject(hp_b[j]);
 	}
-	
+
 }
 
 void boss_skill_1() { //F Î≤îÏúÑ Í≥µÍ≤© 100,100
@@ -281,12 +305,12 @@ void boss_skill_1() { //F Î≤îÏúÑ Í≥µÍ≤© 100,100
 		showObject(range1);
 		startTimer(Timer_sk1);
 		num_1++;
-		
-	}	
+
+	}
 }
 void boss_skill_2() { // Ï†êÌîÑÎ°ú ÌîºÌïòÎäî Í±∞
 	if (type == 2) {
-		sk2_x = random_number(0,1250), sk2_y = random_number(0, 29);
+		sk2_x = random_number(0, 1250), sk2_y = random_number(0, 29);
 		range2 = createObject("Images/range1.png", sceneB, 0, sk2_y, false);
 		range3 = createObject("Images/range2.png", sceneB, sk2_x, 0, false);
 		locateObject(range2, sceneB, 0, sk2_y);
@@ -319,7 +343,7 @@ void boss_skill_4() {// ÌóàÍπÖÏÉÅÌÉú
 	type = 0;
 }
 void ending() {
-	if (HP_b ==0) {
+	if (HP_b == 0) {
 		showMessage("Happy Ending");
 		//enterScene(); ÏÑ±Ï†ÅÌëú ÌéòÏù¥ÏßÄ
 	}
@@ -366,9 +390,15 @@ void Mouse_callback_B(ObjectID object, int x, int y, MouseAction action) {
 
 void Keyboard_callback_B(KeyCode code, KeyState state) { // default = 0,0 -> ÌÅ¨Í∏∞ 70, 120
 	if (gametype == 5) {
+<<<<<<< Updated upstream
 		if (code == KeyCode::KEY_DOWN_ARROW && ply == 120 && c_jump_b == false) { //ÏàôÏù¥Í∏∞  -  ÏàôÏù¥Î©¥ ÎÜíÏù¥ Î∞òÏúºÎ°ú „Ñ±„Ñ±
 			ply = 60;
 			setObjectImage(Player, "Images/S2.png");      // ÏàôÏù¥Îäî Ïù¥ÎØ∏ÏßÄ ÎÑ£Ïñ¥ÏïºÌï®
+=======
+		if (code == KeyCode::KEY_DOWN_ARROW && ply == 120 && c_jump_b == false) { //º˜¿Ã±‚  -  º˜¿Ã∏È ≥Ù¿Ã π›¿∏∑Œ §°§°
+			ply = 60;
+			setObjectImage(Player, "Images/S2.png");      // º˜¿Ã¥¬ ¿ÃπÃ¡ˆ ≥÷æÓæﬂ«‘
+>>>>>>> Stashed changes
 			setTimer(boss_Walk_Timer, 0.06f);
 			stopTimer(boss_Walk_Timer);
 			Player_y = 0;
@@ -381,6 +411,7 @@ void Keyboard_callback_B(KeyCode code, KeyState state) { // default = 0,0 -> ÌÅ¨
 			Player_y = 0;
 			dont_move = false;
 		}
+<<<<<<< Updated upstream
 		else if (code == KeyCode::KEY_LEFT_ARROW && dont_move == false) {// Ï¢å Ïù¥Îèô dexÎ°ú Ïä§ÌîºÎìú Ï°∞Ï†ï
 				if (walkLb == false && walkLb == false && c_jump_b == false) {
 					walkLb = true;
@@ -399,6 +430,26 @@ void Keyboard_callback_B(KeyCode code, KeyState state) { // default = 0,0 -> ÌÅ¨
 					setTimer(boss_Walk_Timer, 0.06f);
 					startTimer(boss_Walk_Timer);
 				}
+=======
+		else if (code == KeyCode::KEY_LEFT_ARROW && dont_move == false) {// ¡¬ ¿Ãµø dex∑Œ Ω∫««µÂ ¡∂¡§
+			if (walkLb == false && walkLb == false && c_jump_b == false) {
+				walkLb = true;
+				walkidx = 1;
+				setTimer(boss_Walk_Timer, 0.06f);
+				startTimer(boss_Walk_Timer);
+			}
+			dx_b -= (state == KeyState::KEY_PRESSED ? (10 + 1 * dex) : -(10 + 1 * dex));//ºˆ¡§ 
+
+		}
+
+		else if (code == KeyCode::KEY_RIGHT_ARROW && dont_move == false) { //øÏ ¿Ãµø
+			if (walkRb == false && walkLb == false && c_jump_b == false) {
+				walkRb = true;
+				walkidx = 0;
+				setTimer(boss_Walk_Timer, 0.06f);
+				startTimer(boss_Walk_Timer);
+			}
+>>>>>>> Stashed changes
 			dx_b += (state == KeyState::KEY_PRESSED ? (10 + 1 * dex) : -(10 + 1 * dex));
 
 		}
@@ -616,4 +667,8 @@ void Timer_callback_B(TimerID timer) {
 		}
 
 	}
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes

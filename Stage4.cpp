@@ -154,7 +154,7 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
         hideObject(Ma_2_2);
         hideObject(Ma_2_3);
         hideObject(Mquiz2);
-        showObject(Mquiz2);
+        showObject(Mquiz3);
         showObject(Ma_3_1);
         showObject(Ma_3_2);
         showObject(Ma_3_3);

@@ -9,7 +9,11 @@ using namespace std;
 ObjectID STR[6];
 ObjectID  ch1, hit_box, fxxk_1;
 extern SceneID scene1, scene_stat, scene;
+<<<<<<< Updated upstream
 TimerID enemyTimer, playerJumpTimer, check_l, hitbox_Timer, jumpR_Timer, hitM_Timer, back_Timer,first_Timer;
+=======
+TimerID enemyTimer, playerJumpTimer, check_l, hitbox_Timer, jumpR_Timer, hitM_Timer, back_Timer, first_Timer;
+>>>>>>> Stashed changes
 extern int gametype;
 extern ObjectID door[4];
 
@@ -18,7 +22,7 @@ float time_d;
 
 ObjectID floor_ob[100], c_life[3];
 int check_hit[100];
-int f_x = 250,str=0;
+int f_x = 250, str = 0;
 int f_y[100];
 int ch_y = 20;
 int ch_x = 620;
@@ -267,8 +271,8 @@ void Timer_callback_1(TimerID timer)
             hideObject(fxxk_1);
 
         }
-}
-    
+    }
+
 }
 
 void Keyboard_callback_1(KeyCode code, KeyState state) {
@@ -307,5 +311,10 @@ void Keyboard_callback_1(KeyCode code, KeyState state) {
             }
         }
     }
+<<<<<<< Updated upstream
     
 }
+=======
+
+}
+>>>>>>> Stashed changes
