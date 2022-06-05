@@ -83,7 +83,7 @@ void Mouse_callback_m(ObjectID object, int x, int y, MouseAction action) {
 			setTimer(first_Timer, 1260.f);
 
 		}
-		else if (object == door[4] && type_type == 0) {
+		else if (object == door[4] && type_type == 4) {
 			showTimer(first_Timer);
 			gametype = 5;
 			enterScene(sceneB);
