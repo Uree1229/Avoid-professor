@@ -9,11 +9,7 @@ using namespace std;
 ObjectID STR[6];
 ObjectID  ch1, hit_box, fxxk_1;
 extern SceneID scene1, scene_stat, scene;
-<<<<<<< Updated upstream
-TimerID enemyTimer, playerJumpTimer, check_l, hitbox_Timer, jumpR_Timer, hitM_Timer, back_Timer,first_Timer;
-=======
 TimerID enemyTimer, playerJumpTimer, check_l, hitbox_Timer, jumpR_Timer, hitM_Timer, back_Timer, first_Timer;
->>>>>>> Stashed changes
 extern int gametype;
 extern ObjectID door[4];
 
@@ -311,10 +307,5 @@ void Keyboard_callback_1(KeyCode code, KeyState state) {
             }
         }
     }
-<<<<<<< Updated upstream
-    
-}
-=======
 
 }
->>>>>>> Stashed changes
