@@ -1,17 +1,15 @@
 #define _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES   1
 using namespace std;
 
-#include <iostream>
-#include <windows.h> //windows.h Çì´õ Ãß°¡
+#include <windows.h> 
 #include <stdio.h>
 #include <bangtal.h>
-#include <stdlib.h>
 #include <time.h>
 
 ObjectID STR[6];
 ObjectID  ch1, hit_box, fxxk_1;
 extern SceneID scene1, scene_stat, scene;
-TimerID enemyTimer, playerJumpTimer, check_l, hitbox_Timer, jumpR_Timer, hitM_Timer, back_Timer;
+TimerID enemyTimer, playerJumpTimer, check_l, hitbox_Timer, jumpR_Timer, hitM_Timer, back_Timer,first_Timer;
 extern int gametype;
 extern ObjectID door[4];
 
@@ -32,7 +30,7 @@ int hit_y = 120;
 bool c_timer = false;
 bool c_jump = false;
 bool hit_check = false;
-float speed = 1.1;
+float speed = 1.;
 int life = 3;
 int jridx, jdidx, hitidx = 0;
 
@@ -85,6 +83,8 @@ void setting_1() {
     jumpR_Timer = createTimer(0.03f);
     hitM_Timer = createTimer(0.029f);
     back_Timer = createTimer(1.0f);
+    first_Timer = createTimer(720.00f);
+    showTimer(first_Timer);
 
     startTimer(enemyTimer);
 }
@@ -157,7 +157,7 @@ void Timer_callback_1(TimerID timer)
             }
             if (c_apt_ch) {
                 ch_y = f_y[c_i] - 100;
-                vel = -2;
+                vel = -4;
                 locateObject(ch1, scene1, ch_x, ch_y += vel);
                 if (f_y[c_i] < 120) {
                     life -= 1;
@@ -248,9 +248,9 @@ void Timer_callback_1(TimerID timer)
                     hideObject(floor_ob[h_i]);
                     locateObject(floor_ob[h_i], scene1, f_x, f_y[h_i] += f_y[99]);
                     if ((h_i + 1) % 10 == 0) {
-                        gravity -= 0.05;
+                        gravity -= 0.055;
                         speed += 0.055;
-                        showMessage("»¡¶óÁø´Ù");
+                        showMessage("ë¹¨ë¼ì§„ë‹¤");
                     }
                     if (h_i == 99) {
                         endgame_1();
@@ -295,7 +295,7 @@ void Keyboard_callback_1(KeyCode code, KeyState state) {
             if (code == KeyCode::KEY_SPACE && c_timer == true && c_jump == false) {
                 clock_t end = clock();
                 jdidx = 0;
-                double time = double(end - start) / CLOCKS_PER_SEC; //ÃÊ´ÜÀ§ º¯È¯
+                double time = double(end - start) / CLOCKS_PER_SEC; //ì´ˆë‹¨ìœ„ ë³€í™˜
                 startTimer(playerJumpTimer);
                 stopTimer(jumpR_Timer);
                 setTimer(jumpR_Timer, 0.3f);
