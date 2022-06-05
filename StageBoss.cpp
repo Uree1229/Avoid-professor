@@ -13,7 +13,7 @@ extern int random_number(int start, int end);
 extern ObjectID createObject(const char* image, SceneID scene, int x, int y, bool shown);
 using namespace std;
 
-int HP_p = 3, HP_b = 100, type = 0, Player_x = 0, Player_y = 0, ply = 120, sk1_x, sk1_y, sk2_x, sk2_y, num_1 = 0, num_2 = 0, num_3 = 0;
+int HP_p = 3, HP_b = 1, type = 0, Player_x = 0, Player_y = 0, ply = 120, sk1_x, sk1_y, sk2_x, sk2_y, num_1 = 0, num_2 = 0, num_3 = 0;
 
 int vel_ch_b, hit_xb, hit_yb, x2_b, dx_b, walkidx, walkL, walkR, jumpL, jumpR, jumpidx, time_stack=30;
 bool c_jump_b = false;
@@ -324,7 +324,7 @@ void boss_skill_4() {// 허깅상태
     type = 0;
 }
 void ending() {
-    if (HP_b == 0) {
+    if (HP_b < 0) {
         if (time_stack <30 && time_stack >=25 ) {
             Ap = createObject("Images/A+.png", scene_stat, 400, 360, true);
         }
@@ -339,14 +339,15 @@ void ending() {
         }
         enterScene(scene_stat);
         showMessage("Clear");
-        stopTimer(timer_hp);
+        gametype = 10;
     }
     else if (HP_p == 0 || time_stack == 0) {
         F = createObject("Images/F_1.png", scene_stat,400,360, true );
         enterScene(scene_stat);
         showMessage("Bug CUT~~~");
-        stopTimer(timer_hp);
+        
         stopSound(boss_bgm);
+        gametype = 10;
     }
     
 }
@@ -404,7 +405,7 @@ void Keyboard_callback_B(KeyCode code, KeyState state) { // default = 0,0 -> 크�
             Player_y = 0;
             dont_move = false;
         }
-        else if (code == KeyCode::KEY_LEFT_ARROW && dont_move == false) {// 좌 이동 dex로 스피드 조정
+        else if (code == KeyCode::KEY_LEFT_ARROW && dont_move == false && ply == 120) {// 좌 이동 dex로 스피드 조정
             if (walkRb == false && walkLb == false && c_jump_b == false) {
                 walkLb = true;
                 walkidx = 1;
@@ -415,7 +416,7 @@ void Keyboard_callback_B(KeyCode code, KeyState state) { // default = 0,0 -> 크�
 
         }
 
-        else if (code == KeyCode::KEY_RIGHT_ARROW && dont_move == false) { //우 이동
+        else if (code == KeyCode::KEY_RIGHT_ARROW && dont_move == false&&ply == 120) { //우 이동
             if (walkRb == false && walkLb == false && c_jump_b == false) {
                 walkRb = true;
                 walkidx = 0;

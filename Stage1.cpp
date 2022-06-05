@@ -27,6 +27,7 @@ float gravity = -12;
 int check = 0;
 int hit_x = 580;
 int hit_y = 120;
+int check_apt_crush;
 bool c_timer = false;
 bool c_jump = false;
 bool hit_check = false;
@@ -168,6 +169,10 @@ void Timer_callback_1(TimerID timer)
                         endgame_1();
                         stopTimer(enemyTimer);
                     }
+                    else if (check_apt_crush == 100) {
+                        endgame_1();
+                        stopTimer(enemyTimer);
+                    }
                 }
             }
             setTimer(enemyTimer, ANIMATION_TIME);
@@ -247,6 +252,7 @@ void Timer_callback_1(TimerID timer)
                 if (check_hit[h_i] == 0) {
                     hideObject(floor_ob[h_i]);
                     locateObject(floor_ob[h_i], scene1, f_x, f_y[h_i] += f_y[99]);
+                    check_apt_crush++;
                     if ((h_i + 1) % 10 == 0) {
                         gravity -= 0.055;
                         speed += 0.055;

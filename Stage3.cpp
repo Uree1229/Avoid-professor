@@ -57,7 +57,8 @@ void note_add() {
 }
 void setting_3() {
 	timer_del = createTimer(0.25f);
-	start = createObject("Images/start.png", scene3, 200, 200, true);
+	start = createObject("Images/startbutton.png", scene3, 900, 100, true);
+	scaleObject(start, 0.5f);
 	heart1 = createObject("Images/Heart.png", scene3, 30, 40, true);
 	heart2 = createObject("Images/Heart.png", scene3, 100, 40, true);
 	heart3 = createObject("Images/Heart.png", scene3, 170, 40, true);

@@ -35,7 +35,7 @@ void setting_m() {
 	start_bgm = createSound("Sounds/start_bgm.mp3");
 	boss_bgm = createSound("Sounds/boss_bgm.mp3");
 
-	start_game = createObject("Images/start.png", scene_back, 640, 300, true);
+	start_game = createObject("Images/startbutton.png", scene_back, 640, 220, true);
 }
 
 void Mouse_callback_m(ObjectID object, int x, int y, MouseAction action) {

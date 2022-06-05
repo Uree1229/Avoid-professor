@@ -360,16 +360,16 @@ void mouseCallback_in_stage4(ObjectID object, int x, int y, MouseAction action)
         hideObject(category2);
         hideObject(category3);
     }
-
-
-    //start 버튼을 누르면 
-    if (object = start_stage4)
-    {
-        showObject(category1);
-        showObject(category2);
-        showObject(category3);
-    }
 }
+
+//start 버튼을 누르면 
+//if (object = start_stage4)
+//{
+//    showObject(category1);
+//    showObject(category2);
+//    showObject(category3);
+//}
+//}
 
 
 //메인 함수
@@ -391,13 +391,13 @@ int Quiz_stage4() {
 
 
     //start 버튼
-    start_stage4 = createObject("Images/startbutton.png", scene4, 750, 300, false);
-    scaleObject(start_stage4, 0.5f);
-    showObject(start_stage4);
+    //start_stage4 = createObject("Images/startbutton.png", scene4, 200, 100, false);
+    //scaleObject(start_stage4, 0.5f);
+    //showObject(start_stage4);
 
 
     //나가는 문(버튼)
-    quit = createObject("Images/door1.png", scene4, 480, 200, false);
+    quit = createObject("Images/door1.png", scene4, 80, 0, false);
     showObject(quit);
 
 
@@ -422,104 +422,107 @@ int Quiz_stage4() {
 
     //게임 카테고리 생성   
     //카테고리1: 넌센스 퀴즈
-    category1 = createObject("Images/redbutton.png", scene4, 600, 550, false);
+    category1 = createObject("Images/mathbutton.png", scene4, 320, 200, false);
     //카테고리2: 수학 퀴즈
-    category2 = createObject("Images/greenbutton.png", scene4, 900, 550, false);
+    category2 = createObject("Images/englishbutton.png", scene4, 520, 200, false);
     //카테고리3: 영어단어 퀴즈
-    category3 = createObject("Images/yellowbutton.png", scene4, 1200, 550, false);
+    category3 = createObject("Images/nonsensebutton.png", scene4, 740, 200, false);
 
+    showObject(category1);
+    showObject(category2);
+    showObject(category3);
 
 
     //카테고리별 퀴즈 문제&답 생성하기
     //수학 문제 생성
-    Mquiz1 = createObject("Images/Mquiz1.png", scene_1, 500, 250, false);
-    scaleObject(Mquiz1, 2.3f);
-    Mquiz2 = createObject("Images/Mquiz2.png", scene_1, 500, 250, false);
-    scaleObject(Mquiz2, 2.3f);
-    Mquiz3 = createObject("Images/Mquiz3.png", scene_1, 500, 250, false);
-    scaleObject(Mquiz3, 2.3f);
+    Mquiz1 = createObject("Images/Mquiz1.png", scene_1, 195, 195, false);
+    scaleObject(Mquiz1, 2.1f);
+    Mquiz2 = createObject("Images/Mquiz2.png", scene_1, 195, 195, false);
+    scaleObject(Mquiz2, 2.1f);
+    Mquiz3 = createObject("Images/Mquiz3.png", scene_1, 195, 195, false);
+    scaleObject(Mquiz3, 2.1f);
     //영어 단어 문제 생성
-    Equiz1 = createObject("Images/Equiz1.png", scene_1, 500, 250, false);
-    scaleObject(Equiz1, 2.3f);
-    Equiz2 = createObject("Images/Equiz2.png", scene_1, 500, 250, false);
-    scaleObject(Equiz2, 2.3f);
-    Equiz3 = createObject("Images/Equiz3.png", scene_1, 500, 250, false);
-    scaleObject(Equiz3, 2.3f);
+    Equiz1 = createObject("Images/Equiz1.png", scene_1, 195, 195, false);
+    scaleObject(Equiz1, 2.1f);
+    Equiz2 = createObject("Images/Equiz2.png", scene_1, 195, 195, false);
+    scaleObject(Equiz2, 2.1f);
+    Equiz3 = createObject("Images/Equiz3.png", scene_1, 195, 195, false);
+    scaleObject(Equiz3, 2.1f);
     //넌센스 문제 생성
-    Nquiz1 = createObject("Images/Nquiz1.png", scene_1, 500, 250, false);
-    scaleObject(Nquiz1, 2.3f);
-    Nquiz2 = createObject("Images/Nquiz2.png", scene_1, 500, 250, false);
-    scaleObject(Nquiz2, 2.3f);
-    Nquiz3 = createObject("Images/Nquiz3.png", scene_1, 500, 250, false);
-    scaleObject(Nquiz3, 2.3f);
+    Nquiz1 = createObject("Images/Nquiz1.png", scene_1, 195, 195, false);
+    scaleObject(Nquiz1, 2.1f);
+    Nquiz2 = createObject("Images/Nquiz2.png", scene_1, 195, 195, false);
+    scaleObject(Nquiz2, 2.1f);
+    Nquiz3 = createObject("Images/Nquiz3.png", scene_1, 195, 195, false);
+    scaleObject(Nquiz3, 2.1f);
 
 
     //수학 답 생성
-    Ma_1_1 = createObject("Images/ma1-1.png", scene_1, 550, 200, false);
+    Ma_1_1 = createObject("Images/ma1-1.png", scene_1, 300, 130, false);
     scaleObject(Ma_1_1, 0.5f);
-    Ma_1_2 = createObject("Images/ma1-2.png", scene_1, 850, 200, false);
+    Ma_1_2 = createObject("Images/ma1-2.png", scene_1, 550, 130, false);
     scaleObject(Ma_1_2, 0.5f);
-    Ma_1_3 = createObject("Images/ma1-3.png", scene_1, 1150, 200, false);
+    Ma_1_3 = createObject("Images/ma1-3.png", scene_1, 800, 130, false);
     scaleObject(Ma_1_3, 0.5f);
 
-    Ma_2_1 = createObject("Images/ma2-1.png", scene_1, 550, 200, false);
+    Ma_2_1 = createObject("Images/ma2-1.png", scene_1, 300, 130, false);
     scaleObject(Ma_2_1, 0.5f);
-    Ma_2_2 = createObject("Images/ma2-2.png", scene_1, 850, 200, false);
+    Ma_2_2 = createObject("Images/ma2-2.png", scene_1, 550, 130, false);
     scaleObject(Ma_2_2, 0.5f);
-    Ma_2_3 = createObject("Images/ma2-3.png", scene_1, 1150, 200, false);
+    Ma_2_3 = createObject("Images/ma2-3.png", scene_1, 800, 130, false);
     scaleObject(Ma_2_3, 0.5f);
 
-    Ma_3_1 = createObject("Images/ma3-1.png", scene_1, 550, 200, false);
+    Ma_3_1 = createObject("Images/ma3-1.png", scene_1, 300, 130, false);
     scaleObject(Ma_3_1, 0.5f);
-    Ma_3_2 = createObject("Images/ma3-2.png", scene_1, 850, 200, false);
+    Ma_3_2 = createObject("Images/ma3-2.png", scene_1, 550, 130, false);
     scaleObject(Ma_3_2, 0.5f);
-    Ma_3_3 = createObject("Images/ma3-3.png", scene_1, 1150, 200, false);
+    Ma_3_3 = createObject("Images/ma3-3.png", scene_1, 800, 130, false);
     scaleObject(Ma_3_3, 0.5f);
 
 
     //영어 답 생성
-    Ea_1_1 = createObject("Images/ea1-1.png", scene_1, 550, 200, false);
+    Ea_1_1 = createObject("Images/ea1-1.png", scene_1, 300, 130, false);
     scaleObject(Ea_1_1, 0.5f);
-    Ea_1_2 = createObject("Images/ea1-2.png", scene_1, 850, 200, false);
+    Ea_1_2 = createObject("Images/ea1-2.png", scene_1, 550, 130, false);
     scaleObject(Ea_1_2, 0.5f);
-    Ea_1_3 = createObject("Images/ea1-3.png", scene_1, 1150, 200, false);
+    Ea_1_3 = createObject("Images/ea1-3.png", scene_1, 800, 130, false);
     scaleObject(Ea_1_3, 0.5f);
 
-    Ea_2_1 = createObject("Images/ea2-1.png", scene_1, 550, 200, false);
+    Ea_2_1 = createObject("Images/ea2-1.png", scene_1, 300, 130, false);
     scaleObject(Ea_2_1, 0.5f);
-    Ea_2_2 = createObject("Images/ea2-2.png", scene_1, 850, 200, false);
+    Ea_2_2 = createObject("Images/ea2-2.png", scene_1, 550, 130, false);
     scaleObject(Ea_2_2, 0.5f);
-    Ea_2_3 = createObject("Images/ea2-3.png", scene_1, 1150, 200, false);
+    Ea_2_3 = createObject("Images/ea2-3.png", scene_1, 800, 130, false);
     scaleObject(Ea_2_3, 0.5f);
 
-    Ea_3_1 = createObject("Images/ea3-1.png", scene_1, 550, 200, false);
+    Ea_3_1 = createObject("Images/ea3-1.png", scene_1, 300, 130, false);
     scaleObject(Ea_3_1, 0.5f);
-    Ea_3_2 = createObject("Images/ea3-2.png", scene_1, 850, 200, false);
+    Ea_3_2 = createObject("Images/ea3-2.png", scene_1, 550, 130, false);
     scaleObject(Ea_3_2, 0.5f);
-    Ea_3_3 = createObject("Images/ea3-3.png", scene_1, 1150, 200, false);
+    Ea_3_3 = createObject("Images/ea3-3.png", scene_1, 800, 130, false);
     scaleObject(Ea_3_3, 0.5f);
 
 
     //넌센스 답 생성
-    Na_1_1 = createObject("Images/na1-1.png", scene_1, 550, 200, false);
+    Na_1_1 = createObject("Images/na1-1.png", scene_1, 300, 130, false);
     scaleObject(Na_1_1, 0.5f);
-    Na_1_2 = createObject("Images/na1-2.png", scene_1, 850, 200, false);
+    Na_1_2 = createObject("Images/na1-2.png", scene_1, 550, 130, false);
     scaleObject(Na_1_2, 0.5f);
-    Na_1_3 = createObject("Images/na1-3.png", scene_1, 1150, 200, false);
+    Na_1_3 = createObject("Images/na1-3.png", scene_1, 800, 130, false);
     scaleObject(Na_1_3, 0.5f);
 
-    Na_2_1 = createObject("Images/na2-1.png", scene_1, 550, 200, false);
+    Na_2_1 = createObject("Images/na2-1.png", scene_1, 300, 130, false);
     scaleObject(Na_2_1, 0.5f);
-    Na_2_2 = createObject("Images/na2-2.png", scene_1, 850, 200, false);
+    Na_2_2 = createObject("Images/na2-2.png", scene_1, 550, 130, false);
     scaleObject(Na_2_2, 0.5f);
-    Na_2_3 = createObject("Images/na2-3.png", scene_1, 1150, 200, false);
+    Na_2_3 = createObject("Images/na2-3.png", scene_1, 800, 130, false);
     scaleObject(Na_2_3, 0.5f);
 
-    Na_3_1 = createObject("Images/na3-1.png", scene_1, 550, 200, false);
+    Na_3_1 = createObject("Images/na3-1.png", scene_1, 300, 130, false);
     scaleObject(Na_3_1, 0.5f);
-    Na_3_2 = createObject("Images/na3-2.png", scene_1, 850, 200, false);
+    Na_3_2 = createObject("Images/na3-2.png", scene_1, 550, 130, false);
     scaleObject(Na_3_2, 0.5f);
-    Na_3_3 = createObject("Images/na3-3.png", scene_1, 1150, 200, false);
+    Na_3_3 = createObject("Images/na3-3.png", scene_1, 800, 130, false);
     scaleObject(Na_3_3, 0.5f);
 
 
