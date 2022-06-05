@@ -11,7 +11,7 @@ The types of abilities are strength, luck, agility, and intelligence. Power mean
 E를 눌러 현재 당신의 스텟창을 확인할 수 있습니다. ESC를 눌러 스텟 창을 닫습니다.
 Press E to see your status table. Press ESC to close your status table.
 
-Stage1 : +STR / Break Buildings
+Stage1 : +STR / Break Assignments
 ------
 설명)주인공이 계속해서 쌓이는 과제들을 부숴버리며 힘을 기릅니다. 
 The main character breaks down the assignments that falls on you.
