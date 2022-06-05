@@ -52,7 +52,7 @@ YELLOW BUTTON   ->  NONSENSE QUIZ
 
 StageBoss : clear professor
 ------
-23:59 하루의 일과를 마무리 하기 전, 잊고있었던 교수님의 과제가 오늘까지라는 사실을 깨달았다. 악명높은 교수님의 과제, 12시가 되기 전에 과제를 제출해야 한다! 교수님의 F공격을 피하면서 약점을 공격하여 과제를 . 
+23:59 하루의 일과를 마무리 하기 전, 잊고있었던 교수님의 과제가 오늘까지라는 사실을 깨달았다. 악명높은 교수님의 과제, 12시가 되기 전에 과제를 제출해야 한다! 교수님의 F공격을 피하면서 약점을 공격하여 과제를 해결하자 . 
 Before finishing the day's work, I realized that the professor's assignment was due today. I have to hand in my assignment before 12 o'clock! Let's attack the weakness while avoiding the notorious professor's F attack.
 
 보스의 체력 상태에 따라 공격 패턴이 달라집니다. 체력이 30 이하일 때 여러 공격 패턴이 동시에 실행되니 주의하세요. 공격 패턴을 파훼할 때마다 보스의 약점이 드러납니다. 약점을 공격해서 보스를 물리치세요.
