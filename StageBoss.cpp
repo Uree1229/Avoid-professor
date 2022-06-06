@@ -78,7 +78,7 @@ void set_time() {
     j_Timer_b = createTimer(0.06f);
     Timer_range = createTimer(0.5f);
     timer_band = createTimer(1.0f);
-    timer_stop = createTimer(1.0f); // ºˆ¡§
+    timer_stop = createTimer(1.0f); // ÏàòÏ†ï
     hitbox_Timer_b = createTimer(0.06f);
     boss_Walk_Timer = createTimer(0.06f);
     boss_Jump_Timer = createTimer(0.06f);
@@ -93,7 +93,7 @@ void set_time() {
 void boss_attack() {
     if (type == 0) {
         if (HP_b <= 100 && HP_b > 30) {
-            type = random_number(1,1);
+            type = random_number(1,2);
         }
         else if (HP_b >= 0 && HP_b <= 30) {
             type = 3;
@@ -125,7 +125,7 @@ void boss_attack() {
 
 void setting_B() {
     if (gametype == 5) {
-        showMessage("aaa"); //∫∏Ω∫¿« ¿‘¿Â¥ÎªÁ
+        showMessage("aaa"); //Î≥¥Ïä§Ïùò ÏûÖÏû•ÎåÄÏÇ¨
         set_time();
         for (int i = 0; i < 3; i++) {
             hp_p[i] = createObject("Images/Heart.png", sceneB, 30 + 70 * i, 50, true);
@@ -144,7 +144,7 @@ void setting_B() {
 
         startTimer(timer_stop);
 
-        // ¡ˆøˆæﬂ«‘
+        // ÏßÄÏõåÏïºÌï®
     }
 
 }
@@ -273,7 +273,7 @@ void hp_boss() {
 
 }
 
-void boss_skill_1() { //F π¸¿ß ∞¯∞› 100,100
+void boss_skill_1() { //F Î≤îÏúÑ Í≥µÍ≤© 100,100
     if (type == 1) {
         sk1_x = random_number(0, 1280), sk1_y = random_number(60, 80);
         range1 = createObject("Images/Range.png", sceneB, sk1_x, sk1_y, false);
@@ -284,7 +284,7 @@ void boss_skill_1() { //F π¸¿ß ∞¯∞› 100,100
 
     }
 }
-void boss_skill_2() { // ¡°«¡∑Œ «««œ¥¬ ∞≈
+void boss_skill_2() { // Ï†êÌîÑÎ°ú ÌîºÌïòÎäî Í±∞
     if (type == 2) {
         sk2_x = random_number(0, 1250), sk2_y = random_number(0, 29);
         range2 = createObject("Images/range1.png", sceneB, 0, sk2_y, false);
@@ -314,7 +314,7 @@ void boss_skill_3() {
         num_3++;
     }
 }
-void boss_skill_4() {// «„±ÎªÛ≈¬
+void boss_skill_4() {// ÌóàÍπÖÏÉÅÌÉú
     show_boss_hitbox();
     type = 0;
 }
@@ -383,11 +383,11 @@ void Mouse_callback_B(ObjectID object, int x, int y, MouseAction action) {
     }
 }
 
-void Keyboard_callback_B(KeyCode code, KeyState state) { // default = 0,0 -> ≈©±‚ 70, 120
+void Keyboard_callback_B(KeyCode code, KeyState state) { // default = 0,0 -> ÌÅ¨Í∏∞ 70, 120
     if (gametype == 5) {
-        if (code == KeyCode::KEY_DOWN_ARROW && ply == 120 && c_jump_b == false) { //º˜¿Ã±‚  -  º˜¿Ã∏È ≥Ù¿Ã π›¿∏∑Œ §°§°
+        if (code == KeyCode::KEY_DOWN_ARROW && ply == 120 && c_jump_b == false) { //ÏàôÏù¥Í∏∞  -  ÏàôÏù¥Î©¥ ÎÜíÏù¥ Î∞òÏúºÎ°ú „Ñ±„Ñ±
             ply = 60;
-            setObjectImage(Player, "Images/S2.png");      // º˜¿Ã¥¬ ¿ÃπÃ¡ˆ ≥÷æÓæﬂ«‘
+            setObjectImage(Player, "Images/S2.png");      // ÏàôÏù¥Îäî Ïù¥ÎØ∏ÏßÄ ÎÑ£Ïñ¥ÏïºÌï®
             setTimer(boss_Walk_Timer, 0.06f);
             stopTimer(boss_Walk_Timer);
             Player_y = 0;
@@ -400,18 +400,18 @@ void Keyboard_callback_B(KeyCode code, KeyState state) { // default = 0,0 -> ≈©±
             Player_y = 0;
             dont_move = false;
         }
-        else if (code == KeyCode::KEY_LEFT_ARROW) {// ¡¬ ¿Ãµø dex∑Œ Ω∫««µÂ ¡∂¡§
+        else if (code == KeyCode::KEY_LEFT_ARROW) {// Ï¢å Ïù¥Îèô dexÎ°ú Ïä§ÌîºÎìú Ï°∞Ï†ï
             if (ply == 120&&walkRb == false && walkLb == false && c_jump_b == false) {
                 walkLb = true;
                 walkidx = 1;
                 setTimer(boss_Walk_Timer, 0.06f);
                 startTimer(boss_Walk_Timer);
             }
-            dx_b -= (state == KeyState::KEY_PRESSED ? (10 + 1 * dex) : -(10 + 1 * dex));//ºˆ¡§ 
+            dx_b -= (state == KeyState::KEY_PRESSED ? (10 + 1 * dex) : -(10 + 1 * dex));//ÏàòÏ†ï 
 
         }
 
-        else if (code == KeyCode::KEY_RIGHT_ARROW) { //øÏ ¿Ãµø
+        else if (code == KeyCode::KEY_RIGHT_ARROW) { //Ïö∞ Ïù¥Îèô
             if (ply == 120&&walkRb == false && walkLb == false && c_jump_b == false) {
                 walkRb = true;
                 walkidx = 0;
@@ -421,7 +421,7 @@ void Keyboard_callback_B(KeyCode code, KeyState state) { // default = 0,0 -> ≈©±
             dx_b += (state == KeyState::KEY_PRESSED ? (10 + 1 * dex) : -(10 + 1 * dex));
 
         }
-        else if (code == KeyCode::KEY_SPACE && c_jump_b == false) {// ¡°«¡ ∞Ì¡§ y +50
+        else if (code == KeyCode::KEY_SPACE && c_jump_b == false) {// Ï†êÌîÑ Í≥†Ï†ï y +50
             vel_ch_b = 60;
             c_jump_b = true;
             startTimer(j_Timer_b);
